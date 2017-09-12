@@ -43,21 +43,9 @@
 </ul>
 {% endfor %}
 
-<div class="questionnaire">
-  <div class="question-container">
-<h3>Do you have access to water?</h3>
-  </div>
-<div id="choice-container">
-<ul>
-  {% for category in categories %}
-  <li><h4>{{category.title}}</h4></li>
-  {% endfor %}
-</ul>
-</ul>
-</div>
-
 
 <form action="{{ url('/results') }}">
+
     <select name="querySlug">
       <option value="has-water">Has Water</option>
       <option value="no-water">No Water</option>
@@ -65,7 +53,7 @@
 
     </select>
 
-    <select name="querySlug">
+    <select name="querySlug2">
       <option value="light">Light</option>
       <option value="moderate">Moderate</option>
       <option value="heavy">Heavy</option>

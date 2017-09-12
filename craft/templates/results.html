@@ -3,9 +3,14 @@
 
 <h1>Search Results</h1>
 
+
 {% set querySlug = craft.request.getParam('querySlug') %}
 {% set category = craft.categories.group('waterAccess').slug(querySlug) %}
 {% set entries = craft.entries.section('products').relatedTo(category) %}
+
+{% set querySlug2 = craft.request.getParam('querySlug2') %}
+{% set category2 = craft.categories.group('maintenanceLevel').slug(querySlug2) %}
+{% set entries2 = craft.entries.section('products').relatedTo(category) %}
 
 
 
@@ -14,11 +19,20 @@
 
     <ul>
         {% for entry in entries %}
+            <li><a hrxef="{{ entry.url }}">{{ entry.title }}</a></li>
+        {% endfor %}
+    </ul>
+
+    <ul>
+        {% for entry in entries2 %}
             <li><a href="{{ entry.url }}">{{ entry.title }}</a></li>
         {% endfor %}
     </ul>
+
 {% else %}
     <p>Your search for “{{ querySlug }}” didn’t return any results.</p>
+    <p>Your search for “{{ querySlug2 }}” didn’t return any results.</p>
+
 {% endif %}
 
 {% endblock %}
