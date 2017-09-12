@@ -1,0 +1,24 @@
+{% extends "_layout" %}
+{% block content %}
+
+<h1>Search Results</h1>
+
+{% set querySlug = craft.request.getParam('querySlug') %}
+{% set category = craft.categories.group('waterAccess').slug(querySlug) %}
+{% set entries = craft.entries.section('products').relatedTo(category) %}
+
+
+
+{% if entries|length %}
+    <p>{{ entries|length }} results:</p>
+
+    <ul>
+        {% for entry in entries %}
+            <li><a href="{{ entry.url }}">{{ entry.title }}</a></li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Your search for “{{ querySlug }}” didn’t return any results.</p>
+{% endif %}
+
+{% endblock %}

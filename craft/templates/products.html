@@ -1,0 +1,97 @@
+{% extends "_layout" %}
+{% block content %}
+
+
+{#
+{% for entry in craft.entries.section('products') %}
+
+{% if entry.maintenanceLevel == "volunteer" %}
+  <h1>Volunteer Maintenance</h1>
+  {{entry.title}}
+  <p>Maintenance Level: {{entry.maintenanceLevel}} </p>
+  <p>Type: {{entry.profLevel}}</p>
+{% endif %}
+
+{% if entry.maintenanceLevel == "limited" %}
+  <h1>Limited Maintenance</h1>
+  {{entry.title}}
+  <p>Maintenance Level: {{entry.maintenanceLevel}} </p>
+  <p>Type: {{entry.profLevel}}</p>
+{% endif %}
+
+{% if entry.maintenanceLevel == "regular" %}
+  <h1>Regular Maintenance</h1>
+  {{entry.title}}
+  <p>Maintenance Level: {{entry.maintenanceLevel}} </p>
+  <p>Type: {{entry.profLevel}}</p>
+{% endif %}
+
+{% endfor %}  #}
+
+
+{% set waterCategories = craft.categories.group('waterAccess') %}
+{% set maintenanceCategories = craft.categories.group('waterAccess') %}
+{% set categories = craft.categories.group('waterAccess') %}
+
+{% for category in waterCategories %}
+<h1>{{category.title}}</h1>
+<ul>
+{% for entry in craft.entries.section('products').relatedTo(category) %}
+<li>{{entry.title}}</li>
+
+{% endfor %}
+</ul>
+{% endfor %}
+
+<div class="questionnaire">
+  <div class="question-container">
+<h3>Do you have access to water?</h3>
+  </div>
+<div id="choice-container">
+<ul>
+  {% for category in categories %}
+  <li><h4>{{category.title}}</h4></li>
+  {% endfor %}
+</ul>
+</ul>
+</div>
+
+
+<form action="{{ url('/results') }}">
+    <select name="querySlug">
+      <option value="has-water">Has Water</option>
+      <option value="no-water">No Water</option>
+      <option value="*">Not Sure</option>
+
+    </select>
+
+    <select name="querySlug">
+      <option value="light">Light</option>
+      <option value="moderate">Moderate</option>
+      <option value="heavy">Heavy</option>
+
+    </select>
+
+    <input type="submit" value="Go">
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
