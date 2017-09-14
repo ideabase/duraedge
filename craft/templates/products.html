@@ -46,19 +46,30 @@
 
 <form action="{{ url('/results') }}">
 
+  <select name="querySlug3">
+    {% for category in craft.categories.group('newOrExisting') %}
+    <option value="{{category.slug}}">{{category.title}}</option>
+    {% endfor %}
+  </select>
+
     <select name="querySlug">
-      <option value="has-water">Has Water</option>
-      <option value="no-water">No Water</option>
-      <option value="*">Not Sure</option>
+      <option value="*"> </option>
+      {% for category in craft.categories.group('maintenanceLevel') %}
+      <option value="{{category.slug}}">{{category.title}}</option>
+      {% endfor %}
+
 
     </select>
 
     <select name="querySlug2">
-      <option value="light">Light</option>
-      <option value="moderate">Moderate</option>
-      <option value="heavy">Heavy</option>
+        <option value="*"> </option>
+        {% for category in craft.categories.group('waterAccess') %}
+        <option value="{{category.slug}}">{{category.title}}</option>
+        {% endfor %}
 
     </select>
+
+
 
     <input type="submit" value="Go">
 </form>
