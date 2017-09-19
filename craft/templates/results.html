@@ -16,23 +16,11 @@
 {% set entries = craft.entries.section('products').relatedTo(
 [
   'and',
-  {targetElement: category },
+  {targetElement: category},
   {targetElement: category2},
   {targetElement: category3},
   ])
 %}
-
-{% for category in category3 %}
-  {% if category.title == 'Existing'%}
-    {{category.title}}
-  {% endif %}
-{% endfor %}
-
-{#
-{% for category in category3 %}
-{% if category.title != 'Existing'%}
-#}
-
 
 {% if entries|length %}
     <p>{{ entries|length }} results:</p>

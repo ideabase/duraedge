@@ -53,23 +53,16 @@
   </select>
 
     <select name="querySlug">
-      <option value="*"> </option>
       {% for category in craft.categories.group('maintenanceLevel') %}
       <option value="{{category.slug}}">{{category.title}}</option>
       {% endfor %}
-
-
     </select>
 
     <select name="querySlug2">
-        <option value="*"> </option>
         {% for category in craft.categories.group('waterAccess') %}
         <option value="{{category.slug}}">{{category.title}}</option>
         {% endfor %}
-
     </select>
-
-
 
     <input type="submit" value="Go">
 </form>
