@@ -21,10 +21,10 @@ return array(
 	),
 	'duraedge.web' => array(
 	    'devMode' => true,
-      'siteUrl' => 'duraedge.web',
+      'siteUrl' => 'http://duraedge.web',
       'environmentVariables' => array(
         'basePath' => '',
-        'baseUrl'  => 'duraedge.web',
+        'baseUrl'  => 'http://duraedge.web',
       )
 	)
 );

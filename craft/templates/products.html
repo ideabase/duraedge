@@ -1,55 +1,26 @@
 {% extends "_layout" %}
 {% block content %}
 
-{#
-{% for entry in craft.entries.section('products') %}
-
-{% if entry.maintenanceLevel == "volunteer" %}
-  <h1>Volunteer Maintenance</h1>
-  {{entry.title}}
-  <p>Maintenance Level: {{entry.maintenanceLevel}} </p>
-  <p>Type: {{entry.profLevel}}</p>
-{% endif %}
-
-{% if entry.maintenanceLevel == "limited" %}
-  <h1>Limited Maintenance</h1>
-  {{entry.title}}
-  <p>Maintenance Level: {{entry.maintenanceLevel}} </p>
-  <p>Type: {{entry.profLevel}}</p>
-{% endif %}
-
-{% if entry.maintenanceLevel == "regular" %}
-  <h1>Regular Maintenance</h1>
-  {{entry.title}}
-  <p>Maintenance Level: {{entry.maintenanceLevel}} </p>
-  <p>Type: {{entry.profLevel}}</p>
-{% endif %}
-
-{% endfor %}  #}
-
-
 {% set waterCategories = craft.categories.group('waterAccess') %}
 {% set maintenanceCategories = craft.categories.group('waterAccess') %}
 {% set categories = craft.categories.group('waterAccess') %}
 
-{% for category in waterCategories %}
-<h1>{{category.title}}</h1>
-<ul>
-{% for entry in craft.entries.section('products').relatedTo(category) %}
-<li>{{entry.title}}</li>
-
-{% endfor %}
-</ul>
-{% endfor %}
 
 
+
+
+<br>
+<br>
+<br>
+<h1>Find the DuraEdge Product For You</h1>
 <form action="{{ url('/results') }}">
-
+  <div class="select-style">
   <select name="querySlug3">
     {% for category in craft.categories.group('newOrExisting') %}
     <option value="{{category.slug}}">{{category.title}}</option>
     {% endfor %}
   </select>
+</div>
 
     <select name="querySlug2">
       {% for category in craft.categories.group('maintenanceLevel') %}
@@ -66,14 +37,12 @@
     <input type="submit" value="Go">
 </form>
 
+<h1>Find the Solution to a Problem</h1>
 
-
-
-
-
-
-
-
+<form action="{{ url('/results-text') }}">
+    <input type="text" name="query" />
+    <input type="submit" value="Go">
+</form>
 
 
 {% endblock %}
