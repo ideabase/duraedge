@@ -9,8 +9,8 @@
 
  return array(
    '*' => array(
-     'server' => 'duraedge.web',
-     'database' => 'duraedge_craft',
+     'server' => 'localhost',
+     'database' => 'duraedge',
      'tablePrefix' => 'craft',
      'user' => 'PUT USER NAME HERE',
      'password' => 'PUT PASSWORD HERE',
@@ -21,7 +21,6 @@
      'password' => 'root',
    ),
 
-	 /* Don't commit the production user name and password - change on server instead */
    'PRODUCTIONURL.com' => array(
      'user' => 'PUT USER NAME HERE',
      'password' => 'PUT PASSWORD HERE',
