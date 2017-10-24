@@ -2,7 +2,6 @@
 {% extends "_layout" %}
 {% block content %}
 
-
 <p>
   {{entry.body}}
 </p>
@@ -12,7 +11,7 @@
 <ul>
   <li>
     <h4>Zip Code: </h4> <input />
-  <a id="submit">Search</a>
+  <a href="#">Search</a>
   </li>
 </ul>
 
@@ -26,6 +25,7 @@
 {% endfor %}
 
 <h1>Questions? Contact Us: </h1>
+<a href="#"> Link to staff directory</a>
 <ul>
   <li>
     <h4>Name</h4><input />
@@ -36,7 +36,16 @@
   <li>
     <h4>Phone Number</h4><input />
   </li>
+  <li>
+    <h4>Question</h4><input />
+  </li>
 </ul>
 <a href="#">Submit</a>
 
+<h1>Visit a Field or Contact a Current Customer</h1>
+<p>
+  map
+</p>
+<h3>Reps near me: </h3><input />
+<a href="#">Find</a>
 {% endblock %}
