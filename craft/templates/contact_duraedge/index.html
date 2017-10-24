@@ -12,9 +12,20 @@
   <li>
     <h4>Zip Code: </h4> <input />
   <a href="#">Search</a>
-  </li>
+</li>
 </ul>
 
+<!-- After Search Display below !-->
+<ul>
+  {% for entry in craft.entries.section('findADistributor') %}
+<li>
+  <h4>{{entry.title}}</h4>
+  <h4>{{entry.email}}</h4>
+  <h4>{{entry.phoneNumber}}</h4>
+  <h4>{{entry.location}}</h4>
+</li>
+  {% endfor %}
+</ul>
 
 <h3>Download Marketing Materials:</h3>
 {% for block in entry.marketingMaterials %}
@@ -26,6 +37,7 @@
 
 <h1>Questions? Contact Us: </h1>
 <a href="#"> Link to staff directory</a>
+<form>
 <ul>
   <li>
     <h4>Name</h4><input />
@@ -36,10 +48,21 @@
   <li>
     <h4>Phone Number</h4><input />
   </li>
+<li>
+  <h4>Organization</h4><input />
+</li>
+<li>
+  <h4>Company Address, City, State</h4> <input />
+</li>
+<li>
+  <h4>How did you hear about DuraEdge? (Optional)</h4> <input />
+</li>
+
   <li>
-    <h4>Question</h4><input />
+    <h4>Message</h4><input />
   </li>
 </ul>
+</form>
 <a href="#">Submit</a>
 
 <h1>Visit a Field or Contact a Current Customer</h1>
@@ -48,4 +71,16 @@
 </p>
 <h3>Reps near me: </h3><input />
 <a href="#">Find</a>
+
+<ul>
+{% for entry in craft.entries.section('currentCustomers') %}
+<li>
+  <h4>{{entry.title}}</h4>
+  <h4>{{entry.email}}</h4>
+  <h4>{{entry.phoneNumber}}</h4>
+</li>
+{% endfor %}
+</ul>
+
+
 {% endblock %}
