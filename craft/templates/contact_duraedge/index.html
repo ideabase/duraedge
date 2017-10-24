@@ -1,4 +1,42 @@
-{% extends "_layout" %}
 
+{% extends "_layout" %}
 {% block content %}
+
+
+<p>
+  {{entry.body}}
+</p>
+
+
+<h1>Find a distributor: </h1>
+<ul>
+  <li>
+    <h4>Zip Code: </h4> <input />
+  <a id="submit">Search</a>
+  </li>
+</ul>
+
+
+<h3>Download Marketing Materials:</h3>
+{% for block in entry.marketingMaterials %}
+  <h4>{{block.materialName}}</h4>
+  {% for file in block.file %}
+  <a href="{{file.url}}">Download</a>
+  {% endfor %}
+{% endfor %}
+
+<h1>Questions? Contact Us: </h1>
+<ul>
+  <li>
+    <h4>Name</h4><input />
+  </li>
+  <li>
+    <h4>Email Address</h4><input />
+  </li>
+  <li>
+    <h4>Phone Number</h4><input />
+  </li>
+</ul>
+<a href="#">Submit</a>
+
 {% endblock %}
