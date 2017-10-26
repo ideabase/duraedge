@@ -1,4 +1,23 @@
 {% extends "_layout" %}
 
 {% block content %}
+
+{% set category = craft.categories.group('waterAccess')%}
+{% set water = craft.entries.section('ourProducts').relatedTo({
+  targetElement: category })%}
+}
+{% for entry in craft.entries.section('ourProducts') %}
+<h1>{{entry.title}}</h1>
+{% if entry.waterAccess == 1 %}
+<h1>No Water</h1>
+{% else %}
+<h1>Has Water</h1>
+{%endif%}
+
+<h1>{{entry.maintenanceLevel}}</h1>
+<h1>{{entry.profLevel}}</h1>
+<br />
+{% endfor %}
+
+
 {% endblock %}
