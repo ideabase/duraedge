@@ -32,6 +32,10 @@
       {{ craft.adminbar.bar(config) }}
     {% endif %}
 
+    {% block header %}
+      {% include '_includes/_header.html' %}
+    {% endblock %}
+
 
 		<main role="main">
 			{% block content %}
@@ -57,4 +61,7 @@
   <script src="//localhost:35729/livereload.js"></script>
   {% endif %}
 </body>
+<footer>
+  {% include '_includes/_footer.html' %}
+</footer>
 </html>
