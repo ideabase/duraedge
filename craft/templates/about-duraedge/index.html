@@ -5,4 +5,19 @@
   {{ entry.header }}
   {{ entry.duraedgeadvantage }}
   {{ entry.body }}
+
+<h2>Staff</h2>
+{% set staffCat = craft.categories.group('staff') %}
+{% for entry in craft.entries.section('staff').relatedto('staffCat.executive') %}
+  {% if entry | length %}
+    {% for asset in entry.staffPhoto %}
+      <img src = '{{ asset.url }}'</img>
+    {% endfor %}
+    <h4>{{ entry.title }}</h4>
+    <p>{{ entry.staffPosition }}</p>
+    <p>{{ entry.staffEmail }}</p>
+    <p>{{ entry.staffPhone }}</p>
+  {% endif %}
+{% endfor %}
+
 {% endblock %}

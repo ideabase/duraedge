@@ -1,3 +1,13 @@
 
+<h2>{{ footer.headerTitle }}</h2>
+{% for block in footer.socialMedia %}
+  {% if block.type == "socialMediaBlock" %}
+    <a href="{{block.address}}">{{block.socialName }}</a>
+  {% endif %}
+{% endfor %}
+<h3>Contact Us</h3>
 <p>{{ footer.address }}</p>
-<p>{{ footer.phone }}</p>
+<p>{{ footer.customerService }}</p>
+<p>{{ footer.customerServiceHours }}</p>
+<p>Toll-Free: {{ footer.phone }}</p>
+<p>Fax: {{ footer.fax }}</p>
