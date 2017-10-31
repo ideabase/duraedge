@@ -13,7 +13,7 @@
 <br>
 <br>
 <h1>Find the DuraEdge Product For You</h1>
-<form action="{{ url('/results') }}">
+<form action="{{ url('results') }}">
   <div class="select-style">
   <select name="querySlug3">
     {% for category in craft.categories.group('newOrExisting') %}
@@ -39,12 +39,12 @@
 
 <h1>Find the Solution to a Problem</h1>
 
-<form action="{{ url('/results-text') }}">
+<form action="{{ url('results-text') }}">
     <input type="text" name="query" />
     <input type="submit" value="Go">
 </form>
 
 
-<h1> Browse our products <a href="/our_products">Here</a></h1>
+<h1> Browse our products <a href="{{siteUrl}}our_products">Here</a></h1>
 
 {% endblock %}

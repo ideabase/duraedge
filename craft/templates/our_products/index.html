@@ -11,7 +11,7 @@
 }
 
 {% for entry in craft.entries.section('ourProducts') %}
-<h1>{{entry.title}}</h1>
+<h1><a href="{{entry.url}}">{{entry.title}}</a></h1>
   {% if entry.waterAccess == 1 %}
       <h1>No Water</h1>
     {% else %}
