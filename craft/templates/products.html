@@ -12,7 +12,22 @@
 <br>
 <br>
 <br>
-<h1>Find the DuraEdge Product For You</h1>
+<a href="#">Explore Products</a>
+<a href="#">Browse All</a>
+
+<div class = "owl-carousel brand-logo-grid">
+  {% set cols = 1 %}
+{% for category in craft.categories.group('productType').order('title') %}
+  {% if category.title | length %}
+      <a href="{{category.url}}"><h3>{{category.title}}</h3></a>
+  {% endif %}
+{% endfor %}
+
+<h1>Which solution is right for you?</h1>
+<p>
+  Take our quiz to discover which product will help you to get the most out of your DuraEdge field
+</p>
+<a href="#">START NOW</a>
 <form action="{{ url('results') }}">
   <div class="select-style">
   <select name="querySlug3">
@@ -44,7 +59,13 @@
     <input type="submit" value="Go">
 </form>
 
+<h3>Why Engineered Soil?</h3>
+<video></video>
 
-<h1> Browse our products <a href="{{siteUrl}}our_products">Here</a></h1>
+<a href"#">Take the next step</a>
+
+<h1>Browse our products <a href="{{siteUrl}}our_products">Here</a></h1>
+
+<h1>SOIL</h1>
 
 {% endblock %}
