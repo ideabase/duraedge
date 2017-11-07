@@ -1,4 +1,25 @@
 {% extends "_layout" %}
 
 {% block content %}
+<h1>{{entry.title}}</h1>
+<p>
+  {{entry.body}}
+</p>
+<a href="#"> Learn more about us</a>
+<h1>Here's what our customers are saying about DuraEdge: </h1>
+{% for entry in craft.entries.section('testimonials').order('RAND()').limit(1)%}
+  <h4>"{{entry.body}}"</h4>
+  <h6>-{{entry.title}}</h6>
+{% endfor %}
+
+<h1>Process</h1>
+{% for entry in entry.process %}
+<h1>{{entry.processTitle}}</h1>
+<p>{{entry.processInformation}}</p>
+{%endfor%}
+
+<!-- Insert Video !-->
+<video></video>
+
+
 {% endblock %}
