@@ -1,7 +1,13 @@
  <h1><a href = '{{siteUrl}}'>{{ header.headerTitle }}<a></h1>
 {% set nav = craft.amNav.getNavRaw("primary") %}
+
+<h3>Primary</h3>
 <ul>
 {% for node in nav %}
   <li><a href="{{ node.url }}">{{ node.name }}</a></li>
 {% endfor %}
 </ul>
+
+
+<h3>Secondary</h3>
+{{ craft.amNav.getNav("secondary") }}
