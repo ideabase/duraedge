@@ -1,46 +1,71 @@
 {% extends "_layout" %}
-
 {% block content %}
 
-{% set category = craft.categories.group('waterAccess')%}
-{% set category2 = craft.categories.group('maintenanceLevel') %}
-{% set category3 = craft.categories.group('newOrExisting')%}
-
-{% set relat = craft.entries.section('ourProducts').relatedTo({
-  targetElement: category })%}
-}
-
-
-{% for entry in craft.entries.section('ourProducts').relatedTo(category) %}
-
-<h1>{{entry.title}}</h1>
-{% for water in entry.waterAccess %}
-{{entry.water}}
-
-{%endfor %}
+{% set waterCategories = craft.categories.group('waterAccess') %}
+{% set maintenanceCategories = craft.categories.group('waterAccess') %}
+{% set categories = craft.categories.group('waterAccess') %}
 
 
 
+
+
+<br>
+<br>
+<br>
+<a href="#">Explore Products</a>
+<a href="#">Browse All</a>
+
+<div class = "owl-carousel brand-logo-grid">
+  {% set cols = 1 %}
+{% for category in craft.categories.group('productType').order('title') %}
+  {% if category.title | length %}
+      <a href="{{category.url}}"><h3>{{category.title}}</h3></a>
+  {% endif %}
 {% endfor %}
 
-
-
-
-
-{% for entry in craft.entries.section('ourProducts') %}
-<h1><a href="{{entry.url}}">{{entry.title}}</a></h1>
-  {% if entry.waterAccess == 1 %}
-      <h1>No Water</h1>
-    {% else %}
-      <h1>Has Water</h1>
-  {%endif%}
-<h1>{{entry.maintenanceLevel}}</h1>
-<h1>{{entry.profLevel}}</h1>
+<h1>Which solution is right for you?</h1>
 <p>
-  {{entry.body}}
+  Take our quiz to discover which product will help you to get the most out of your DuraEdge field
 </p>
-<br />
-{% endfor %}
+<a href="#">START NOW</a>
+<form action="{{ url('results') }}">
+  <div class="select-style">
+  <select name="querySlug3">
+    {% for category in craft.categories.group('newOrExisting') %}
+    <option value="{{category.slug}}">{{category.title}}</option>
+    {% endfor %}
+  </select>
+</div>
 
+    <select name="querySlug2">
+      {% for category in craft.categories.group('maintenanceLevel') %}
+      <option value="{{category.slug}}">{{category.title}}</option>
+      {% endfor %}
+    </select>
+
+    <select name="querySlug">
+        {% for category in craft.categories.group('waterAccess') %}
+        <option value="{{category.slug}}">{{category.title}}</option>
+        {% endfor %}
+    </select>
+
+    <input type="submit" value="Go">
+</form>
+
+<h1>Find the Solution to a Problem</h1>
+
+<form action="{{ url('results-text') }}">
+    <input type="text" name="query" />
+    <input type="submit" value="Go">
+</form>
+
+<h3>Why Engineered Soil?</h3>
+<video></video>
+
+<a href"#">Take the next step</a>
+
+<h1>Browse our products <a href="{{siteUrl}}our_products">Here</a></h1>
+
+<h1>SOIL</h1>
 
 {% endblock %}
