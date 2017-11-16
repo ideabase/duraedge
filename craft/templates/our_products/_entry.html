@@ -2,6 +2,29 @@
 
 {% block content %}
 <h1>{{entry.title}}</h1>
+
+<ul>
+
+
+{% for entry in entry.waterAccessCategory %}
+<li>
+  {{entry.title}}
+</li>
+{%endfor%}
+
+{% for entry in entry.maintenanceLevelCategory %}
+<li>
+  {{entry.title}}
+</li>
+{%endfor%}
+
+{% for entry in entry.productType %}
+<li>
+  {{entry.title}}
+</li>
+{%endfor%}
+</ul>
+
 <p>
   {{entry.body}}
 </p>

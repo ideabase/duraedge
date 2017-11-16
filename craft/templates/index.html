@@ -21,8 +21,32 @@
 
 {% block content %}
 	<h1>{{ entry.title }}</h1>
-
+<h2>{{entry.headerTitle }}</h2>
 	{{ entry.body }}
+
+<h3>Interactive Product Map</h3>
+
+
+<h1>Current Customers:</h1>
+{% for entry in craft.entries.section('currentCustomers')%}
+<h6>{{entry.title}}</h6>
+
+{%endfor%}
+
+<h1>Testimonials</h1>
+{% for entry in craft.entries.section('testimonials') %}
+<p>
+  "{{entry.body}}"-{{entry.title}}
+</p>
+{%endfor%}
+
+<a href="our_products">Find your fit</a>
+
+{%for asset in craft.entries.section('news')%}
+{%if asset.type == "marketingMaterials"%}
+<img src="{{asset.file}}" />
+{%endif%}
+{% endfor %}
 
 	<h2>Recent News</h2>
 	<ul>

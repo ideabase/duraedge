@@ -22,10 +22,12 @@
   <h4>{{entry.title}}</h4>
   <h4>{{entry.email}}</h4>
   <h4>{{entry.phoneNumber}}</h4>
-  <h4>{{entry.location}}</h4>
+
 </li>
   {% endfor %}
 </ul>
+
+{% include '_includes/distributorMap.html' %}
 
 <h3>Download Marketing Materials:</h3>
 {% for block in entry.marketingMaterials %}
@@ -65,42 +67,7 @@
 </form>
 <a href="#">Submit</a>
 
-<h1>Visit a Field or Contact a Current Customer</h1>
-<!-- Map !-->
-{% set options = {
-    height: 400,
-    zoom: 4,
-    draggable: true,
-    markerInfo: '_includes/mapInfoBubble',
-    markerOptions: {
-        icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png'
-    },
-    infoWindowOptions: {
-        maxWidth: 200
-    }
-} %}
-
-{{ craft.smartMap.map(craft.entries.section('locations').locationPlug, options) }}
-
-{% set target = craft.request.getParam('near') %}
-{% set params = {
-    target: 44685,
-    range: 100000
-} %}
-
-{% set entries = craft.entries.section('locations').locationPlug(params).order('distance').find() %}
-
-<h1>Showing results for "{{ params.target }}"...</h1>
-{% for entry in entries %}
-    <h2>{{ entry.title }}</h2>
-    <div>
-        {{ entry.locationPlug.street1 }}<br />
-        {{ entry.locationPlug.city }}, {{ entry.locationPlug.state }} {{ entry.locationPlug.zip }}<br>
-        <strong>{{ entry.locationPlug.distance | number_format(1) }} miles away</strong>
-    </div>
-{% else %}
-    <h2>No results found</h2>
-{% endfor %}
+{% include '_includes/map.html' %}
 
 
 <br />
@@ -114,7 +81,7 @@
 {% for entry in craft.entries.section('currentCustomers') %}
 <li>
   <h4>{{entry.title}}</h4>
-  <h4>{{entry.location}}</h4>
+
   <h4>{{entry.email}}</h4>
   <h4>{{entry.phoneNumber}}</h4>
 </li>
