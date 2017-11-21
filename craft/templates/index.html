@@ -27,7 +27,12 @@
 
 
 <h3>Interactive Product Map</h3>
-<!-- Insert interactive product map !-->
+  {% for block in entry.interactiveFieldMap %}
+
+      <p>{{block.nameOf}}</p>
+      <p>{{block.description}}</p>
+      <a href="{{block.linkTo}}">{{block.nameOf}}</a>
+  {% endfor %}
 
 <h1>Current Customers:</h1>
 {% for entry in craft.entries.section('currentCustomers')%}
