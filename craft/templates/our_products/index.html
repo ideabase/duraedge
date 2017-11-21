@@ -52,6 +52,14 @@
     <input type="submit" value="Go">
 </form>
 
+<h1>Process</h1>
+{% for entry in entry.process %}
+  <h1>{{entry.processTitle}}</h1>
+  <p>{{entry.processInformation}}</p>
+{%endfor%}
+<!-- move fields !-->
+
+
 <h1>Find the Solution to a Problem</h1>
 
 <form action="{{ url('results-text') }}">

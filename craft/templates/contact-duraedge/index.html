@@ -30,12 +30,14 @@
 {% include '_includes/distributorMap.html' %}
 
 <h3>Download Marketing Materials:</h3>
+
 {% for block in entry.marketingMaterials %}
   <h4>{{block.materialName}}</h4>
-  {% for file in block.file %}
-  <a href="{{file.url}}">Download</a>
-  {% endfor %}
+    {% for image in block.file %}
+      <a href="{{image.getUrl()}}">D</a>
+    {% endfor %}
 {% endfor %}
+
 
 <h1>Questions? Contact Us: </h1>
 <a href="#"> Link to staff directory</a>

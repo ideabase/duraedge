@@ -24,28 +24,27 @@
 <h2>{{entry.headerTitle }}</h2>
 	{{ entry.body }}
 
-<h3>Interactive Product Map</h3>
 
+
+<h3>Interactive Product Map</h3>
+<!-- Insert interactive product map !-->
 
 <h1>Current Customers:</h1>
 {% for entry in craft.entries.section('currentCustomers')%}
 <h6>{{entry.title}}</h6>
-
 {%endfor%}
 
-<h1>Testimonials</h1>
-{% for entry in craft.entries.section('testimonials') %}
-<p>
-  "{{entry.body}}"-{{entry.title}}
-</p>
-{%endfor%}
 
-<a href="our_products">Find your fit</a>
+<!-- Feature Image Gallery!-->
+{% for entry in craft.entries.section('currentCustomers')%}
+  {% for asset in entry.image %}
+		  <img src="{{asset.url}}" alt="{{asset.title}}" />
+    {% endfor %}
+{% endfor %}
 
-{%for asset in craft.entries.section('news')%}
-{%if asset.type == "marketingMaterials"%}
-<img src="{{asset.file}}" />
-{%endif%}
+
+{% for asset in entry.image %}
+		<img src="{{asset.url}}" alt="{{asset.title}}" />
 {% endfor %}
 
 	<h2>Recent News</h2>

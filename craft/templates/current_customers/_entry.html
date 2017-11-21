@@ -1,4 +1,11 @@
 {% extends "_layout" %}
 
 {% block content %}
+
+
+{% for asset in entry.image %}
+  <img src="{{asset.url}}" alt="{{asset.title}}" />
+{%endfor%}
+
+
 {% endblock %}
