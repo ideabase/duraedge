@@ -1,28 +1,36 @@
 {% extends "_layout" %}
 
 {% block content %}
-<h1>{{entry.title}}</h1>
+<h1>Product: -- {{entry.title}}</h1>
 
 <ul>
 
 
 {% for entry in entry.waterAccessCategory %}
 <li>
-  {{entry.title}}
+  Water Access: {{entry.title}}
 </li>
 {%endfor%}
 
 {% for entry in entry.maintenanceLevelCategory %}
 <li>
-  {{entry.title}}
+  Maintanence Level: {{entry.title}}
 </li>
 {%endfor%}
 
 {% for entry in entry.productType %}
 <li>
-  {{entry.title}}
+  Product Type: {{entry.title}}
 </li>
 {%endfor%}
+
+{% for entry in entry.newOrExisting %}
+<li>
+  New or Existing: {{entry.title}}
+</li>
+{%endfor%}
+
+
 </ul>
 
 <p>
