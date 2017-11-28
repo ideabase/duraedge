@@ -25,7 +25,7 @@
 
 <h1>Showing results for "{{ params.target }}"...</h1>
 {% for entry in entries %}
-    <h2>{{ entry.title }}</h2>
+    <a href ="{{entry.url}}"><h2>{{ entry.title }}</h2></a>
     <div>
         {{ entry.locationPlug.street1 }}<br />
         {{ entry.locationPlug.city }}, {{ entry.locationPlug.state }} {{ entry.locationPlug.zip }}<br>
