@@ -2,4 +2,15 @@
 
 {% block content %}
 
+
+
+
+{% for event in craft.entries.section('events') %}
+<li>
+  {{event.title}}
+</li>
+
+{% endfor %}
+</ul>
+
 {% endblock %}
