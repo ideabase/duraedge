@@ -2,3 +2,7 @@
 .DS_Store
 /craft/config/general.php
 httpdocs/assets/file/uploads/marketing_materials/
+httpdocs/node_modules
+httpdocs/assets/file/uploads
+httpdocs/assets/img/uploads
+.DS_Store

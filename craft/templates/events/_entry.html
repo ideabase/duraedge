@@ -1,16 +1,12 @@
 {% extends "_layout" %}
+
 {% block content %}
-
 {% for asset in entry.image %}
-  {% if asset | length %}
 		<img src="{{asset.url}}" alt="{{asset.title}}" />
-    {% endif %}
 {% endfor %}
-
-
 <h1>{{entry.title}}</h1>
-<p>
-  {{entry.body}}
-</p>
+<h3>{{entry.header}}</h3>
+<p>{{entry.body}}</p>
+
 
 {% endblock %}
