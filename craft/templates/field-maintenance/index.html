@@ -7,8 +7,8 @@
 <h2>Blog Posts</h2>
 {% for entry in craft.entries.section('blogPosts') %}
 
-  <a href="{{entry.url}}">{{entry.title}}</a>
-  <p>{{entry.body|slice(0, 30)}}</p>
+  <a href="{{ entry.url }}">{{entry.title}}</a>
+  <p>{{ entry.body|slice(0, 30)|raw }}</p>
 
 {% endfor %}
 
@@ -16,7 +16,7 @@
 {% for entry in craft.entries.section('videos') %}
 
   <a href="{{entry.url}}">{{entry.title}}</a>
-  <p>{{entry.body|slice(0, 30)}}</p>
+  {{ entry.body|slice(0, 30)|raw }}
 
 {% endfor %}
 
@@ -24,7 +24,7 @@
 {% for entry in craft.entries.section('FAQs') %}
 
   <a href="{{entry.url}}">{{entry.title}}</a>
-  <p>{{entry.body|slice(0, 30)}}</p>
+  {{ entry.body|slice(0, 30)|raw }}
 
 {% endfor %}
 
