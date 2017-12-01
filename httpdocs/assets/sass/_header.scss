@@ -1,6 +1,42 @@
 header {
-  background-color: gray;
+  background-color: $darkBlue;
+  color: white;
+  padding: 1.5em;
 }
-header img {
-  max-width: 200px;
+.header__logo__img {
+  max-width: 40%;
+}
+.header__logo {
+  margin-bottom: 2em;
+  display: inline-block;
+  width: 100%;
+}
+header h1 {
+  margin: 0;
+}
+.header__nav {
+
+}
+.header__nav__list{
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.nav__list__item {
+
+}
+.nav__list__item a {
+  color: white;
+  text-decoration: none;
+}
+.header__nav__sublist {
+  display: none;
+  justify-content: space-between;
+  list-style: none;
+  padding: 0;
+}
+.nav__sublist__item {
+
 }

@@ -1,22 +1,36 @@
 <footer>
-  <a href="#">Take the Next Step</a>
-  <div class="footer1">
-    <h3>DuraEdge</h3>
-    <ul>
-      <li style="display: inline;"><a href="#">Twitter</a></li>
-      <li style="display: inline;"><a href="#">Facebook</a></li>
-      <li style="display: inline;"><a href="#">Instagram</a></li>
-      <li style="display: inline;"><a href="#">Pintrest</a></li>
-    </ul>
-   </div>
-   <div class="footer2">
-     <h4>Contact Us</h4>
-     <p>4783 Harlansburg Rd, Slippery Rock, PA 16057</p>
-     <h5>Customer Service Center</h5>
-     <p>7:00 am - 4:30 pm (CST)</p>
-     <p>Toll-Free:(866) 867-0052</p>
-     <p>Fax: 608-836-072</p>
-   </div>
+  <a href="#" class="footer__cta">Take the Next Step</a>
+  <div class="footer__flex">
+    <div class="footer__logo">
+      <h3><img src="../assets/img/ui/DuraEdgeWordmark.svg" alt="DuraEdge" class="footer__logo__img"/></h3>
+      <address class="footer__address">
+        <p class="address__first">149 South Broad Street</p>
+        <p class="address__second">Grove City, PA 16127</p>
+      </address>
+     </div>
+     <div class="footer__contact">
+       <dl class="footer__contact__list">
+         <dt class="contact__list__title">Hours</dt>
+         <dd class="contact__list__item">7:00 am - 4:30 pm (CST)</dd>
+         <dt class="contact__list__title">Call</dt>
+         <dd class="contact__list__item">(866) 867-0052</dd>
+         <dt class="contact__list__title">Fax</dt>
+         <dd class="contact__list__item">608-836-072</dd>
+       </dl>
+     </div>
+     <div class="footer__social">
+       <dl class="footer__social__list">
+         <dt class="social__list__name">Tweet</dt>
+         <dd class="social__list__link"><a href="#">Twitter</a></dd>
+         <dt class="social__list__name">Facebook</dt>
+         <dd class="social__list__link"><a href="#">Facebook</a></dd>
+         <dt class="social__list__name">Instagram</dt>
+         <dd class="social__list__link"><a href="#">Instagram</a></dd>
+         <dt class="social__list__name">Pintrest</dt>
+         <dd class="social__list__link"><a href="#">Pintrest</a></dd>
+       </dl>
+     </div>
+  </div>
    <div class="footer3">
      <p>copyright</p>
    </div>
