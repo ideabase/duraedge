@@ -30,6 +30,7 @@
 <a href="#">START NOW</a>
 <form action="{{ url('results') }}">
   <div class="select-style">
+    <h6>New or Existing:</h6>
   <select name="querySlug3">
     {% for category in craft.categories.group('newOrExisting') %}
     <option value="{{category.slug}}">{{category.title}}</option>
@@ -37,12 +38,13 @@
   </select>
 </div>
 
+<h6>Maintanence Level:</h6>
     <select name="querySlug2">
       {% for category in craft.categories.group('maintenanceLevel') %}
       <option value="{{category.slug}}">{{category.title}}</option>
       {% endfor %}
     </select>
-
+<h6>Water Access:</h6>
     <select name="querySlug">
         {% for category in craft.categories.group('waterAccess') %}
         <option value="{{category.slug}}">{{category.title}}</option>
@@ -51,6 +53,18 @@
 
     <input type="submit" value="Go">
 </form>
+
+<form action="{{ url('problemResults') }}">
+<!-- This is needed so that an empty value can be submitted if no checkboxes are checked !-->
+<input type="hidden" name="fields[checkboxFieldhandle]" value="">
+  <ul>
+      {% for category in craft.categories.group('problemArea') %}
+        <li><input type="checkbox" name="fields[checkboxFieldHandle][]" />{{category.title}}</li>
+      {% endfor %}
+    <input type="submit" value="Go">
+  </ul>
+</form>
+
 
 <h1>Process</h1>
 {% for entry in entry.process %}

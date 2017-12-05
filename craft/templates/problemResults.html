@@ -1,0 +1,42 @@
+{% extends "_layout" %}
+{% block content %}
+
+<h1>Search Results</h1>
+
+
+{% set querySlug = craft.request.getParam('querySlug') %}
+{% set category = craft.categories.group('waterAccess').slug(querySlug) %}
+
+{% set querySlug2 = craft.request.getParam('querySlug2') %}
+{% set category2 = craft.categories.group('maintenanceLevel').slug(querySlug2) %}
+
+{% set querySlug3 = craft.request.getParam('querySlug3') %}
+{% set category3 = craft.categories.group('newOrExisting').slug(querySlug3) %}
+
+{% set entries = craft.entries.section('ourProducts').relatedTo(
+[
+  'and',
+  {targetElement: category},
+  {targetElement: category2},
+  {targetElement: category3},
+  ])
+%}
+
+{% if entries|length %}
+    <p>{{ entries|length }} results:</p>
+
+    <ul>
+        {% for entry in entries %}
+            <li><a href="{{ entry.url }}">{{ entry.title }}</a></li>
+        {% endfor %}
+    </ul>
+
+{% else %}
+    <p>Your search for “{{ querySlug3 }}, {{ querySlug }}, and {{ querySlug2 }}” didn’t return any results.</p>
+
+
+
+{% endif %}
+
+
+{% endblock %}
