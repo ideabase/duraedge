@@ -1,8 +1,19 @@
 //colors
 $darkBlue: #383D49;
+$lightBlue: #6a819e;
 $lightGray: #E6E6E6;
 $green: #9EA94D;
 $brown: #4f2c1d;
 $red: #a9431e;
 $orange: #ed8b00;
 $tan: #d5cb9f;
+
+//fonts
+$cursive: 'Lobster', cursive;
+$sans-serif: 'Saira Condensed', sans-serif;
+$serif: 'Rokkitt', serif;
+
+
+//media queries
+$small: "(min-width: 600px)";
+$medium: "(min-width: 750px)";

@@ -1,0 +1,28 @@
+.color__list {
+  list-style-type: none;
+}
+.color {
+  display: block;
+  height: 4em;
+  width: 6em;
+  margin-bottom: 0.3em;
+  border-radius: 5px;
+}
+.color__brown {
+  background-color: $brown;
+}
+.color__red {
+  background-color: $red;
+}
+.color__green {
+  background-color: $green;
+}
+.color__orange {
+  background-color: $orange;
+}
+.color__tan {
+  background-color: $tan;
+}
+.color__lightBlue {
+  background-color: $lightBlue;
+}

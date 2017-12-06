@@ -1,13 +1,10 @@
-option {
-  font-family: Arial, Helvetica, sans-serif;
-  color: red;
+body {
+  font-family: $serif;
 }
-
-.select-style {
-
-
-}
-
-p {
-  font-weight: bold;
+main {
+  @media #{$medium} {
+    margin-left: 20%;
+  }
+  padding: 2em;
+  padding-top: 0;
 }

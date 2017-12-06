@@ -1,7 +1,8 @@
 header {
-  background-color: $darkBlue;
+  background-color: $green;
   color: white;
-  padding: 1.5em;
+  padding: 2em;
+  padding-bottom: 0;
 }
 .header__logo__img {
   max-width: 40%;
@@ -23,6 +24,7 @@ header h1 {
   list-style: none;
   padding: 0;
   margin: 0;
+  font-family: $sans-serif;
 }
 .nav__list__item {
 
@@ -39,4 +41,63 @@ header h1 {
 }
 .nav__sublist__item {
 
+}
+@media #{$medium} {
+  header {
+    background-color: white;
+    margin-left: 20%;
+    display: flex;
+  }
+  .header__nav {
+    width: 20%;
+    height: 100%;
+    background-color: $green;
+    position: fixed;
+    overflow: auto;
+    left: 0;
+    top: 0;
+    &:after {
+      content: "";
+      background-image: url(../img/ui/texture.jpg);
+      opacity: .05;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .header__logo {
+    width: 200px;
+    margin-bottom: 0;
+  }
+  .header__logo__img {
+    max-width: inherit;
+  }
+  .header__nav__list {
+    flex-direction: column;
+    height: 30%;
+    margin-top: 150px;
+    margin-left: 0;
+    z-index: 1;
+    position: relative;
+  }
+  .nav__list__item {
+    display: block;
+    padding: 1em 2em;
+    height: 10%;
+  }
+  .header__secondnav {
+    width: 100%;
+    margin-left: 2em;
+  }
+  .header__nav__sublist {
+    display: flex;
+    justify-content: space-around;
+    margin:0;
+  }
+  .nav__sublist__item a {
+    color: $orange;
+    text-decoration: none;
+  }
 }

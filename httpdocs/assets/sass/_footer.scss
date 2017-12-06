@@ -1,6 +1,21 @@
 footer {
   background-color: $lightGray;
   text-align: center;
+  position: relative;
+  padding: 1.5em;
+  @media only screen and (min-width: 750px) {
+    margin-left: 20%;
+  }
+}
+footer::before {
+  content:"";
+  display: inline-block;
+  width: 20%;
+  height: 2px;
+  position: absolute;
+  top: -1px;
+  background-color: $green;
+  text-align: center;
 }
 .footer__logo {
 
@@ -71,8 +86,12 @@ footer {
   color: black;
   font-weight: bold;
 }
+.footer__copyright__text{
+  margin: 0;
+}
 
-@media only screen and (min-width: 500px) {
+
+@media #{$medium} {
   .footer__flex {
     display: flex;
     justify-content: center;
