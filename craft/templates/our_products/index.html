@@ -55,14 +55,15 @@
       <input type="submit" value="Go">
 </form>
 
+
+<!-- Forward declaration of problemQuery so we can dynamically assign values to the checkboxes !-->
+{% set problemQuery = craft.request.getParam('ourProducts') %}
+
 <form action="{{url('problemResults')}}">
-  <!-- This is needed so that an empty value can be submitted if no checkboxes are checked !-->
-    <select name"querySlug4">
-        {% for category in craft.categories.group('problemArea') %}
-            <input type="checkbox" value="{{category.slug}}">{{category.title}}</option>
-        {% endfor %}
-      </select>
-    <input type="submit" value="Go">
+    {% for category in craft.categories.group('problemArea') %}
+          <label><input type="checkbox" name="ourProducts[]" value="{{ category.slug }}" {{ category.slug in problemQuery ? 'checked' }}> {{category.title}}</label>
+    {% endfor %}
+    <button type="submit">Search</button>
 </form>
 
 

@@ -3,25 +3,37 @@
 
 <h1>Search Results</h1>
 
-{% set querySlug = craft.request.getParam('querySlug4') %}
-{% set category = craft.categories.group('problemArea').slug(querySlug) %}
+{% set problemQuery = craft.request.getParam('ourProducts') %}
+{% set problemCategories = craft.categories.group('problemArea').slug(problemQuery) %}
 
-{% set entries = craft.entries.section('ourProducts').relatedTo(category)%}
 
-{% if entries|length %}
+{% set searchParams = {
+  relatedTo: problemCategories,
+  section: 'ourProducts'
+} %}
 
-    <p>{{ entries|length }} results:</p>
+{% set results = craft.entries(searchParams).order('score') %}
+
+{% if results |length %}
+
+    <p>{{ results|length }} results:</p>
 
     <ul>
-        {% for entry in entries %}
+        {% for entry in results %}
             <li><a href="{{ entry.url }}">{{ entry.title }}</a></li>
 
         {% endfor %}
     </ul>
 
 {% else %}
-  <p>Your search for “{{ querySlug }}” didn’t return any results.</p>
-{% endif %}
-
-
+  <p>Your search for
+  {% for item in problemQuery %}
+    {% if not loop.last%}
+                      “{{item}}, ”
+        {% else %}
+                                    and "{{item}}"
+    {% endif %}
+  {% endfor %}
+                                                    didn’t return any results.</p>
+  {% endif %}
 {% endblock %}
