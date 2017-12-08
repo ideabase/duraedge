@@ -1,14 +1,31 @@
 
-<a href="{{footer.takeTheNextStep}}">Take The Next Step</a>
-<h2>{{ footer.headerTitle }}</h2>
-{% for block in footer.socialMedia %}
-  {% if block.type == "socialMediaBlock" %}
-    <a href="{{block.address}}">{{block.socialName }}</a>
-  {% endif %}
-{% endfor %}
-<h3>Contact Us</h3>
-<p>{{ footer.address }}</p>
-<p>{{ footer.customerService }}</p>
-<p>{{ footer.customerServiceHours }}</p>
-<p>Toll-Free: {{ footer.phoneNumber }}</p>
-<p>Fax: {{ footer.fax }}</p>
+<!--<a href="{{footer.takeTheNextStep}}">Take The Next Step</a>-->
+<div class="footer__flex">
+  <div class="footer__logo">
+    {% for asset in footer.logo %}
+      <h3><img src="{{ asset.url }}" alt="DuraEdge" class="footer__logo__img"/></h3>
+    {% endfor %}
+    <address class="footer__address">
+      <p class="address__first">{{ footer.address }}</p>
+      <p class="address__second"></p>
+    </address>
+  </div>
+  <div class="footer__social">
+    <dl class="footer__social__list">
+      {% for block in footer.socialMedia %}
+        {% if block.type == "socialMediaBlock" %}
+          <dt class="social__list__name">{{ block.socialName }}</dt>
+          <dd class="social__list__link"<a href="{{block.address}}">{{block.socialName }}</a></dd>
+        {% endif %}
+      {% endfor %}
+    </dl>
+  </div>
+
+<div class="footer__contact">
+  <dl class="footer__contact__list">
+    <dd class="contact__list__item">{{ footer.customerServiceHours }}</dd>
+    <>{{ footer.customerService }}</p>
+    <>Toll-Free: {{ footer.phoneNumber }}</p>
+    <>Fax: {{ footer.fax }}</p>
+  </dl>
+</div>
