@@ -28,6 +28,10 @@
     <ul>
         {% for entry in entries %}
             <li><a href="{{ entry.url }}">{{ entry.title }}</a></li>
+            {% for image in entry.image %}
+              <br />
+              <img src="{{image.url}}" />
+            {% endfor %}
         {% endfor %}
     </ul>
 

@@ -21,7 +21,12 @@
     <ul>
         {% for entry in results %}
             <li><a href="{{ entry.url }}">{{ entry.title }}</a></li>
-
+            {% for image in entry.image %}
+            <br />
+            <br />
+            <br />
+              <img src="{{image.url}}" />
+            {% endfor %}
         {% endfor %}
     </ul>
 
@@ -37,4 +42,3 @@
                                                     didn’t return any results.</p>
   {% endif %}
 {% endblock %}
- 
