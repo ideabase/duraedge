@@ -3,8 +3,9 @@ footer {
   text-align: center;
   position: relative;
   padding: 1.5em;
+  bottom: 0;
   @media only screen and (min-width: 750px) {
-    margin-left: 20%;
+    margin-left: 12%;
   }
 }
 footer::before {
@@ -18,7 +19,7 @@ footer::before {
   text-align: center;
 }
 .footer__logo {
-  
+
 }
 .footer__logo__img {
   max-width: 40%;

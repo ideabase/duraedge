@@ -23,9 +23,11 @@
 
 <div class="footer__contact">
   <dl class="footer__contact__list">
-    <dd class="contact__list__item">{{ footer.customerServiceHours }}</dd>
-    <>{{ footer.customerService }}</p>
-    <>Toll-Free: {{ footer.phoneNumber }}</p>
-    <>Fax: {{ footer.fax }}</p>
+    {% for block in footer.footerContact %}
+      {% if block.type == "contactBlock" %}
+        <dt class="contact__list__title">{{ block.contactName }}</dt>
+        <dd class="contact__list__item">{{ block.contactInfo }}</dd>
+      {% endif %}
+    {% endfor %}
   </dl>
 </div>
