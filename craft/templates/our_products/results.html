@@ -28,6 +28,12 @@
     <ul>
         {% for entry in entries %}
             <li><a href="{{ entry.url }}">{{ entry.title }}</a></li>
+            {% for type in entry.productType %}
+            <h3>{{type.title}}</h3>
+            {% endfor %}
+            <p>
+              {{entry.body |striptags|slice(0,50) }}
+            </p>
             {% for image in entry.image %}
               <br />
               <img src="{{image.url}}" />

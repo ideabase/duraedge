@@ -3,6 +3,9 @@
 
 <h1>{{ entry.title }}</h1>
 <p>{{entry.body}}</p>
+{% for asset in entry.image %}
+		<img src="{{asset.url}}" alt="{{asset.title}}" />
+{% endfor %}
 
 
 {% endblock %}

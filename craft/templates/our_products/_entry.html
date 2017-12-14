@@ -1,9 +1,18 @@
 {% extends "_layout" %}
 
 {% block content %}
+
+{% for image in entry.image %}
+<img src="{{image.url}}" />
+{%endfor%}
+
+
+
 <h1>Product: -- {{entry.title}}</h1>
 
 <ul>
+
+
 
 
 {% for entry in entry.waterAccessCategory %}
@@ -31,11 +40,18 @@
 {%endfor%}
 
 
+
+
 </ul>
 
 <p>
   {{entry.body}}
 </p>
+
+
+{% for image in entry.gallery.order('RAND()').limit(1) %}
+  <img src="{{image.url}}" />
+{%endfor%}
 
 
 
