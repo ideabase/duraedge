@@ -10,6 +10,9 @@
 
 <h1>Here's what our customers are saying about DuraEdge: </h1>
 {% for entry in craft.entries.section('testimonials').order('RAND()').limit(1)%}
+{% for image in entry.image %}
+<img src="{{image.url}}" alt="{{image.title}}" />
+{% endfor %}
   <h4>"{{entry.body}}"</h4>
   <h6>-{{entry.title}}</h6>
 {% endfor %}
@@ -23,7 +26,9 @@ src="https://www.youtube.com/embed/XGSy3_Czz8k">
 
 <h1>Blog Posts:</h1>
 {% for entry in craft.entries.section('blogPosts')%}
+{% if entry.featuredContent == 1 %}
   <a href="{{entry.url}}"><h1>{{entry.title}}</h1></a>
+  {%endif%}
 {%endfor%}
 
 
@@ -33,11 +38,15 @@ src="https://www.youtube.com/embed/XGSy3_Czz8k">
 <h1>FAQ</h1>
 <ul>
 {% for entry in craft.entries.section('FAQ') %}
+{% for article in entry.knowledgeLevel %}
+{% if article.title == "Basic" %}
   <li>
     <h4>{{entry.title}}</h4>
     <p>{{entry.body}}</p>
 
   </li>
+  {%endif%}
+  {%endfor%}
 {%endfor%}
 </ul>
 

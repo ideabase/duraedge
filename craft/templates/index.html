@@ -4,8 +4,9 @@
 	<h1>{{ entry.title }}</h1>
 <h2>{{entry.headerTitle }}</h2>
 	{{ entry.body }}
-
-
+<h2>{{entry.headline}}</h2>
+<h2>{{entry.subheadline}}</h2>
+<a href="#"><h4>{{entry.callToAction}}</h4></a>
 
 <h3>Interactive Product Map</h3>
   {% for block in entry.interactiveFieldMap %}
@@ -15,10 +16,7 @@
       <a href="{{block.linkTo}}">{{block.nameOf}}</a>
   {% endfor %}
 
-<h1>Current Customers:</h1>
-{% for entry in craft.entries.section('currentCustomers')%}
-<h6>{{entry.title}}</h6>
-{%endfor%}
+
 
 
 <!-- Feature Image Gallery!-->
@@ -35,8 +33,27 @@
 
 	<h2>Recent News</h2>
 	<ul>
-		{% for entry in craft.entries.section('news').limit(5).find() %}
+		{% for entry in craft.entries.section('news').limit(2).find() %}
+			{% if entry.featuredContent == 1 %}
 			<li><a href="{{ entry.url }}">{{ entry.title }}</a></li>
+			{%endif%}
 		{% endfor %}
 	</ul>
+
+	<h1>Current Customers:</h1>
+	{% for entry in craft.entries.section('currentCustomers').limit(5)%}
+		<h6>{{entry.title}}</h6>
+		<h6>{{entry.locationPlug.city}}</h6>
+		{% for fieldType in entry.fieldType %}
+		<h1>{{fieldType.title}}</h1>
+		{%endfor%}
+		{% for image in entry.image %}
+			<img src="{{image.url}}" alt="{{image.title}}" />
+		{% endfor %}
+	<!-- need image, field type !-->
+
+	{% endfor %}
+
+
+
 {% endblock %}

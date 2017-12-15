@@ -11,15 +11,13 @@
     {% for node in nav %}
       {% for asset in header.headerBaseball %}
         <li class="nav__list__item">
-          <a href="{{ node.url }}">
+          <a href="{{ node.url }}">{{ node.name }}
             <img src="{{ asset.url }}" alt="baseball" class="nav__list__baseball"/>
-            {{ node.name }}
-          </a>
+            </a>
         </li>
       {% endfor %}
     {% endfor %}
     </ul>
   </nav>
-
 
 </header>
