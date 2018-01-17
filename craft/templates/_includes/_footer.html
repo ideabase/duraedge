@@ -1,5 +1,5 @@
 
-<!--<a href="{{footer.takeTheNextStep}}">Take The Next Step</a>-->
+<a href="{{footer.takeTheNextStep}}">Take The Next Step</a>
 <div class="footer__flex">
   <div class="footer__logo">
     {% for asset in footer.logo %}
@@ -7,8 +7,18 @@
     {% endfor %}
     <address class="footer__address">
       <p class="address__first">{{ footer.address }}</p>
-      <p class="address__second"></p>
+      <p class="address__second">{{ footer.address2 }}</p>
     </address>
+  </div>
+  <div class="footer__contact">
+    <dl class="footer__contact__list">
+      {% for block in footer.footerContact %}
+        {% if block.type == "contactBlock" %}
+          <dt class="contact__list__title">{{ block.contactName }}</dt>
+          <dd class="contact__list__item">{{ block.contactInfo }}</dd>
+        {% endif %}
+      {% endfor %}
+    </dl>
   </div>
   <div class="footer__social">
     <dl class="footer__social__list">
@@ -20,14 +30,4 @@
       {% endfor %}
     </dl>
   </div>
-
-<div class="footer__contact">
-  <dl class="footer__contact__list">
-    {% for block in footer.footerContact %}
-      {% if block.type == "contactBlock" %}
-        <dt class="contact__list__title">{{ block.contactName }}</dt>
-        <dd class="contact__list__item">{{ block.contactInfo }}</dd>
-      {% endif %}
-    {% endfor %}
-  </dl>
 </div>

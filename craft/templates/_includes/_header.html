@@ -22,10 +22,10 @@
 
 
   {% set secondaryNav = craft.amNav.getNavRaw("secondary") %}
-  <nav>
-    <ul>
+  <nav class="header__secondnav">
+    <ul class="header__nav__sublist">
     {% for node in secondaryNav %}
-        <li>
+        <li class="nav__sublist__item">
           <a href="{{ node.url }}">{{ node.name }}</a>
         </li>
     {% endfor %}
