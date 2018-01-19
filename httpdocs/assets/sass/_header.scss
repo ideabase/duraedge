@@ -44,8 +44,18 @@ header h1 {
   list-style: none;
   padding: 0;
 }
-.nav__sublist__item {
+.nav__sublist__item:last-child a {
+  border: 1px solid $lightBlue;
+  border-radius: 6px;
+  transition: .3s all ease-in-out;
+  &:hover {
+      background-color: $lightBlue;
+      color: white;
+  }
+}
 
+.nav__sublist__item a {
+  padding: .5em;
 }
 @media #{$medium} {
   header {
@@ -75,6 +85,7 @@ header h1 {
   .header__logo {
     width: 200px;
     margin-bottom: 0;
+    margin-top: -5px;
   }
   .header__logo__img {
     max-width: inherit;
@@ -100,9 +111,18 @@ header h1 {
     display: flex;
     justify-content: space-around;
     margin:0;
+    & a {
+      font-size: .85em;
+    }
   }
   .nav__sublist__item a {
-    color: $orange;
+    color: $lightBlue;
     text-decoration: none;
+  }
+}
+
+@media #{$large} {
+  header {
+    margin-left: 48%;
   }
 }
