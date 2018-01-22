@@ -1,7 +1,12 @@
 {% extends "_layout" %}
 {% block content %}
 
-
-
+{% for category in craft.categories.group('productType') %}
+  {% set entries = craft.entries.section('ourProducts').relatedTo(category) %}
+  <h1>{{category.title}}</h1>
+    {% for entry in entries %}
+  <h4>{{entry.title}}</h4>
+  {% endfor %}
+{% endfor %}
 
 {%endblock%}
