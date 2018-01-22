@@ -1,11 +1,50 @@
 {% extends "_layout" %}
 {% block content %}
 
-<h1>{{ entry.title }}</h1>
-<p>{{entry.body}}</p>
-{% for asset in entry.image %}
-		<img src="{{asset.url}}" alt="{{asset.title}}" />
+{% for image in entry.image %}
+<img src="{{image.url}}" />
 {% endfor %}
+
+
+<h1>{{ entry.title }}</h1>
+
+			{% for block in entry.blogPostContent %}
+
+			    {% if block.type == "text" %}
+			        {{ block.text }}
+
+			    {% elseif block.type == "image" %}
+
+			        {% set image = block.image.first() %}
+			        {% if image %}
+			        	<section class="section-body-image panel-primary">
+			        		<figure class="section-body-image__figure">
+			        			<img class="section-body-image__image" src="{{ image.getUrl() }}" alt="{{ image.title }}" />
+			        			{# <figcaption class="section-body-image__caption">{{ image.caption }}</figcaption> #}
+			        		</figure>
+			        	</section>
+			        {% endif %}
+
+			    {% elseif block.type == "video" %}
+
+			    <section class="section-body-video panel-primary">
+			    	<figure class="section-body-video__figure video-container">
+			    		{{ block.videoUrl|videoEmbed }}
+			    		<figcaption class="section-body-image__caption">{{ block.videoCaption }}</figcaption>
+			    	</figure>
+			    </section>
+
+			    {% elseif block.type == "pullQuote" %}
+
+			        <section class="testimonial-entry panel-primary">
+			        		<blockquote class="testimonial-entry__text">{{ block.pullQuote }}
+			        		</blockquote>
+			        		<cite class="testimonial-entry__author">{{ block.pullQuoteAuthor }}</cite>
+			        </section>
+
+			    {% endif %}
+
+			{% endfor %}
 
 
 {% endblock %}
