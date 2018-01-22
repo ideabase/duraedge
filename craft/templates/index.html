@@ -31,14 +31,12 @@
 		<img src="{{asset.url}}" alt="{{asset.title}}" />
 {% endfor %}
 
-	<h2>Recent News</h2>
-	<ul>
-		{% for entry in craft.entries.section('news').limit(2).find() %}
-			{% if entry.featuredContent == 1 %}
-			<li><a href="{{ entry.url }}">{{ entry.title }}</a></li>
-			{%endif%}
-		{% endfor %}
-	</ul>
+<h1>Blog Posts:</h1>
+	{% for entry in craft.entries.section('blogPosts').limit(2)%}
+		{% if entry.featuredContent == 1 %}
+  			<a href="{{entry.url}}"><h1>{{entry.title}}</h1></a>
+  	{%endif%}
+	{%endfor%}
 
 	<h1>Current Customers:</h1>
 	{% for entry in craft.entries.section('currentCustomers').limit(5)%}
