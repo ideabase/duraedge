@@ -19,6 +19,25 @@
   {% endfor %}
 
 
+
+
+<ul>
+  {% for row in entry.fieldComposition %}
+  <li>
+    <h3>Total Sand: {{row.totalSand}}</h3>
+  </li>
+  <li>
+    <h3>Silt/Clay: {{row.siltClay}}</h3>
+  </li>
+  <li>
+    <h3>Medium Sand: {{row.mediumSand}}</h3>
+  </li>
+  <li>
+    <h3>SCR: {{row.scr}}</h3>
+  </li>
+  {% endfor %}
+</ul>
+
 {% for entry in entry.waterAccessCategory %}
 <li>
   Water Access: {{entry.title}}
@@ -52,6 +71,11 @@
   {{entry.body}}
 </p>
 
+<h1>Related Blogs:</h1>
+{% for entry in craft.entries.section('blogPosts').relatedTo(entry) %}
+
+<a href="{{entry.url}}"><h4>{{entry.title}}</h4></a>
+{% endfor %}
 
 {% for image in entry.gallery.order('RAND()').limit(1) %}
   <img alt="{{image.title}}" src="{{image.url}}" />
