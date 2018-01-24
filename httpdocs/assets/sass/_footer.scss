@@ -95,17 +95,23 @@ footer::before {
 @media #{$medium} {
   .footer__flex {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     margin-top: 2em;
   }
   .footer__social {
     order: 1;
+    flex-grow: 1;
+    flex-basis: 0;
   }
   .footer__contact {
     order: 3;
+    flex-grow: 1;
+    flex-basis: 0;
   }
   .footer__logo {
     order: 2;
+    flex-grow: 1;
+    flex-basis: 0;
   }
 }

@@ -1,4 +1,5 @@
 <header>
+  <div class="header__wrapper">
     <a href = '{{siteUrl}}' class="header__logo">
       <picture>
         {% for asset in header.logoLarge %}
@@ -10,30 +11,27 @@
       </picture>
     <a>
 
-  {% set nav = craft.amNav.getNavRaw("primary") %}
-  <nav class="header__nav">
-    <ul class="header__nav__list">
-    {% for node in nav %}
-      {% for asset in header.headerBaseball %}
+    {% set nav = craft.amNav.getNavRaw("primary") %}
+    <nav class="header__nav">
+      <ul class="header__nav__list">
+      {% for node in nav %}
         <li class="nav__list__item">
-          <a href="{{ node.url }}">{{ node.name }}
-            <img src="{{ asset.url }}" alt="baseball" class="nav__list__baseball"/>
-            </a>
-        </li>
-      {% endfor %}
-    {% endfor %}
-    </ul>
-  </nav>
-
-
-  {% set secondaryNav = craft.amNav.getNavRaw("secondary") %}
-  <nav class="header__secondnav">
-    <ul class="header__nav__sublist">
-    {% for node in secondaryNav %}
-        <li class="nav__sublist__item">
           <a href="{{ node.url }}">{{ node.name }}</a>
         </li>
-    {% endfor %}
-    </ul>
-  </nav>
+      {% endfor %}
+      </ul>
+    </nav>
+
+
+    {% set secondaryNav = craft.amNav.getNavRaw("secondary") %}
+    <nav class="header__secondnav">
+      <ul class="header__nav__sublist">
+      {% for node in secondaryNav %}
+          <li class="nav__sublist__item">
+            <a href="{{ node.url }}">{{ node.name }}</a>
+          </li>
+      {% endfor %}
+      </ul>
+    </nav>
+  </div>
 </header>
