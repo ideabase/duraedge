@@ -12,7 +12,11 @@
 
 <ul>
 
-
+  {% for block in entry.marketingMaterials %}
+      {% for image in block.file %}
+        <a href="{{image.getUrl()}}"><h4>{{block.materialName}}</h4></a>
+      {% endfor %}
+  {% endfor %}
 
 
 {% for entry in entry.waterAccessCategory %}
