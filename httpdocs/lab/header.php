@@ -8,11 +8,11 @@
     </a>
     <nav class="header__nav">
        <ul class="header__nav__list">
-           <li class="nav__list__item"><a href="#">Home</a></li>
-           <li class="nav__list__item"><a href="#">Why DuraEdge?</a></li>
-           <li class="nav__list__item"><a href="#">Our Products</a></li>
-           <li class="nav__list__item"><a href="#">Field Maintenance</a></li>
-           <li class="nav__list__item"><a href="#">Contact DuraEdge</a></li>
+           <li class="nav__list__item"><a class="nav__list__link" href="#">Home</a></li>
+           <li class="nav__list__item"><a class="nav__list__link" href="#">Why DuraEdge?</a></li>
+           <li class="nav__list__item"><a class="nav__list__link" href="#">Our Products</a></li>
+           <li class="nav__list__item"><a class="nav__list__link" href="#">Field Maintenance</a></li>
+           <li class="nav__list__item"><a class="nav__list__link" href="#">Contact DuraEdge</a></li>
        </ul>
     </nav>
     <nav class="header__secondnav">
