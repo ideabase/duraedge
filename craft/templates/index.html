@@ -2,13 +2,13 @@
 
 {% block content %}
 	<h1>{{ entry.title }}</h1>
-<h2>{{entry.headerTitle }}</h2>
+	<h2>{{entry.headerTitle }}</h2>
 	{{ entry.body }}
-<h2>{{entry.headline}}</h2>
-<h2>{{entry.subheadline}}</h2>
-<a href="#"><h4>{{entry.callToAction}}</h4></a>
+	<h2>{{entry.headline}}</h2>
+	<h2>{{entry.subheadline}}</h2>
+	<a href="#"><h4>{{entry.callToAction}}</h4></a>
 
-<h3>Interactive Product Map</h3>
+	<h3>Interactive Product Map</h3>
   {% for block in entry.interactiveFieldMap %}
 
       <p>{{block.nameOf}}</p>
@@ -19,38 +19,33 @@
 
 
 
-<!-- Feature Image Gallery!-->
-{% for entry in craft.entries.section('currentCustomers')%}
-  {% for asset in entry.image %}
-		  <img src="{{asset.url}}" alt="{{asset.title}}" />
-    {% endfor %}
-{% endfor %}
+	<!-- Feature Image Gallery!-->
 
 
-{% for asset in entry.image %}
-		<img src="{{asset.url}}" alt="{{asset.title}}" />
-{% endfor %}
-
-<h1>Blog Posts:</h1>
-	{% for entry in craft.entries.section('blogPosts').limit(2)%}
-		{% if entry.featuredContent == 1 %}
-  			<a href="{{entry.url}}"><h1>{{entry.title}}</h1></a>
-  	{%endif%}
-	{%endfor%}
-
-	<h1>Current Customers:</h1>
-	{% for entry in craft.entries.section('currentCustomers').limit(5)%}
-		<h6>{{entry.title}}</h6>
-		<h6>{{entry.locationPlug.city}}</h6>
-		{% for fieldType in entry.fieldType %}
-		<h1>{{fieldType.title}}</h1>
-		{%endfor%}
-		{% for image in entry.image %}
-			<img src="{{image.url}}" alt="{{image.title}}" />
-		{% endfor %}
-	<!-- need image, field type !-->
-
+	{% for asset in entry.image %}
+			<img src="{{asset.url}}" alt="{{asset.title}}" />
 	{% endfor %}
+
+	<h1>Blog Posts:</h1>
+		{% for entry in craft.entries.section('blogPosts').limit(2)%}
+			{% if entry.featuredContent == 1 %}
+	  			<a href="{{entry.url}}"><h1>{{entry.title}}</h1></a>
+	  	{%endif%}
+		{%endfor%}
+
+		<h1>Current Customers:</h1>
+		{% for entry in craft.entries.section('currentCustomers').limit(5)%}
+			<div class="home__cust__div">
+				<p class="home__cust__fieldType">{{ entry.headerTitle }}</p>
+				<h2 class="home__cust__name">{{entry.title}}</h2>
+				<h6>{{entry.locationPlug.city}}</h6>
+			</div>
+				{% for image in entry.image %}
+					<img class="home__cust__image" src="{{image.url}}" alt="{{image.title}}" />
+				{% endfor %}
+		<!-- need image, field type !-->
+
+		{% endfor %}
 
 
 

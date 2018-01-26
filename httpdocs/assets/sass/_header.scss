@@ -99,6 +99,7 @@ header h1 {
     display: block;
     padding: 1em 2em;
     height: 10%;
+    margin-top: 4.5em;
   }
   .nav__list__link {
     display: block;
@@ -145,5 +146,11 @@ header h1 {
   }
   .header__secondnav {
     width: 40%;
+  }
+}
+
+@media #{intermediate} {
+  .nav__list__item {
+
   }
 }
