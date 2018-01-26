@@ -19,9 +19,14 @@
          <h4>Heading 4</h4>
          <h5>Heading 5</h5>
          <h6>Heading 6</h6>
-         <p class="home__cust__fieldType">Professional Field</p>
-         <h2 class="home__cust__name">Pittsburgh Pirates</h2>
-         <img src="../assets/img/ui/pnc_park.svg" alt="Pirates Image"/>
+         <div class="home__cust">
+     			<div class="home__cust__div">
+     				<p class="home__cust__fieldType">Professional Field</p>
+     				<h2 class="home__cust__name">Pittsburgh Pirates</h2>
+     				<p class="home__cust__location">PNC Park, Pittsburgh PA</p>
+     			</div>
+     			<img class="home__cust__image" src="../assets/img/ui/pnc_park.svg" alt="PNC Park" />
+     		</div>
          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
          <button>button</button>
          <a href="#">Link</a>
