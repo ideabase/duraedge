@@ -3,7 +3,7 @@
 {% block content %}
 
 {% for image in entry.image %}
-<img src="{{image.url}}" />
+<img alt="{{image.title}}"src="{{image.url}}" />
 {%endfor%}
 
 
@@ -71,11 +71,19 @@
   {{entry.body}}
 </p>
 
-<h1>Related Blogs:</h1>
+{% set isBlog = false %}
 {% for entry in craft.entries.section('blogPosts').relatedTo(entry) %}
-
-<a href="{{entry.url}}"><h4>{{entry.title}}</h4></a>
+    {% if entry | length > 0 %}
+      {% set isBlog = true %}
+    {% endif %}
 {% endfor %}
+
+{% if isBlog == true %}
+  <h1>Related Blogs:</h1>
+    {% for entry in craft.entries.section('blogPosts').relatedTo(entry) %}
+      <a href="{{entry.url}}"><h4>{{entry.title}}</h4></a>
+    {% endfor %}
+{% endif %}
 
 {% for image in entry.gallery.order('RAND()').limit(1) %}
   <img alt="{{image.title}}" src="{{image.url}}" />
