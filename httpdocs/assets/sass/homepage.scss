@@ -1,17 +1,17 @@
 
-.home__cust__name {
+.home__block__line2 {
   font-family: $cursive;
   font-weight: 25;
 }
 
 @media #{$medium} {
-  .home__cust {
+  .home__block {
     position: relative;
     box-shadow: 4px 4px 5px 7px gray;
     margin-bottom: 10px;
     text-shadow: 1.75px;
   }
-  .home__cust__div {
+  .home__block__div {
     display: flex;
     flex-direction: column;
     position: absolute;
@@ -19,19 +19,20 @@
     left: 1em;
     max-width: 80%;
   }
-  .home__cust__name {
+
+  .home__block__line2 {
     color: white;
     font-size: 2em;
     padding: 0;
     margin: 0;
   }
-  .home__cust__location {
+  .home__block__line3 {
     color: white;
     font-size: 1.5em;
     padding: 0;
     margin: 0;
   }
-  .home__cust__fieldType {
+  .home__block__line {
     padding: 0;
     margin: 0;
     color: $orange;
@@ -40,19 +41,19 @@
 }
 
 @media #{$intermediate} {
-  .home__cust__name {
+  .home__block__line2 {
     font-family: $cursive;
     font-weight: 25;
     font-size: 3em;
   }
 
-  .home__cust__fieldType {
+  .home__block__line {
     font-family: $serif;
     color: $orange;
     font-size: 2.5em;
   }
 
-  .home__cust__location {
+  .home__block__line3{
     font-family: $serif;
     font-size: 2em;
   }

@@ -2,56 +2,64 @@
 
 {% block content %}
 
-{% for image in entry.image %}
-<img src="{{image.url}}" alt="{{image.title}}" />
-{% endfor %}
-
-<h1>{{entry.title}}</h1>
-<p>
-  {{entry.body}}
-</p>
-<a href="about-duraedge"> Learn more about us</a>
+<div class="why__main">
+  {% for entry in craft.entries.section('whyDuraedge') %}
+  <div class="why__div__left">
+    {% for image in entry.image %}
+      <img src="{{image.url}}" alt="{{image.title}}" />
+    {% endfor %}
+  </div>
 
 
-<h1>Here's what our customers are saying about DuraEdge: </h1>
-{% for entry in craft.entries.section('testimonials').order('RAND()').limit(1)%}
-
-  <h4>"{{entry.body}}"</h4>
-  <h6>-{{entry.title}}</h6>
-{% endfor %}
-
-
-<!-- Insert Video !-->
-<iframe width="420" height="315"
-src="https://www.youtube.com/embed/XGSy3_Czz8k">
-</iframe>
-
-<h1>Blog Posts:</h1>
-	{% for entry in craft.entries.section('blogPosts').limit(2) %}
-		{% if entry.featuredContent == 1 %}
-  			<a href="{{entry.url}}"><h1>{{entry.title}}</h1></a>
-  	{%endif%}
-	{%endfor%}
+  <div class="why__div__right">
+    <h1>{{entry.title}}</h1>
+    <p>
+      {{entry.body}}
+    </p>
+    <a href="about-duraedge"> Learn more about us</a>
 
 
-<h1>FAQ</h1>
-<ul>
-{% for entry in craft.entries.section('FAQ') %}
-{% for article in entry.knowledgeLevel %}
-{% if article.title == "Basic" %}
-  <li>
-    <h4>{{entry.title}}</h4>
-    <p>{{entry.body}}</p>
+    <h1>Here's what our customers are saying about DuraEdge: </h1>
+    {% for entry in craft.entries.section('testimonials').order('RAND()').limit(1)%}
 
-  </li>
-  {%endif%}
-  {%endfor%}
-{%endfor%}
-</ul>
+      <h4>"{{entry.body}}"</h4>
+      <h6>-{{entry.title}}</h6>
+    {% endfor %}
 
 
-<h1>Where do you fit?</h1>
-<a href="our_products">BUILD YOUR FIELD</a>
+    <!-- Insert Video !-->
+    <iframe width="420" height="315"
+    src="https://www.youtube.com/embed/XGSy3_Czz8k">
+    </iframe>
 
+    <h1>Blog Posts:</h1>
+    	{% for entry in craft.entries.section('blogPosts').limit(2) %}
+    		{% if entry.featuredContent == 1 %}
+      			<a href="{{entry.url}}"><h1>{{entry.title}}</h1></a>
+      	{%endif%}
+    	{%endfor%}
+
+
+    <h1>FAQ</h1>
+    <ul>
+    {% for entry in craft.entries.section('FAQ') %}
+      {% for article in entry.knowledgeLevel %}
+        {% if article.title == "Basic" %}
+          <li>
+            <h4>{{entry.title}}</h4>
+            <p>{{entry.body}}</p>
+
+          </li>
+          {%endif%}
+        {%endfor%}
+    {%endfor%}
+    </ul>
+
+
+    <h1>Where do you fit?</h1>
+    <a href="our_products">BUILD YOUR FIELD</a>
+  </div>
+  {% endfor %}
+</div>
 
 {% endblock %}
