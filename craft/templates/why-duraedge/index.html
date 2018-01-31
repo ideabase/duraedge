@@ -1,16 +1,18 @@
 {% extends "_layout" %}
 
-{% block content %}
-
-<div class="why__main">
+{% block feature %}
   {% for entry in craft.entries.section('whyDuraedge') %}
   <div class="why__div__left">
     {% for image in entry.image %}
       <img src="{{image.url}}" alt="{{image.title}}" />
     {% endfor %}
   </div>
+  {% endfor %}
+{% endblock %}
 
+{% block content %}
 
+{% for entry in craft.entries.section('whyDuraedge') %}
   <div class="why__div__right">
     <h1>{{entry.title}}</h1>
     <p>
@@ -59,7 +61,7 @@
     <h1>Where do you fit?</h1>
     <a href="our_products">BUILD YOUR FIELD</a>
   </div>
-  {% endfor %}
-</div>
+{% endfor %}
+
 
 {% endblock %}

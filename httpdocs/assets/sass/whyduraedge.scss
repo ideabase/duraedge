@@ -1,17 +1,14 @@
 @media #{$intermediate} {
   .why__div__left {
-    width: 50%;
+    width: 44%;
     left: 0;
+    margin-left: 12%;
   }
 
   .why__div__right {
-    width: 50%;
+    width: 43%;
     right: 0;
-    margin-left: 2em;
     overflow: auto;
   }
 
-  .why__main {
-    display: flex;
-  }
 }
