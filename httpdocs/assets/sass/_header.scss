@@ -106,9 +106,15 @@ header h1 {
   }
   .nav__list__item {
     display: block;
-    padding: 1em .5em;
-    margin-top: .5em;
+    padding: 1.5em .5em;
     font-size: 105%;
+    border-bottom: 1px solid darken($green,5%);
+    &:last-child {
+      border-bottom: none;
+    }
+    &:hover {
+      background-color: $darkBlue;
+    }
   }
   .nav__list__link {
     display: block;
