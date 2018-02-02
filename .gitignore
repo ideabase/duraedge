@@ -6,3 +6,5 @@ httpdocs/node_modules
 httpdocs/assets/file/uploads
 httpdocs/assets/img/uploads
 .DS_Store
+/httpdocs/.sass-cache
+/craft/.*
