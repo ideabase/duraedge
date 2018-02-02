@@ -3,8 +3,11 @@ body {
 }
 main {
   @media #{$medium} {
-    margin-left: 12%;
+    margin-left: 15%;
     margin-top: 3em;
+  }
+  @media #{$large} {
+    margin-left: 12%;
   }
   padding: 2.5em;
   padding-top: 0;
