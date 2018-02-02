@@ -4,7 +4,10 @@ footer {
   position: relative;
   padding: 1.5em;
   bottom: 0;
-  @media only screen and (min-width: 750px) {
+  @media #{$medium} {
+    margin-left: 15%;
+  }
+  @media #{$large} {
     margin-left: 12%;
   }
 }
