@@ -1,30 +1,38 @@
 {% extends "_layout" %}
 
+{% block feature %}
+<section class="feature__image feature__image--home">
+{% for asset in entry.image %}
+	<div class="home__block home__block--top" style="background-image:url({{asset.url}})">
+{% endfor %}
+	<div class="home__block__div home__block__top">
+		<h2 class="home__block__line2">{{entry.headline}}</h2>
+		<!--<h2>{{entry.subheadline}}</h2>-->
+		<a class="home__cta" href="#"><h4>{{entry.callToAction}}</h4></a>
+	</div>
+</div>
+</section>
+{% endblock %}
+
+
 {% block content %}
-	<h1>{{ entry.title }}</h1>
-	<h2>{{entry.headerTitle }}</h2>
-	{{ entry.body }}
-	<h2>{{entry.headline}}</h2>
-	<h2>{{entry.subheadline}}</h2>
-	<a href="#"><h4>{{entry.callToAction}}</h4></a>
+<main role="main" class="full">
+	<section class="content content--full">
+		{{ entry.body }}
 
-	<h3>Interactive Product Map</h3>
-  {% for block in entry.interactiveFieldMap %}
+		<h3>Interactive Product Map</h3>
+	  {% for block in entry.interactiveFieldMap %}
 
-      <p>{{block.nameOf}}</p>
-      <p>{{block.description}}</p>
-      <a href="{{block.linkTo}}">{{block.nameOf}}</a>
+	      <p>{{block.nameOf}}</p>
+	      <p>{{block.description}}</p>
+	      <a href="{{block.linkTo}}">{{block.nameOf}}</a>
+
   {% endfor %}
 
 
 
 
 	<!-- Feature Image Gallery!-->
-
-
-	{% for asset in entry.image %}
-			<img src="{{asset.url}}" alt="{{asset.title}}" />
-	{% endfor %}
 
 	<h1>Blog Posts:</h1>
 		{% for entry in craft.entries.section('blogPosts').limit(2)%}
@@ -36,8 +44,7 @@
 		<h1>Current Customers:</h1>
 		{% for entry in craft.entries.section('currentCustomers').limit(5)%}
 		<div class="home__block">
-			<div class="home__block__div">
-				<p class="home__block__line">{{ entry.headerTitle }}</p>
+			<div class="home__block__div home__cust">
 				<h2 class="home__block__line2">{{entry.title}}</h2>
 				<p class="home__block__line3">{{ entry.location }}</p>
 				<h6>{{entry.locationPlug.city}}</h6>
@@ -49,7 +56,6 @@
 		<!-- need image, field type !-->
 
 		{% endfor %}
-
-
-
+	</section>
+</main>
 {% endblock %}

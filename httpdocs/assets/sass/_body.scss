@@ -1,14 +1,15 @@
+html {
+  height: 100%;
+}
 body {
   font-family: $serif;
 }
 main {
   @media #{$medium} {
     margin-left: 15%;
-    margin-top: 3em;
   }
   @media #{$large} {
     margin-left: 12%;
   }
-  padding: 2.5em;
   padding-top: 0;
 }

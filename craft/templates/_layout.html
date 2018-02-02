@@ -39,14 +39,12 @@
     {% block feature %}
     {% endblock %}
 
-		<main role="main">
 			{% block content %}
 				<p>If you see me, you haven’t set your <code>{% verbatim %}{% block content %}…{% endblock %}{% endverbatim %}</code> yet.</p>
 				<p>See Twig’s <a href="http://twig.sensiolabs.org/doc/templates.html#template-inheritance">Template Inheritance</a> documentation for an explanation.</p>
 			{% endblock %}
-		</main>
 
-    <footer>
+    <footer role="contentinfo">
       {% include '_includes/_footer.html' %}
     </footer>
   <link href="https://fonts.googleapis.com/css?family=Lobster|Rokkitt:400,800,900|Saira+Condensed:400,500,700,900" rel="stylesheet">

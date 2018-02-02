@@ -3,7 +3,10 @@ footer {
   text-align: center;
   position: relative;
   padding: 1.5em;
+  margin-top: 2em;
   bottom: 0;
+  right: 0;
+  left: 0;
   @media #{$medium} {
     margin-left: 15%;
   }
@@ -18,7 +21,7 @@ footer::before {
   height: 2px;
   position: absolute;
   top: -1px;
-  background-color: $green;
+  background-color: $orange;
   text-align: center;
   left: 40.5%;
 }

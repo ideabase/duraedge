@@ -1,0 +1,35 @@
+.landing {
+  @media #{$large} {
+    display: flex;
+  }
+}
+
+.feature__image--landing {
+  background-attachment: fixed;
+  background-size: cover;
+  height: 400px;
+  @media #{$large} {
+    width: 50%;
+    height: inherit;
+  }
+}
+
+.content {
+  padding: 2.5em;
+}
+
+.content--full {
+  @media #{$medium} {
+    margin-top: 3em;
+  }
+
+}
+
+.content--landing {
+  @media #{$medium} {
+    overflow: hidden;
+  }
+  @media #{$large} {
+    width: 50%;
+  }
+}
