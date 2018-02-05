@@ -35,6 +35,11 @@ header h1 {
   font-size: .75em;
   display: flex;
 }
+
+.nav__list__item:active {
+  background-color: $lightBlue;
+  color: white;
+}
 .nav__list__link {
   background-image: url(../img/ui/baseball.svg);
   background-repeat: no-repeat;
