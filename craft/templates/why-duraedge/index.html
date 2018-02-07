@@ -1,12 +1,52 @@
 {% extends "_layout" %}
 
 {% block feature %}
+
+{% set imageCount = 0 %}
+
+
+<script>
+
+(function() {
+  var nTimer = setInterval(function() {
+    if (window.jQuery) {
+       imageswitch();
+      clearInterval(nTimer);
+    }
+  }, 100);
+})();
+
+
+
+(function imageswitch() {
+    var photo = $(".feature__image");
+    $("content").scroll(function() {
+        var scroll = $("content").scrollTop();
+
+        if (scroll >= 200) {
+          {% set newImg = imageCount + 1 %}
+            photo.removeClass('image{{imageCount}}').addClass("image{{newImg}}");
+        } else {
+            photo.removeClass("image{{newImg}}").addClass('image{{imageCount}}');
+        }
+    });
+});
+</script>
+
 <main role="main" class="landing">
   {% for entry in craft.entries.section('whyDuraedge') %}
+  {% set imageCount = loop.index %}
+  <style>
     {% for image in entry.image %}
-      <div class="feature__image feature__image--landing" style="background-image: url({{image.url}});">
-    {% endfor %}
-  </div>
+
+        .image{{loop.index}} {
+          background-image: url({{image.url}});"
+        }
+      {% endfor %}
+  </style>
+      <div class="feature__image feature__image--landing image{{loop.index}}">
+      </div>
+
   {% endfor %}
 {% endblock %}
 

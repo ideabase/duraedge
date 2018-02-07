@@ -1,6 +1,9 @@
 {% extends "_layout" %}
 
+
 {% block feature %}
+
+
 <section class="feature__image feature__image--home">
 {% for asset in entry.image %}
 	<div class="home__block home__block--top" style="background-image:url({{asset.url}})">
@@ -39,8 +42,10 @@
 		{%endfor%}
 
 		<h1>Current Customers:</h1>
+
 		{% for entry in craft.entries.section('currentCustomers').limit(5)%}
-		<div class="home__block">
+		<div class="owl-carousel">
+		<div class="home__block ">
 			<div class="home__block__div home__cust">
 				<h2 class="home__block__line2">{{entry.title}}</h2>
 				<p class="home__block__line3">{{ entry.location }}</p>
@@ -49,6 +54,7 @@
 			{% for image in entry.image %}
 				<img class="home__cust__image" src="{{image.url}}" alt="{{image.title}}" />
 			{% endfor %}
+		</div>
 		</div>
 		<!-- need image, field type !-->
 
