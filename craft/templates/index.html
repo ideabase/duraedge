@@ -9,7 +9,7 @@
 	<div class="home__block home__block--top" style="background-image:url({{asset.url}})">
 {% endfor %}
 	<div class="home__block__div home__block__top">
-		<h2 class="home__block__line2">{{entry.headline}}</h2>
+		<h1 class="home__block__line2">{{entry.headline}}</h1>
 		<!--<h2>{{entry.subheadline}}</h2>-->
 		<a class="home__cta" href="#"><h4>{{entry.callToAction}}</h4></a>
 	</div>
@@ -21,19 +21,30 @@
 {% block content %}
 <main role="main" class="full">
 	<section class="content content--full">
-		{{ entry.body }}
+		<div class="home__block__advantage">
+			<div class="home__advantage">
+				<h3>{{ entry.subheadline }}</h3>
+				<p>{{ entry.body }}</p>
+				<a href="#">Why DuraEdge?</a>
+			</div>
+			<div class="home__productMap">
+				<div class="home__productMap__inner">
+					<h3>Our Products</h3>
+					<p><b>How can we help?</b> Click on any part of the field you need assistance with.</p>
+				</div>
+				<img url="../httpdocs/assets/img/ui/productMap.svg" alt="Product Map"/>
+			  <!--{% for block in entry.interactiveFieldMap %}
 
-		<h3>Interactive Product Map</h3>
-	  {% for block in entry.interactiveFieldMap %}
+			      <p>{{block.nameOf}}</p>
+			      <p>{{block.description}}</p>
+			      <a href="{{block.linkTo}}">{{block.nameOf}}</a>
 
-	      <p>{{block.nameOf}}</p>
-	      <p>{{block.description}}</p>
-	      <a href="{{block.linkTo}}">{{block.nameOf}}</a>
-
-  {% endfor %}
+		  	{% endfor %}-->
+			</div>
+		</div>
 
 	<!-- Feature Image Gallery!-->
-
+<h2 class="trending">Trending Now</h2>
 	<h1>Blog Posts:</h1>
 		{% for entry in craft.entries.section('blogPosts').limit(2)%}
 			{% if entry.featuredContent == 1 %}
@@ -43,22 +54,21 @@
 
 		<h1>Current Customers:</h1>
 
-		{% for entry in craft.entries.section('currentCustomers').limit(5)%}
 		<div class="owl-carousel">
-		<div class="home__block ">
-			<div class="home__block__div home__cust">
-				<h2 class="home__block__line2">{{entry.title}}</h2>
-				<p class="home__block__line3">{{ entry.location }}</p>
-				<h6>{{entry.locationPlug.city}}</h6>
+			{% for entry in craft.entries.section('currentCustomers').limit(5)%}
+			<div class="home__block ">
+				<div class="home__block__div home__cust">
+					<h1 class="home__block__line2">{{entry.title}}</h1>
+					<p class="home__block__line3">{{ entry.location }}</p>
+					<h6>{{entry.locationPlug.city}}</h6>
+				</div>
+				{% for image in entry.image.limit(1) %}
+					<img class="home__cust__image" src="{{image.url('carouselLarge')}}" alt="{{image.title}}" />
+				{% endfor %}
 			</div>
-			{% for image in entry.image %}
-				<img class="home__cust__image" src="{{image.url}}" alt="{{image.title}}" />
 			{% endfor %}
 		</div>
-		</div>
-		<!-- need image, field type !-->
 
-		{% endfor %}
 	</section>
 </main>
 {% endblock %}

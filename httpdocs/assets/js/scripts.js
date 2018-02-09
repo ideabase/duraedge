@@ -16,7 +16,13 @@ $(function() {
 });
 */
 
-
-$(document).ready(function(){
-  $(".owl-carousel").owlCarousel();
-});
+$(".owl-carousel").owlCarousel({
+  nav : false,
+  autoplay: true,
+  	  autoplayHoverPause: true,
+  	  autoplayTimeout: 5000,
+  	  autoplaySpeed: 1500,
+  	  responsiveClass: true,
+  	  items:1,
+  	  loop:true
+  });

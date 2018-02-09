@@ -1,4 +1,5 @@
 .landing {
+  text-align: center;
   @media #{$large} {
     display: flex;
   }
@@ -15,7 +16,9 @@
 }
 
 .content {
-  padding: 2.5em;
+  padding-left: 2em;
+  padding-right: 2em;
+
 }
 
 .content--full {
@@ -34,4 +37,13 @@
     overflow: auto;
     max-height: 700px;
   }
+}
+
+.maintenance__search {
+  width: 70%;
+  height: 3em;
+  padding-left: 1em;
+  color: #808080;
+  border-color: #808080;
+  border-radius: 5px;
 }

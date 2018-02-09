@@ -1,49 +1,52 @@
 {% extends "_layout" %}
 {% block content %}
+<main role="main" class="full">
+  <section class="content content--full">
+    <h1>{{entry.title}}</h1>
+    <input type="text" class="maintenance__search" placeholder="Find your answer"></input>
 
-<h1>{{entry.title}}</h1>
-{{entry.body}}
+    <h2>Process</h2>
+    {% for entry in entry.process %}
+      <h1>{{entry.processTitle}}</h1>
+      <p>{{entry.processInformation}}</p>
+    {%endfor%}
 
-<h2>Process</h2>
-{% for entry in entry.process %}
-  <h1>{{entry.processTitle}}</h1>
-  <p>{{entry.processInformation}}</p>
-{%endfor%}
-
-<h3><a href="{{ url('certification-programs') }}">Get Certified</a></h3>
+    <h3><a href="{{ url('certification-programs') }}">Get Certified</a></h3>
 
 
-<h2>Blog Posts</h2>
-{% for entry in craft.entries.section('blogPosts') %}
+    <h2>Blog Posts</h2>
+    {% for entry in craft.entries.section('blogPosts') %}
 
-  <a href="{{ entry.url }}">{{entry.title}}</a>
-  <p>{{ entry.body|slice(0, 50)|raw }}</p>
+      <a href="{{ entry.url }}">{{entry.title}}</a>
+      <p>{{ entry.body|slice(0, 50)|raw }}</p>
 
-{% endfor %}
+    {% endfor %}
 
-<h2>Videos</h2>
-{% for entry in craft.entries.section('videos') %}
+    <h2>Videos</h2>
+    {% for entry in craft.entries.section('videos') %}
 
-  <a href="{{entry.url}}">{{entry.title}}</a>
-  {{ entry.body|slice(0, 50)|raw }}
+      <a href="{{entry.url}}">{{entry.title}}</a>
+      {{ entry.body|slice(0, 50)|raw }}
 
-{% endfor %}
+    {% endfor %}
 
-<h2>FAQ's</h2>
-{% for entry in craft.entries.section('FAQs') %}
+    <h2>FAQ's</h2>
+    {% for entry in craft.entries.section('FAQs') %}
 
-  <a href="{{entry.url}}">{{entry.title}}</a>
-  {{ entry.body|slice(0, 50)|raw }}
+      <a href="{{entry.url}}">{{entry.title}}</a>
+      {{ entry.body|slice(0, 50)|raw }}
 
-{% endfor %}
+    {% endfor %}
 
-<h2>Upcoming Events</h2>
-{% set events = craft.entries.section('events').order('eventDate asc') %}
-{% for entry in events if entry.eventDate > now %}
-  {% if loop.index <=3 %}
-    <a href="{{entry.url}}">{{entry.title}}</a>
-    {{ entry.body|slice(0, 50)|raw }}
-  {% endif %}
-{% endfor %}
+    <h2>Upcoming Events</h2>
+    {% set events = craft.entries.section('events').order('eventDate asc') %}
+    {% for entry in events if entry.eventDate > now %}
+      {% if loop.index <=3 %}
+        <a href="{{entry.url}}">{{entry.title}}</a>
+        {{ entry.body|slice(0, 50)|raw }}
+      {% endif %}
+    {% endfor %}
+  </section>
+</main>
 
 {% endblock %}

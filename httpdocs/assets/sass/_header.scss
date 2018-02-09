@@ -36,16 +36,16 @@ header h1 {
   display: flex;
 }
 
-.nav__list__item:active {
-  background-color: $lightBlue;
-  color: white;
-}
+
 .nav__list__link {
   background-image: url(../img/ui/baseball.svg);
   background-repeat: no-repeat;
   background-position: top center;
   padding: 3.5em .25em 0 .25em;
   background-size:30px auto;
+  &:active {
+    background-image: url(../img/ui/orangebaseball.svg)
+  }
 }
 
 .nav__list__item a {
