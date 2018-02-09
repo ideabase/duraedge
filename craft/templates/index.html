@@ -34,15 +34,10 @@
 
 	<!-- Feature Image Gallery!-->
 
-	<h1>Blog Posts:</h1>
-		{% for entry in craft.entries.section('blogPosts').limit(2)%}
-			{% if entry.featuredContent == 1 %}
-	  			<a href="{{entry.url}}"><h1>{{entry.title}}</h1></a>
-	  	{%endif%}
-		{%endfor%}
-
-		<h1>Current Customers:</h1>
-
+	<h1>Trending Now</h1>
+	<section class="panel">
+		{% include '_includes/featured-post.html' %}
+	</section>
 		{% for entry in craft.entries.section('currentCustomers').limit(5)%}
 		<div class="owl-carousel">
 		<div class="home__block ">
@@ -55,8 +50,7 @@
 				<img class="home__cust__image" src="{{image.url}}" alt="{{image.title}}" />
 			{% endfor %}
 		</div>
-		</div>
-		<!-- need image, field type !-->
+	</div>
 
 		{% endfor %}
 	</section>

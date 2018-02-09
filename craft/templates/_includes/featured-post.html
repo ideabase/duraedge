@@ -1,0 +1,14 @@
+<section class="feature-post">
+{% for entry in craft.entries.section('blogPosts').limit(2)%}
+  {% if entry.featuredContent == 1 %}
+  <a href="{{entry.url}}" class="feature-post__item">
+      {% for asset in entry.featureImage %}
+          <figure class="feature-post__item__image" style="background-image: url('{{asset.url}}')"></figure>
+      {% endfor %}
+      <h3 class="feature-post__item__title">{{entry.title}}</h3>
+      <time class="feature-post__item__date">{{ entry.postDate}}</time>
+      <p class="feature-post__item__teaser">{{entry.teaser}}</p>
+      Read More
+  </a>
+  {% endif %}
+{% endfor %}
