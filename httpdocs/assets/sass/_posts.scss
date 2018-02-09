@@ -1,0 +1,19 @@
+.feature-post {
+  @media #{$medium} {
+    display: flex;
+    justify-content: space-around;
+  }
+}
+
+.feature-post__item {
+  background-color: white;
+  display: inline-block;
+  text-decoration: none;
+  color: black;
+  margin: 1em;
+  padding: 2em;
+  border-radius: 5px;
+  @media #{$medium} {
+    width: 45%;
+  }
+}
