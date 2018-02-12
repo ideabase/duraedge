@@ -20,16 +20,13 @@
 
 $function imageswitch() {
     var photo = $(".feature__image");
-    var div = $("#scrollingImage");
+    var div = $("#scrollingImage")
     $("content").scroll(function() {
         var scroll = $("content").scrollTop();
         if (scroll >= 200) {
-            photo.removeClass("image1").addClass("image2");
+            div.
+            div.removeClass("image1").addClass("image2");
         }
-        if (scroll >= 400){
-          div.removeClass('image{{imageTwo}}').addClass("image{{imageThree}}");
-        }
-
         else {
             div.removeClass("image{{imageThree}}").addClass('image{{imageTwo}}');
         }
@@ -40,7 +37,6 @@ $function imageswitch() {
 <main role="main" class="landing">
   <style>
     {% for image in entry.image %}
-        {% set imageCount = loop.index %}
         .image{{loop.index}} {
           background-image: url({{image.url}});"
         }
