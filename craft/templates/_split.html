@@ -3,6 +3,9 @@
 {% block feature %}
 
 {% set imageCount = 0 %}
+{% set imageOne = 1 %}
+{% set imageTwo = 2 %}
+{% set imageThree = 3 %}
 
 <script>
 
@@ -15,16 +18,20 @@
   }, 100);
 })();
 
-(function imageswitch() {
+$function imageswitch() {
     var photo = $(".feature__image");
+    var div = $("#scrollingImage");
     $("content").scroll(function() {
         var scroll = $("content").scrollTop();
-
         if (scroll >= 200) {
-          {% set newImg = imageCount + 1 %}
-            photo.removeClass('image{{imageCount}}').addClass("image{{newImg}}");
-        } else {
-            photo.removeClass("image{{newImg}}").addClass('image{{imageCount}}');
+            photo.removeClass("image1").addClass("image2");
+        }
+        if (scroll >= 400){
+          div.removeClass('image{{imageTwo}}').addClass("image{{imageThree}}");
+        }
+
+        else {
+            div.removeClass("image{{imageThree}}").addClass('image{{imageTwo}}');
         }
     });
 });
@@ -39,8 +46,7 @@
         }
       {% endfor %}
   </style>
-  <div class="feature__image feature__image--landing image1">
-  </div>
+  <div id="scrollingImage" class="feature__image feature__image--landing image1"></div>
 {% endblock %}
 
 {% block content %}
