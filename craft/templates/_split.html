@@ -2,36 +2,63 @@
 
 {% block feature %}
 
+{% set images = entry.image %}
 {% set imageCount = 0 %}
-{% set imageOne = 1 %}
-{% set imageTwo = 2 %}
-{% set imageThree = 3 %}
+
+{% for image in images %}
+  {% set imageCount = imageCount + 1%}
+{% endfor %}
+{% set scrollLength = 1500 / imageCount %}
+
+{% for image in entry.image %}
+
+
+
+
+{% endfor %}
+
+<!--
+<h2>Scroll length: {{scrollLength}}</h2>
+<h2>Image Count: {{imageCount}}</h2>
+<!-- Indexing images example !-->
+{# <img src="{{images[1].getUrl()}}"> #}
+<!-- //////////////////////////// !-->
+
 
 <script>
 
 (function() {
   var nTimer = setInterval(function() {
     if (window.jQuery) {
-       imageswitch();
+    //  var photo = $(".feature__image");
+      var div = $("#scrolling_image");
+      $(".content").scroll(function() {
+          var scroll = $(".content").scrollTop();
+
+
+
+
+          if (scroll > {{scrollLength}}) {
+              div.removeClass("image1").addClass("image2");
+          }
+          {% set secondScroll = scrollLength * 2 %}
+          if (scroll > {{secondScroll}}){
+            div.removeClass("image2").addClass("image3");
+          }
+         if (scroll < {{secondScroll}} && scroll > {{scrollLength}}){
+              div.removeClass("image3").addClass("image2");
+          }
+
+          if (scroll < {{scrollLength}}){
+               div.removeClass("image2").addClass("image1");
+           }
+      });
       clearInterval(nTimer);
     }
   }, 100);
 })();
 
-$function imageswitch() {
-    var photo = $(".feature__image");
-    var div = $("#scrollingImage")
-    $("content").scroll(function() {
-        var scroll = $("content").scrollTop();
-        if (scroll >= 200) {
-            div.
-            div.removeClass("image1").addClass("image2");
-        }
-        else {
-            div.removeClass("image{{imageThree}}").addClass('image{{imageTwo}}');
-        }
-    });
-});
+
 </script>
 
 <main role="main" class="landing">
@@ -42,7 +69,7 @@ $function imageswitch() {
         }
       {% endfor %}
   </style>
-  <div id="scrollingImage" class="feature__image feature__image--landing image1"></div>
+  <div id="scrolling_image" class="feature__image feature__image--landing image1"></div>
 {% endblock %}
 
 {% block content %}
