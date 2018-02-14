@@ -8,25 +8,12 @@
 {% for image in images %}
   {% set imageCount = imageCount + 1%}
 {% endfor %}
+
 {% set scrollLength = 1500 / imageCount %}
-
-{% for image in entry.image %}
-
-
-
-
-{% endfor %}
-
-<!--
-<h2>Scroll length: {{scrollLength}}</h2>
-<h2>Image Count: {{imageCount}}</h2>
-<!-- Indexing images example !-->
-{# <img src="{{images[1].getUrl()}}"> #}
-<!-- //////////////////////////// !-->
+{% set secondScroll = scrollLength * 2 %}
 
 
 <script>
-
 (function() {
   var nTimer = setInterval(function() {
     if (window.jQuery) {
@@ -35,30 +22,35 @@
       $(".content").scroll(function() {
           var scroll = $(".content").scrollTop();
 
+        if ( {{imageCount}} == 2){
+            if (scroll > {{scrollLength}}) {
+                div.removeClass("image1").addClass("image2");
+              }
+            if (scroll < {{secondScroll}} && scroll > {{scrollLength}}){
+                div.removeClass("image2").addClass("image1");
+              }
+        }
 
-
-
-          if (scroll > {{scrollLength}}) {
+          if ( {{imageCount}} == 3){
+            if (scroll > {{scrollLength}}) {
               div.removeClass("image1").addClass("image2");
-          }
-          {% set secondScroll = scrollLength * 2 %}
-          if (scroll > {{secondScroll}}){
-            div.removeClass("image2").addClass("image3");
-          }
-         if (scroll < {{secondScroll}} && scroll > {{scrollLength}}){
-              div.removeClass("image3").addClass("image2");
-          }
+            }
 
-          if (scroll < {{scrollLength}}){
+            if (scroll > {{secondScroll}}){
+              div.removeClass("image2").addClass("image3");
+            }
+            if (scroll < {{secondScroll}} && scroll > {{scrollLength}}){
+              div.removeClass("image3").addClass("image2");
+            }
+            if (scroll < {{scrollLength}}){
                div.removeClass("image2").addClass("image1");
            }
+          }
       });
       clearInterval(nTimer);
     }
-  }, 100);
+  }, 300);
 })();
-
-
 </script>
 
 <main role="main" class="landing">
