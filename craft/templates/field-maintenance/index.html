@@ -1,7 +1,5 @@
-{% extends "_layout" %}
-{% block content %}
-<main role="main" class="full">
-  <section class="content content--full">
+{% extends "_full" %}
+{% block subcontent %}
     <h1>{{entry.title}}</h1>
     <input type="text" class="maintenance__search" placeholder="Find your answer"></input>
 
@@ -46,7 +44,5 @@
         {{ entry.body|slice(0, 50)|raw }}
       {% endif %}
     {% endfor %}
-  </section>
-</main>
 
 {% endblock %}

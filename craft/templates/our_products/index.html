@@ -1,5 +1,5 @@
-{% extends "_layout" %}
-{% block content %}
+{% extends "_full" %}
+{% block subcontent %}
 
 {% set waterCategories = craft.categories.group('waterAccess') %}
 {% set maintenanceCategories = craft.categories.group('waterAccess') %}
@@ -14,10 +14,6 @@
 <br>
 <a href="#">Explore Products</a>
 <a href="#">Browse All</a>
-
-<div class = "owl-carousel brand-logo-grid">
-  {% set cols = 1 %}
-
 
 <h1>Which solution is right for you?</h1>
 <p>
@@ -104,5 +100,6 @@
   <a href="{{entry.url}}"><h4>{{entry.title}}</h4></a>
   {% endfor %}
 {% endfor %}
+
 
 {% endblock %}
