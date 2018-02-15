@@ -18,7 +18,7 @@ footer {
 .footer__top {
   content:"";
   display: block;
-  width: 30%;
+  width: 80%;
   height: 1px;
   top: 0px;
   background-color: $orange;
@@ -28,6 +28,9 @@ footer {
   left: 0;
   right: 0;
   margin: auto
+}
+.footer__top--short {
+  width: 30%;
 }
 
 .footer__top__diamond {
@@ -55,6 +58,7 @@ footer {
   	border-top-color: $orange;
   }
 }
+
 
 .footer__logo__img {
   max-width: 40%;

@@ -1,48 +1,53 @@
 {% extends "_full" %}
 {% block subcontent %}
-    <h1>{{entry.title}}</h1>
+    <h2>{{entry.title}}</h2>
     <input type="text" class="maintenance__search" placeholder="Find your answer"></input>
 
-    <h2>Process</h2>
+    <div class="maintenance__topic__div">
+      <h3>By Topic</h3>
+      <div class="maintenance__topic">
+        {% for cat in craft.categories.group('faqTopic') %}
+          <p class="maintenance__topic__item">{{ cat.title }}</p>
+        {% endfor %}
+      </div>
+    </div>
+    <!--<h2>Process</h2>
     {% for entry in entry.process %}
       <h1>{{entry.processTitle}}</h1>
       <p>{{entry.processInformation}}</p>
-    {%endfor%}
+    {%endfor%}-->
+    <h1>Featured Posts</h1>
+    </section>
+    <section class="panel">
+      {% include '_includes/diamond.html' %}
+  		{% include '_includes/featured-post.html' %}
+  	</section>
 
-    <h3><a href="{{ url('certification-programs') }}">Get Certified</a></h3>
-
-
-    <h2>Blog Posts</h2>
-    {% for entry in craft.entries.section('blogPosts') %}
-
-      <a href="{{ entry.url }}">{{entry.title}}</a>
-      <p>{{ entry.body|slice(0, 50)|raw }}</p>
-
-    {% endfor %}
-
-    <h2>Videos</h2>
-    {% for entry in craft.entries.section('videos') %}
-
-      <a href="{{entry.url}}">{{entry.title}}</a>
-      {{ entry.body|slice(0, 50)|raw }}
-
-    {% endfor %}
-
-    <h2>FAQ's</h2>
-    {% for entry in craft.entries.section('FAQs') %}
-
-      <a href="{{entry.url}}">{{entry.title}}</a>
-      {{ entry.body|slice(0, 50)|raw }}
-
-    {% endfor %}
-
-    <h2>Upcoming Events</h2>
-    {% set events = craft.entries.section('events').order('eventDate asc') %}
-    {% for entry in events if entry.eventDate > now %}
-      {% if loop.index <=3 %}
+      <h2>Videos</h2>
+      {% for entry in craft.entries.section('videos') %}
         <a href="{{entry.url}}">{{entry.title}}</a>
         {{ entry.body|slice(0, 50)|raw }}
-      {% endif %}
-    {% endfor %}
+      {% endfor %}
+    </section>
+
+    <section class="content content--full">
+      <div class="maintenance__faq">
+        {% for entry in craft.entries.section('FAQs').limit(1) %}
+          <h3>{{ entry.title }}</h3>
+          <div class="maintenance__faq__body">
+            <p>{{ entry.body|slice(0, 450)|raw }}...</p>
+          </div>
+          <a href="#" class="button">Read More</a>
+          <a href="#" class="button">View All FAQ's</a>
+        {% endfor %}
+      </div>
+      <h2>Upcoming Events</h2>
+      {% set events = craft.entries.section('events').order('eventDate asc') %}
+      {% for entry in events if entry.eventDate > now %}
+        {% if loop.index <=3 %}
+          <a href="{{entry.url}}">{{entry.title}}</a>
+          {{ entry.body|slice(0, 50)|raw }}
+        {% endif %}
+      {% endfor %}
 
 {% endblock %}

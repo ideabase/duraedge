@@ -24,4 +24,16 @@ main {
    font-size: 2em;
    font-weight: 800;
    font-family: $sans-serif;
+   margin: 0;
  }
+.button {
+  text-decoration: none;
+  display: block;
+  width: 150px;
+  color: white;
+  background-color: $red;
+  text-align: center;
+  border-radius: 10px;
+  padding:4px;
+  margin-bottom: 5px;
+}
