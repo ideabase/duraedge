@@ -37,7 +37,7 @@
   {% for entry in craft.entries.section('whyDuraedge') %}
   {% set imageCount = loop.index %}
   <style>
-    {% for image in entry.image %}
+    {% for image in entry.featureImage %}
 
         .image{{loop.index}} {
           background-image: url({{image.url}});"
