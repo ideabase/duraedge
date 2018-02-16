@@ -55,11 +55,11 @@
 }
 .maintenance__faq__body {
   text-align: left;
-  width: 75%;
+  width: 85%;
   margin-left: auto;
   margin-right: auto;
 }
-.maintenance__faq {
+.maintenance__bottom__faq {
   width: 100%;
   text-align: center;
   align-items: center;
@@ -67,7 +67,7 @@
   flex-direction: column;
   justify-content: space-around;
   @media #{$medium} {
-    width: 50%;
+    width: 40%;
   }
 }
 .maintenance__topic__item {
@@ -75,6 +75,50 @@
   @media #{$medium} {
       width: 25%;
   }
+}
+.maintenance__bottom {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  @media #{$medium} {
+    flex-direction: row;
+  }
+}
+.maintenance__bottom__top {
+  width: 100%;
+  text-align: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  @media #{$medium} {
+    flex-direction: row;
+  }
+}
+.maintenance__bottom__bottom {
+  text-align: center;
+  margin: 2em;
+}
+.maintenance__bottom__content {
+  width: 100%;
+  @media #{$medium} {
+      width: 50%;
+  }
+}
+.maintenance__bottom__subhead {
+  width: 60%;
+}
+.maintenance__bottom__right {
+  width: 100%;
+  margin-top: 2em;
+  display: flex;
+  flex-direction: column;
+  @media #{$medium} {
+    width: 60%;
+  }
+}
+.maintenance__bottom__image {
+  width: 100%;
 }
 .maintenance__topic__div {
   margin-top: 2em;

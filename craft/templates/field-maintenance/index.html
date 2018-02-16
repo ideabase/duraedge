@@ -31,16 +31,40 @@
     </section>
 
     <section class="content content--full">
-      <div class="maintenance__faq">
-        {% for entry in craft.entries.section('FAQs').limit(1) %}
-          <h3>{{ entry.title }}</h3>
-          <div class="maintenance__faq__body">
-            <p>{{ entry.body|slice(0, 450)|raw }}...</p>
+      <div class="maintenance__bottom">
+        <div class="maintenance__bottom__faq">
+          {% for entry in craft.entries.section('FAQs').limit(1) %}
+            <h3>{{ entry.title }}</h3>
+            <div class="maintenance__faq__body">
+              <p>{{ entry.body|slice(0, 450)|raw }}...</p>
+            </div>
+            <a href="#" class="button">Read More</a>
+            <a href="#" class="button">View All FAQ's</a>
+          {% endfor %}
+        </div>
+        <div class="maintenance__bottom__right">
+          <div class="maintenance__bottom__top">
+            <div class="maintenance__bottom__content">
+              <h3>Spotlight Install</h3>
+              {% for entry in craft.entries.section('installations').limit(1) %}
+              <h4 class="maintenance__bottom__subhead">{{ entry.title }}</h4>
+              <div class="maintenance__faq__body">
+                <p>{{ entry.body|slice(0, 151)|raw }}...</p>
+              </div>
+              <a href="#" class="button">Read More</a>
+            </div>
+            <div>
+              {% for asset in entry.featureImage.limit(1) %}
+                <img class="maintenance__bottom__image" src="{{ asset.url('maintenanceImage') }}" alt="Feature Image"/>
+              {% endfor %}
+              {% endfor %}
+            </div>
+            </div>
+            <div class="maintenance__bottom__bottom">
+              <iframe src="https://www.youtube.com/embed/XGSy3_Czz8k"></iframe>
+            </div>
           </div>
-          <a href="#" class="button">Read More</a>
-          <a href="#" class="button">View All FAQ's</a>
-        {% endfor %}
-      </div>
+        </div>
       <h2>Upcoming Events</h2>
       {% set events = craft.entries.section('events').order('eventDate asc') %}
       {% for entry in events if entry.eventDate > now %}
