@@ -61,12 +61,10 @@
             </div>
             </div>
             {% for video in entry.video %}
-
             <div class="maintenance__bottom__bottom">
               <figcaption>{{video.videoName}}</figcaption>
               {{video.videoUrl |videoEmbed }}
             </div>
-
             {% endfor %}
 
           </div>

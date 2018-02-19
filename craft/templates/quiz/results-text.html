@@ -1,9 +1,8 @@
 {% extends "_full" %}
 {% block subcontent %}
 
-<!-- Text search results shown here !-->
-
 <h1>Search Results</h1>
+
 
 {% set query = craft.request.getParam('searchQuery') %}
 {% set entries = craft.entries.section('FAQ').search(query) %}

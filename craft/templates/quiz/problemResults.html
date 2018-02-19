@@ -1,0 +1,44 @@
+{% extends "_full" %}
+{% block subcontent %}
+
+<h1>Search Results</h1>
+
+{% set problemQuery = craft.request.getParam('ourProducts') %}
+{% set problemCategories = craft.categories.group('problemArea').slug(problemQuery) %}
+
+
+{% set searchParams = {
+  relatedTo: problemCategories,
+  section: 'ourProducts'
+} %}
+
+{% set results = craft.entries(searchParams).order('score') %}
+
+{% if results |length %}
+
+    <p>{{ results|length }} results:</p>
+
+    <ul>
+        {% for entry in results %}
+            <li><a href="{{ entry.url }}">{{ entry.title }}</a></li>
+            {% for image in entry.image %}
+            <br />
+            <br />
+            <br />
+              <img src="{{image.url}}" />
+            {% endfor %}
+        {% endfor %}
+    </ul>
+
+{% else %}
+  <p>Your search for
+  {% for item in problemQuery %}
+    {% if not loop.last%}
+                      “{{item}}, ”
+        {% else %}
+                                    and "{{item}}"
+    {% endif %}
+  {% endfor %}
+                                                    didn’t return any results.</p>
+  {% endif %}
+{% endblock %}
