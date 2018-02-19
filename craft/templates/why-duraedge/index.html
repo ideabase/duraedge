@@ -17,9 +17,10 @@
 
 
     <!-- Insert Video !-->
-    <iframe width="420" height="315"
-    src="https://www.youtube.com/embed/XGSy3_Czz8k">
-    </iframe>
+    {% for video in entry.video %}
+    <figcaption>{{video.videoName}}</figcaption>
+    {{video.videoUrl |videoEmbed }}
+    {% endfor %}
 
     <h1>Blog Posts:</h1>
     	{% for entry in craft.entries.section('blogPosts').limit(2) %}

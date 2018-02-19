@@ -8,7 +8,7 @@
 {% for image in images %}
   {% set imageCount = imageCount + 1%}
 {% endfor %}
-
+{% if imageCount > 0 %}
 {% set scrollLength = 1500 / imageCount %}
 {% set secondScroll = scrollLength * 2 %}
 
@@ -51,6 +51,7 @@
     }
   }, 300);
 })();
+{% endif %}
 </script>
 
 <main role="main" class="landing">
