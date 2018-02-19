@@ -7,7 +7,7 @@
 </p>
 <a href="#">START NOW</a>
 
-<form action="{{ url('our_products/results') }}">
+<form action="{{ url('quiz/results') }}">
     <div class="select-style">
       <h6>New or Existing:</h6>
     <select name="querySlug3">
@@ -36,7 +36,7 @@
 <!-- Forward declaration of problemQuery so we can dynamically assign values to the checkboxes !-->
 {% set problemQuery = craft.request.getParam('ourProducts') %}
 
-<form action="{{ url('our_products/problemResults.html') }}">
+<form action="{{ url('quiz/problemResults.html') }}">
     {% for category in craft.categories.group('problemArea') %}
           <label><input type="checkbox" name="ourProducts[]" value="{{ category.slug }}" {{ category.slug in problemQuery ? 'checked' }}> {{category.title}}</label>
     {% endfor %}
@@ -45,7 +45,7 @@
 
 <h1>Find the Solution to a Problem</h1>
 
-<form action="{{ url('our_products/results-text.html') }}">
+<form action="{{ url('quiz/results-text.html') }}">
     <input type="text" name="searchQuery" />
     <input type="submit" value="Go">
 </form>
