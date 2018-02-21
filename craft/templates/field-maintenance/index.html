@@ -59,9 +59,13 @@
               {% endfor %}
             </div>
             </div>
+            {% for video in entry.video %}
             <div class="maintenance__bottom__bottom">
-              <iframe src="https://www.youtube.com/embed/XGSy3_Czz8k"></iframe>
+              <figcaption>{{video.videoName}}</figcaption>
+              {{video.videoUrl |videoEmbed }}
             </div>
+            {% endfor %}
+
           </div>
         </div>
       <h2>Upcoming Events</h2>
