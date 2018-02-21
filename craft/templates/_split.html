@@ -2,57 +2,7 @@
 
 {% block feature %}
 
-{% set images = entry.image %}
-{% set imageCount = 0 %}
-
-{% for image in images %}
-  {% set imageCount = imageCount + 1%}
-{% endfor %}
-{% if imageCount > 0 %}
-{% set scrollLength = 1500 / imageCount %}
-{% set secondScroll = scrollLength * 2 %}
-
-
-<script>
-(function() {
-  var nTimer = setInterval(function() {
-    if (window.jQuery) {
-    //  var photo = $(".feature__image");
-      var div = $("#scrolling_image");
-      $(".content").scroll(function() {
-          var scroll = $(".content").scrollTop();
-
-        if ( {{imageCount}} == 2){
-            if (scroll > {{scrollLength}}) {
-                div.removeClass("image1").addClass("image2");
-              }
-            if (scroll < {{secondScroll}} && scroll > {{scrollLength}}){
-                div.removeClass("image2").addClass("image1");
-              }
-        }
-
-          if ( {{imageCount}} == 3){
-            if (scroll > {{scrollLength}}) {
-              div.removeClass("image1").addClass("image2");
-            }
-
-            if (scroll > {{secondScroll}}){
-              div.removeClass("image2").addClass("image3");
-            }
-            if (scroll < {{secondScroll}} && scroll > {{scrollLength}}){
-              div.removeClass("image3").addClass("image2");
-            }
-            if (scroll < {{scrollLength}}){
-               div.removeClass("image2").addClass("image1");
-           }
-          }
-      });
-      clearInterval(nTimer);
-    }
-  }, 300);
-})();
-{% endif %}
-</script>
+{% include '_includes/_imageScroll.html' %}
 
 <main role="main" class="landing">
   <style>
