@@ -46,11 +46,9 @@
 	<!-- Feature Image Gallery!-->
 
 
-	</section>
 	<h1>Trending Now</h1>
 	<section class="panel">
 		{% include '_includes/featured-post.html' %}
-	</section>
 		<div class="owl-carousel">
 			{% for entry in craft.entries.section('currentCustomers').limit(5)%}
 			<div class="home__block">
@@ -65,4 +63,5 @@
 			</div>
 			{% endfor %}
 		</div>
+	</section>
 {% endblock %}
