@@ -6,91 +6,102 @@
 {% set categories = craft.categories.group('waterAccess') %}
 
 
-<a href="#">Explore Products</a>
-<a href="#">Browse All</a>
+<ul class="tabs">
+  <li class="tab-link current-link" href="#">Explore Products</li>
+  <li class="tab-link" class="products__link" href="#">Browse All</li>
+</ul>
 
-<h1>Which solution is right for you?</h1>
-<p>
-  Take our quiz to discover which product will help you to get the most out of your DuraEdge field
-</p>
-<a href="#">START NOW</a>
-
-<form action="{{ url('our_products/results') }}">
-    <div class="select-style">
-      <h6>New or Existing:</h6>
-    <select name="querySlug3">
-      {% for category in craft.categories.group('newOrExisting') %}
-      <option value="{{category.slug}}">{{category.title}}</option>
-      {% endfor %}
-    </select>
+<div id="tab-1" class="tab-content current">
+  <div class="products__process">
+    {% for block in entry.process %}
+      <div class="process__title">
+        <h3>{{ block.processTitle }}</h3>
+        <div class="process__inner">
+          <p>{{ block.processInformation }}</p>
+        </div>
+      </div>
+    {% endfor %}
   </div>
+</div>
 
-  <h6>Maintanence Level:</h6>
-      <select name="querySlug2">
-        {% for category in craft.categories.group('maintenanceLevel') %}
+<div id="tab-2" class="tab-content">
+  <h1>Which solution is right for you?</h1>
+  <p>
+    Take our quiz to discover which product will help you to get the most out of your DuraEdge field
+  </p>
+  <a href="#">START NOW</a>
+
+  <form action="{{ url('our_products/results') }}">
+      <div class="select-style">
+        <h6>New or Existing:</h6>
+      <select name="querySlug3">
+        {% for category in craft.categories.group('newOrExisting') %}
         <option value="{{category.slug}}">{{category.title}}</option>
         {% endfor %}
       </select>
-  <h6>Water Access:</h6>
-      <select name="querySlug">
-          {% for category in craft.categories.group('waterAccess') %}
+    </div>
+
+    <h6>Maintanence Level:</h6>
+        <select name="querySlug2">
+          {% for category in craft.categories.group('maintenanceLevel') %}
           <option value="{{category.slug}}">{{category.title}}</option>
           {% endfor %}
-      </select>
+        </select>
+    <h6>Water Access:</h6>
+        <select name="querySlug">
+            {% for category in craft.categories.group('waterAccess') %}
+            <option value="{{category.slug}}">{{category.title}}</option>
+            {% endfor %}
+        </select>
 
+        <input type="submit" value="Go">
+  </form>
+
+
+  <!-- Forward declaration of problemQuery so we can dynamically assign values to the checkboxes !-->
+  {% set problemQuery = craft.request.getParam('ourProducts') %}
+
+  <form action="{{ url('our_products/problemResults.html') }}">
+      {% for category in craft.categories.group('problemArea') %}
+            <label><input type="checkbox" name="ourProducts[]" value="{{ category.slug }}" {{ category.slug in problemQuery ? 'checked' }}> {{category.title}}</label>
+      {% endfor %}
+      <button type="submit">Search</button>
+  </form>
+
+
+  <!-- move fields !-->
+
+
+  <h1>Find the Solution to a Problem</h1>
+
+  <form action="{{ url('our_products/results-text.html') }}">
+      <input type="text" name="searchQuery" />
       <input type="submit" value="Go">
-</form>
+  </form>
 
+  <h3>Why Engineered Soil?</h3>
+  <video></video>
 
-<!-- Forward declaration of problemQuery so we can dynamically assign values to the checkboxes !-->
-{% set problemQuery = craft.request.getParam('ourProducts') %}
+  <a href"#">Take the next step</a>
 
-<form action="{{ url('our_products/problemResults.html') }}">
-    {% for category in craft.categories.group('problemArea') %}
-          <label><input type="checkbox" name="ourProducts[]" value="{{ category.slug }}" {{ category.slug in problemQuery ? 'checked' }}> {{category.title}}</label>
-    {% endfor %}
-    <button type="submit">Search</button>
-</form>
+  <h1>Browse our products <a href="#">here</a></h1>
 
-
-<h1>Process</h1>
-{% for entry in entry.process %}
-  <h1>{{entry.processTitle}}</h1>
-  <p>{{entry.processInformation}}</p>
-{% endfor %}
-<!-- move fields !-->
-
-
-<h1>Find the Solution to a Problem</h1>
-
-<form action="{{ url('our_products/results-text.html') }}">
-    <input type="text" name="searchQuery" />
-    <input type="submit" value="Go">
-</form>
-
-<h3>Why Engineered Soil?</h3>
-<video></video>
-
-<a href"#">Take the next step</a>
-
-<h1>Browse our products <a href="#">here</a></h1>
-
-{% for category in craft.categories.group('productType').order('title') %}
-  {% if category.title | length %}
-      <a href="#"><h3>{{category.title}}</h3></a>
-  {% endif %}
-{% endfor %}
-
-
-
-{% for category in craft.categories.group('productType') %}
-  {% set entries = craft.entries.section('ourProducts').relatedTo(category) %}
-  <h1>{{category.title}}</h1>
-  <p>{{category.body}}</p>
-    {% for entry in entries %}
-  <a href="{{entry.url}}"><h4>{{entry.title}}</h4></a>
+  {% for category in craft.categories.group('productType').order('title') %}
+    {% if category.title | length %}
+        <a href="#"><h3>{{category.title}}</h3></a>
+    {% endif %}
   {% endfor %}
-{% endfor %}
 
+
+
+  {% for category in craft.categories.group('productType') %}
+    {% set entries = craft.entries.section('ourProducts').relatedTo(category) %}
+    <h1>{{category.title}}</h1>
+    <p>{{category.body}}</p>
+      {% for entry in entries %}
+    <a href="{{entry.url}}"><h4>{{entry.title}}</h4></a>
+    {% endfor %}
+  {% endfor %}
+</div>
 
 {% endblock %}

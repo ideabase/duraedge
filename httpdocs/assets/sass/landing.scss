@@ -1,3 +1,4 @@
+/* General */
 .landing {
   text-align: center;
   @media #{$large} {
@@ -39,6 +40,8 @@
   }
 }
 
+
+/* Maintenance Page */
 .maintenance__search {
   width: 70%;
   height: 3em;
@@ -122,4 +125,13 @@
 }
 .maintenance__topic__div {
   margin-top: 2em;
+}
+
+/* Products Landing Page */
+
+.products__process {
+  max-width: 65%;
+}
+.process__inner {
+  margin-left: 4em;
 }

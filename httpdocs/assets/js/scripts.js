@@ -26,3 +26,17 @@ $(".owl-carousel").owlCarousel({
   	  items:1,
   	  loop:true
   });
+
+
+$(document).ready(function(){
+
+        $('ul.tabs li').click(function(){
+            var tab_id = $(this).attr('data-tab');
+
+            $('ul.tabs li').removeClass('current-link');
+            $('.tab-content').removeClass('current');
+
+            $(this).addClass('current-link');
+            $("#"+tab_id).addClass('current');
+        })
+});
