@@ -1,18 +1,19 @@
 {% extends "_layout" %}
 {% block content %}
+<main role="main">
+  {% for asset in entry.featureImage %}
+    {% if asset | length %}
+  		<img src="{{asset.url}}" alt="{{asset.title}}" />
+      {% endif %}
+  {% endfor %}
 
-{% for asset in entry.image %}
-  {% if asset | length %}
-		<img src="{{asset.url}}" alt="{{asset.title}}" />
-    {% endif %}
-{% endfor %}
 
-
-<h1>{{entry.title}}</h1>
-<p>
-  {{entry.body}}
-</p>
-<a href="become-a-certified-installer">Become a Certified Installer</a>
-<a href="field-assurance-program">Field Assurance Program</a>
+  <h1>{{entry.title}}</h1>
+  <p>
+    {{entry.body}}
+  </p>
+  <a href="become-a-certified-installer">Become a Certified Installer</a>
+  <a href="field-assurance-program">Field Assurance Program</a>
+</main>
 
 {% endblock %}

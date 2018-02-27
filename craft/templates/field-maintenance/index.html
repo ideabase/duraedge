@@ -17,18 +17,17 @@
       <p>{{entry.processInformation}}</p>
     {%endfor%}-->
     <h1>Featured Posts</h1>
-    </section>
+    
     <section class="panel">
       {% include '_includes/diamond.html' %}
   		{% include '_includes/featured-post.html' %}
-  	</section>
 
       <h2>Videos</h2>
       {% for entry in craft.entries.section('videos') %}
         <a href="{{entry.url}}">{{entry.title}}</a>
         {{ entry.body|slice(0, 50)|raw }}
       {% endfor %}
-    </section>
+  	</section>
 
     <section class="content content--full">
       <div class="maintenance__bottom">

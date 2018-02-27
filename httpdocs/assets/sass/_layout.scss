@@ -1,4 +1,6 @@
 .panel {
   background-color: $lightGray;
   position: relative;
+  margin-left: -2em;
+  width: calc(100% + 4em);
 }

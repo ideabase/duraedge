@@ -43,9 +43,18 @@ header h1 {
   background-position: top center;
   padding: 3.5em .25em 0 .25em;
   background-size:30px auto;
-  &:active {
-    background-image: url(../img/ui/orangebaseball.svg)
-  }
+}
+.advantage {
+  background-image: url()
+}
+.products {
+  background-image: url()
+}
+.fieldMaintenance {
+  background-image: url()
+}
+.contactDuraedge {
+  background-image: url()
 }
 
 .nav__list__item a {
