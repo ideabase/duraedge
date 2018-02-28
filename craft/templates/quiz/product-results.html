@@ -1,0 +1,76 @@
+{% extends "_full" %}
+{% block subcontent %}
+
+{% set querySlug = craft.request.getParam('querySlug') %}
+{% set category = craft.categories.group('waterAccess').slug(querySlug) %}
+
+{% set querySlug3 = craft.request.getParam('querySlug3') %}
+{% set category3 = craft.categories.group('newOrExisting').slug(querySlug3) %}
+
+{% set querySlug4 = craft.request.getParam('querySlug4') %}
+{% set category4 = craft.categories.group('fieldType').slug(querySlug4) %}
+
+{% set querySlug5 = craft.request.getParam('querySlug5') %}
+{% set category5 = craft.categories.group('geographicRegion').slug(querySlug5) %}
+
+{% set entries = craft.entries.section('ourProducts').relatedTo(
+[
+  'and',
+  {targetElement: category},
+  {targetElement: category4},
+  {targetElement: category3},
+  {targetElement: category5},
+  ])
+%}
+
+{% if entries|length %}
+
+<h2>Here's our recommendations based on your selections</h2>
+<p>
+  {{ querySlug3 }}, {{ querySlug }}, {{querySlug5}}, and {{ querySlug4 }}
+</p>
+<hr />
+<a href="/product-quiz/">Modify Selections</a>
+
+
+    <p>{{ entries|length }} results:</p>
+
+    <ul>
+        {% for entry in entries.order('score')%}
+            <li><a href="{{ entry.url }}">{{ entry.title }}</a></li>
+            {% for type in entry.productType %}
+            <h3>{{type.title}}</h3>
+            {% endfor %}
+            <p>
+              {{entry.body |striptags|slice(0,50) }}
+            </p>
+            {% for image in entry.image %}
+              <br />
+              <img src="{{image.url}}" />
+            {% endfor %}
+        {% endfor %}
+    </ul>
+
+<h4 align="center">Next Steps</h4>
+<p>
+  Ready to start building your field with this configuration? Contact your nearest DuraEdge representative
+  to set up customized field testing and receive product samples.
+</p>
+<button>Get Started!</button>
+<hr />
+
+<h4>Optional Accessories</h4>
+<hr />
+<h4>Additional Resources Based on Your Selection</h4>
+
+
+
+{% else %}
+    <p>Your search for “{{ querySlug3 }}, {{ querySlug }}, {{querySlug5}}, and {{ querySlug4 }}” didn’t return any results.</p>
+
+
+
+{% endif %}
+
+
+{% endblock %}

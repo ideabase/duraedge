@@ -1,0 +1,44 @@
+{% extends "_full" %}
+{% block subcontent %}
+
+<h1>Which product is right for you?</h1>
+<p>
+  Take our quiz to discover which product will help you to get the most out of your DuraEdge field
+</p>
+
+
+
+<form action="{{ url('quiz/product-results') }}">
+
+<h4>Choose your field type: </h4>
+<select name="querySlug4">
+  {% for category in craft.categories.group('fieldType') %}
+  <option value="{{category.slug}}">{{category.title}}</option>
+  {% endfor %}
+</select>
+
+<h4>Do you have a new or existing field? </h4>
+<select name="querySlug3">
+  {% for category in craft.categories.group('newOrExisting') %}
+  <option value="{{category.slug}}">{{category.title}}</option>
+  {% endfor %}
+</select>
+
+<h4>Field Water Access (Select All Apply) </h4>
+<select name="querySlug">
+    {% for category in craft.categories.group('waterAccess') %}
+    <option value="{{category.slug}}">{{category.title}}</option>
+    {% endfor %}
+</select>
+
+<h4>Geographic Region </h4>
+<select name="querySlug5">
+    {% for category in craft.categories.group('geographicRegion') %}
+    <option value="{{category.slug}}">{{category.title}}</option>
+    {% endfor %}
+</select>
+
+<input type="submit" value="Go">
+
+</form>
+{%endblock%}

@@ -1,7 +1,12 @@
 {% extends "_full" %}
 {% block subcontent %}
     <h2>{{entry.title}}</h2>
-    <input type="text" class="maintenance__search" placeholder="Find your answer"></input>
+
+
+<form action="{{ url('quiz/results-text.html') }}">
+    <input name="searchQuery" type="text" class="maintenance__search" placeholder="Find your answer"></input>
+    <input type="submit" value="Go">
+</form>
 
     <div class="maintenance__topic__div">
       <h3>By Topic</h3>
@@ -17,7 +22,7 @@
       <p>{{entry.processInformation}}</p>
     {%endfor%}-->
     <h1>Featured Posts</h1>
-    
+
     <section class="panel">
       {% include '_includes/diamond.html' %}
   		{% include '_includes/featured-post.html' %}
@@ -59,13 +64,14 @@
               {% endfor %}
             </div>
             </div>
+{#
             {% for video in entry.video %}
             <div class="maintenance__bottom__bottom">
               <figcaption>{{video.videoName}}</figcaption>
               {{video.videoUrl |videoEmbed }}
             </div>
             {% endfor %}
-
+#}
           </div>
         </div>
       <h2>Upcoming Events</h2>
