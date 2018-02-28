@@ -16,10 +16,9 @@
     {% endfor %}
 
 
-    <!-- Insert Video !-->
     {% for video in entry.video %}
-    <figcaption>{{video.videoName}}</figcaption>
-    {{video.videoUrl |videoEmbed }}
+    <figcaption>{{video.title}}</figcaption>
+    {{video.videoLink | videoEmbed }}
     {% endfor %}
 
     <h1>Blog Posts:</h1>
