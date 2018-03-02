@@ -40,7 +40,33 @@
   }
 }
 
-
+/* DuraEdge Advantage */
+.advantage__body {
+  max-width: 70%;
+  text-align: left;
+  margin-left: auto;
+  margin-right: auto;
+}
+.advantage__faq {
+  background-color: $lightBlue;
+  color: white;
+}
+.faq__list {
+  max-width: 80%;
+  text-align: left;
+  margin-bottom:2.5em;
+  margin-top: 2em;
+}
+.faq__list__ul {
+    list-style-type: none;
+}
+.faq__list__item a {
+  color: white;
+  text-decoration: none;
+}
+.faq__list__item {
+  border-bottom: 1px $orange;
+}
 /* Maintenance Page */
 .maintenance__search {
   width: 70%;

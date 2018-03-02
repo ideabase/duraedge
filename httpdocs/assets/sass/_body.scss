@@ -26,6 +26,10 @@ main {
    font-family: $sans-serif;
    margin: 0;
  }
+ .margin__center {
+   margin-left: auto;
+   margin-right: auto;
+ }
 .button {
   text-decoration: none;
   display: block;
@@ -39,4 +43,16 @@ main {
   &:hover {
     text-decoration: underline;
   }
+}
+
+.button__blue {
+  text-decoration: none;
+  display: block;
+  width: 250px;
+  color: white;
+  background-color: $lightBlue;
+  text-align: center;
+  border-radius: 10px;
+  padding:8px;
+  margin-bottom: 5px;
 }

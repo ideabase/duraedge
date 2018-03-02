@@ -1,52 +1,60 @@
 {% extends "_split" %}
 
 {% block subcontent %}
-    <h1>{{entry.title}}</h1>
-    <p>
+    <h2>{{entry.title}}</h2>
+    <div class="advantage__body">
       {{entry.body}}
-    </p>
-    <a href="about-duraedge"> Learn more about us</a>
+    </div>
+
+    <section class="panel">
+      <div class="advantage__blog">
+        {% for entry in craft.entries.section('blogPosts').order('RAND()').limit(1)%}
+        {% for block in entry.blogPostContent %}
+            "{{block.pullQuote}}"
+            -{{block.pullQuoteAuthorOptional}}
+          {% endfor %}
+        {% endfor %}
+      </div>
+    </section>
+
+    {% include '_includes/diamond.html' %}
+    <div class="advantage__classifying">
+      <h3>Why Classifying Matters</h3>
+      <div class="advantage__body">
+        {{entry.duraedgeadvantage}}
+      </div>
+      <a href="{{url('our_products')}}" class="button__blue margin__center">Learn more about the process</a>
+    </div>
+
+  {% include '_includes/diamond.html' %}
+  <h3>Learn Something New</h3>
 
 
-    <h1>Here's what our customers are saying about DuraEdge: </h1>
-    {% for entry in craft.entries.section('testimonials').order('RAND()').limit(1)%}
 
-      <h4>"{{entry.body}}"</h4>
-      <h6>-{{entry.title}}</h6>
-    {% endfor %}
-
-
-    {% for video in entry.video %}
-    <figcaption>{{video.title}}</figcaption>
-    {{video.videoLink | videoEmbed }}
-    {% endfor %}
-
-    <h1>Blog Posts:</h1>
-    	{% for entry in craft.entries.section('blogPosts').limit(2) %}
+      {% for entry in craft.entries.section('blogPosts').limit(2) %}
     		{% if entry.featuredContent == 1 %}
-      			<a href="{{entry.url}}"><h1>{{entry.title}}</h1></a>
-      	{%endif%}
-    	{%endfor%}
+      			<a href="{{entry.url}}">{{entry.title}}</a>
+      	{% endif %}
+    	{% endfor %}
 
 
-    <h1>FAQ</h1>
-    <ul>
-    {% for entry in craft.entries.section('FAQ') %}
-      {% for article in entry.knowledgeLevel %}
-        {% if article.title == "Basic" %}
-          <li>
-            <h4>{{entry.title}}</h4>
-            <p>{{entry.body}}</p>
 
+  {% include '_includes/diamond.html' %}
+  <section class="advantage__faq">
+    <h3>FAQ - New Customers</h3>
+    <div class="faq__list">
+      <ul class="faq__list__ul">
+        {% for entry in craft.entries.section('faqs').limit(4) %}
+          <li class="faq__list__item">
+            <h4><a href="{{entry.url}}">{{entry.title}}</a></h4>
           </li>
-          {%endif%}
-        {%endfor%}
-    {%endfor%}
-    </ul>
+        {% endfor %}
+      </ul>
+    </div>
+  </section>
 
 
-    <h1>Where do you fit?</h1>
-    <a href="our_products">BUILD YOUR FIELD</a>
+    <h1>Quiz Link</h1>
   </section>
 
 {% endblock %}

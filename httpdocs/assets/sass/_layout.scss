@@ -4,3 +4,11 @@
   margin-left: -2em;
   width: calc(100% + 4em);
 }
+
+.advantage__faq {
+  background-color: $lightBlue;
+  position: relative;
+  margin-left: -2em;
+  width: calc(100% + 4em);
+  overflow: auto;
+}
