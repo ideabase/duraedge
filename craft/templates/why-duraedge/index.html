@@ -6,27 +6,30 @@
       {{entry.body}}
     </div>
 
-    <section class="panel">
-      <div class="advantage__blog">
-        {% for entry in craft.entries.section('blogPosts').order('RAND()').limit(1)%}
-        {% for block in entry.blogPostContent %}
-            "{{block.pullQuote}}"
-            -{{block.pullQuoteAuthorOptional}}
+      <div class="variable__body">
+          {% for block in entry.blogPostContent %}
+            {% if block.type == "pullQuote" %}
+            <div class="variable__body__quote">
+              <section class="panel">
+                <p>{{block.pullQuote}}</p>
+                <p>{{block.pullQuoteAuthor}}</p>
+              </section>
+            {% elseif block.type == "image" %}
+              {% for asset in entry.image %}
+                <img url="{{asset.url}}" alt="{{asset.title}}">
+              {% endfor %}
+              {% elseif block.type == "text" %}
+                variable__body__text
+                <div class="variable__body__text">
+                    {{block.text}}
+                </div>
+              {% elseif block.type =="button" %}
+                <a class="button__blue" href="#">{{ block.buttonText }}</a>
+            {% endif %}
           {% endfor %}
-        {% endfor %}
       </div>
-    </section>
 
-    {% include '_includes/diamond.html' %}
-    <div class="advantage__classifying">
-      <h3>Why Classifying Matters</h3>
-      <div class="advantage__body">
-        {{entry.duraedgeadvantage}}
-      </div>
-      <a href="{{url('our_products')}}" class="button__blue margin__center">Learn more about the process</a>
-    </div>
 
-  {% include '_includes/diamond.html' %}
   <h3>Learn Something New</h3>
 
 

@@ -39,9 +39,18 @@
     max-height: 700px;
   }
 }
-
+/* Matrix Variable Include */
+.variable__body__text {
+  position: relative;
+}
 /* DuraEdge Advantage */
 .advantage__body {
+  max-width: 70%;
+  text-align: left;
+  margin-left: auto;
+  margin-right: auto;
+}
+.variable__body__text {
   max-width: 70%;
   text-align: left;
   margin-left: auto;
@@ -160,4 +169,36 @@
 }
 .process__inner {
   margin-left: 4em;
+}
+.products__categories {
+  display: flex;
+  flex-direction: row;
+  justify-content:space-around;
+  text-align:center;
+}
+.products__categories__item {
+  display: block;
+  color: white;
+  text-decoration: none;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+}
+.products__pro {
+  background-color: $orange;
+}
+.products__int {
+  background-color: $lightBlue;
+}
+.products__rec {
+  background-color: $green;
+}
+.quiz__field {
+  background-color: $brown;
+}
+.quiz__symptom {
+  background-color: $red;
+}
+.quiz__search {
+  background-color: $orange;
 }
