@@ -33,18 +33,17 @@
 				{% for image in entry.productMap %}
 					<img src="{{ image.url }}" alt="product map"/>
 				{% endfor %}
-			  <!--{% for block in entry.interactiveFieldMap %}
 
-			      <p>{{block.nameOf}}</p>
-			      <p>{{block.description}}</p>
-			      <a href="{{block.linkTo}}">{{block.nameOf}}</a>
+				{% set image = entry.interactiveFieldMap.first() %}
 
-		  	{% endfor %}-->
+				{% for category in craft.categories.group('productType')%}
+				<h1>{{category.title}}</h1>
+				<p>{{category.body}}</p>
+					<img src="{{image.url}}" alt="{{image.title}}" />
+				{% endfor %}
+
 			</div>
 		</div>
-
-	<!-- Feature Image Gallery!-->
-
 
 	<h1>Trending Now</h1>
 	<section class="panel">
