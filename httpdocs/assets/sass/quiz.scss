@@ -1,0 +1,17 @@
+/* Quiz Landing Page */
+.quiz__landing {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.quiz__landing__product {
+  width: 30%;
+  text-align: center;
+}
+.quiz__landing__text {
+  text-align: left;
+}
+.quiz__landing__link {
+  text-decoration: none;
+  color: black;
+}

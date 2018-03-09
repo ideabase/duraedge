@@ -1,53 +1,37 @@
 {% extends "_full" %}
 {% block subcontent %}
 
-<h1>Which solution is right for you?</h1>
-<p>
-  Take our quiz to discover which product will help you to get the most out of your DuraEdge field
-</p>
-<a href="#">START NOW</a>
-
-<form action="{{ url('quiz/results') }}">
-    <div class="select-style">
-      <h6>New or Existing:</h6>
-    <select name="querySlug3">
-      {% for category in craft.categories.group('newOrExisting') %}
-      <option value="{{category.slug}}">{{category.title}}</option>
-      {% endfor %}
-    </select>
+<h2>How can we help you?</h2>
+<div class="quiz__landing">
+  <div class="quiz__landing__product">
+    <h3>
+      <a class="quiz__landing__link" href="{{siteUrl}}/quiz/product-quiz.html">
+        Find a Product
+      </a>
+    </h3>
+    <p class="quiz__landing__text">
+      Not sure what DuraEdge products are
+      right for your field? Use our product
+      finder tool to see DuraEdge products
+      and solutions based on your field type.
+    </p>
+  </div>
+  <div class="quiz__landing__product">
+    <h3>
+      <a class="quiz__landing__link" href="{{siteUrl}}/quiz/solution-quiz.html">
+        Solve a Problem
+      </a>
+    </h3>
+    <p class="quiz__landing__text">
+      Have a field with an existing problem?
+      Use this tool to diagnose your problem
+      from a list of common issues and see
+      helpful articles, videos and answers.
+    </p>
   </div>
 
-  <h6>Maintanence Level:</h6>
-      <select name="querySlug2">
-        {% for category in craft.categories.group('maintenanceLevel') %}
-        <option value="{{category.slug}}">{{category.title}}</option>
-        {% endfor %}
-      </select>
-  <h6>Water Access:</h6>
-      <select name="querySlug">
-          {% for category in craft.categories.group('waterAccess') %}
-          <option value="{{category.slug}}">{{category.title}}</option>
-          {% endfor %}
-      </select>
 
-      <input type="submit" value="Go">
-</form>
+</div>
 
-<!-- Forward declaration of problemQuery so we can dynamically assign values to the checkboxes !-->
-{% set problemQuery = craft.request.getParam('ourProducts') %}
-
-<form action="{{ url('quiz/problemResults.html') }}">
-    {% for category in craft.categories.group('problemArea') %}
-          <label><input type="checkbox" name="ourProducts[]" value="{{ category.slug }}" {{ category.slug in problemQuery ? 'checked' }}> {{category.title}}</label>
-    {% endfor %}
-    <button type="submit">Search</button>
-</form>
-
-<h1>Find the Solution to a Problem</h1>
-
-<form action="{{ url('quiz/results-text.html') }}">
-    <input type="text" name="searchQuery" />
-    <input type="submit" value="Go">
-</form>
 
 {%endblock%}
