@@ -8,13 +8,15 @@
   {{entry.body}}
 </p>
 
+<form action="contact-duraedge/distributorMap.html">
 <h1>Find a distributor: </h1>
 <ul>
   <li>
-    <h4>Zip Code: </h4> <input />
-  <a href="#">Search</a>
+    <h4>Zip Code: </h4> <input type="text" name="near"/>
+    <input type="submit" />
 </li>
 </ul>
+</form>
 
 <!-- After Search Display below !-->
 <ul>
@@ -28,7 +30,6 @@
   {% endfor %}
 </ul>
 
-{% include '_includes/distributorMap.html' %}
 
 <h3>Download Marketing Materials:</h3>
 
@@ -40,54 +41,17 @@
 {% endfor %}
 
 
-<h1>Questions? Contact Us: </h1>
-<a href="about-duraedge"> Link to staff directory</a>
-<form>
-<ul>
-  <li>
-    <h4>Name</h4><input />
-  </li>
-  <li>
-    <h4>Email Address</h4><input />
-  </li>
-  <li>
-    <h4>Phone Number</h4><input />
-  </li>
-<li>
-  <h4>Organization</h4><input />
-</li>
-<li>
-  <h4>Company Address, City, State</h4> <input />
-</li>
-<li>
-  <h4>How did you hear about DuraEdge? (Optional)</h4> <input />
-</li>
-
-  <li>
-    <h4>Message</h4><input />
-  </li>
-</ul>
-</form>
-<a href="#">Submit</a>
-
 
 <h1>Visit a Field or Contact a Current Customer</h1>
-<form action="/contact-duraedge/map.php" method="get">
-<input type="text" name="zip_code" />
+<form action="/contact-duraedge/fieldMap.html" method="get">
+<input type="text" name="near" />
 <input type="submit" value="Submit" />
 </form>
 
-
-
-{% include '_includes/map.html' %}
-
-
 <br />
 <br />
 
 
-<h3>Reps near me: </h3><input />
-<a href="#">Find</a>
 
 <ul>
 {% for entry in craft.entries.section('currentCustomers') %}
