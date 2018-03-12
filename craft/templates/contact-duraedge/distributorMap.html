@@ -6,7 +6,7 @@
     height: 400,
     zoom: 4,
     draggable: true,
-    markerInfo: '_includes/mapInfoBubble',
+    markerInfo: '_includes/distributorInfoBubble',
     markerOptions: {
         icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png'
     },
@@ -19,8 +19,11 @@
 
 {% set target = craft.request.getParam('near') %}
 {% set params = {
-    target: target,
-    range: 100000
+    'target': target,
+    'range': 100,
+    'components': {
+        'country': 'US',
+      },
 } %}
 
 {% set entries = craft.entries.section('distributors').locationPlug(params).order('distance').find() %}
