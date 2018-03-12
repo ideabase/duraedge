@@ -70,6 +70,15 @@
 </form>
 <a href="#">Submit</a>
 
+
+<h1>Visit a Field or Contact a Current Customer</h1>
+<form action="/contact-duraedge/map.php" method="get">
+<input type="text" name="zip_code" />
+<input type="submit" value="Submit" />
+</form>
+
+
+
 {% include '_includes/map.html' %}
 
 
@@ -90,7 +99,6 @@
 </li>
 {% endfor %}
 </ul>
-
 
 {% macro errorList(errors) %}
     {% if errors %}
