@@ -43,6 +43,16 @@
 .variable__body__text {
   position: relative;
 }
+.matrix__block {
+  position: absolute;
+  color: white;
+  font-size: 2em;
+  max-width: 80%;
+  right: 10%;
+  left: 10%;
+  margin-bottom: .5em;
+  font-family: $sans-serif;
+}
 /* DuraEdge Advantage */
 .advantage__body {
   max-width: 70%;
@@ -201,4 +211,23 @@
 }
 .quiz__search {
   background-color: $orange;
+}
+.browse__cats__top {
+  display: flex;
+  max-width: 70%;
+  flex-wrap: wrap;
+  font-size: 1em;
+}
+.cats__top__item {
+  text-decoration: none;
+  color: black;
+  margin: 1em;
+}
+.cats__bottom__body {
+  width: 50%;
+  margin-left: 4em;
+  font-size: 1em;
+}
+.baseball__card {
+  width: 15%;
 }

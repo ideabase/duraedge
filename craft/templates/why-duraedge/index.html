@@ -9,15 +9,18 @@
       <div class="variable__body">
           {% for block in entry.blogPostContent %}
             {% if block.type == "pullQuote" %}
-            <div class="variable__body__quote">
               <section class="panel">
-                <p>{{block.pullQuote}}</p>
-                <p>{{block.pullQuoteAuthor}}</p>
-              </section>
+                <div class="home__block">
+                  <div class="matrix__block">
+                    <p>"{{block.pullQuote}}""</p>
+                    <p>-{{block.pullQuoteAuthor}}</p>
+                  </div>
             {% elseif block.type == "image" %}
-              {% for asset in entry.image %}
-                <img url="{{asset.url}}" alt="{{asset.title}}">
+              {% for asset in block.image %}
+                <img src="{{asset.getUrl()}}" alt="{{asset.title}}"/>
               {% endfor %}
+                </div>
+              </section>
               {% elseif block.type == "text" %}
                 <div class="variable__body__text">
                     {{block.text}}
@@ -26,7 +29,7 @@
                 <a class="button__blue" href="#">{{ block.buttonText }}</a>
             {% endif %}
           {% endfor %}
-      </div>
+          </div>
 
 
   <h3>Learn Something New</h3>
