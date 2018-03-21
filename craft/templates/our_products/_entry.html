@@ -85,6 +85,16 @@
     {% endfor %}
 {% endif %}
 
+<h2>Typical Problems: </h2>
+{% for cat in entry.problemArea %}
+<h3>{{cat.title}}</h3>
+{% endfor %}
+
+<h2>Typical Solutions: </h2>
+{% for cat in entry.typicalSolutions %}
+<h3>{{cat.title}}</h3>
+{% endfor %}
+
 {% for image in entry.gallery.order('RAND()').limit(1) %}
   <img alt="{{image.title}}" src="{{image.url}}" />
 {%endfor%}
