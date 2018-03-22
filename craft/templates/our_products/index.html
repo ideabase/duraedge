@@ -79,6 +79,17 @@
       {% endfor %}
       {% include '_includes/diamond.html' %}
   {% endfor %}
+
+  {% if entry.process.nth(2)|length %}
+    {% set intro = entry.process.nth(2) %}
+    <div class="process__title">
+      <h3>{{ intro.processTitle }}</h3>
+      <div class="products__equipment">
+        <p>{{ intro.processInformation }}</p>
+      </div>
+    </div>
+  {% endif %}
+  <a class="button__blue margin__left" href="#">ABI Sports Turf</a>
 </div>
 
 {% endblock %}

@@ -39,6 +39,59 @@
     max-height: 700px;
   }
 }
+/* Contact DuraEdge */
+.contact__map__heading {
+  display:flex;
+  flex-direction:row;
+  background-color: $lightGray;
+  text-decoration: none;
+  color: black;
+}
+.map__heading {
+  padding-right: 1em;
+  text-decoration: none;
+  color: black;
+}
+.contact__heading {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-bottom: -1em;
+}
+.heading__heading__item {
+  text-decoration: none;
+  color: black;
+}
+.Centered__left__paragraph {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 80%;
+  text-align: left;
+}
+.contact__bottom__div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.contact__form {
+  display: flex;
+  flex-direction: column;
+}
+.contact__form__text {
+  margin-bottom: .5em;
+  width: 100%;
+  background-color: $lightGray;
+  color: $orange;
+  border:none;
+  border-radius: 5px;
+  padding: 5px;
+}
+.contact__form__text::placeholder {
+  color: $orange;
+}
+.message {
+  height: 60px;
+}
 /* Matrix Variable Include */
 .variable__body__text {
   position: relative;
@@ -94,6 +147,7 @@
   color: #808080;
   border-color: #808080;
   border-radius: 5px;
+  border: 3px solid $lightGray;
 }
 
 .maintenance__topic {
@@ -193,6 +247,10 @@
   width: 100%;
   box-sizing: border-box;
   position: relative;
+}
+.products__equipment {
+  margin-left: 2em;
+  width: 60%;
 }
 .products__pro {
   background-color: $orange;

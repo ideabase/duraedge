@@ -33,14 +33,11 @@
 
 
   <h3>Learn Something New</h3>
-
-
-
-      {% for entry in craft.entries.section('blogPosts').limit(2) %}
-    		{% if entry.featuredContent == 1 %}
-      			<a href="{{entry.url}}">{{entry.title}}</a>
-      	{% endif %}
-    	{% endfor %}
+    {% for entry in craft.entries.section('blogPosts').limit(2) %}
+  		{% if entry.featuredContent == 1 %}
+    			<a href="{{entry.url}}">{{entry.title}}</a>
+    	{% endif %}
+  	{% endfor %}
 
 
 
