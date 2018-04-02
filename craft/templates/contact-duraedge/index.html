@@ -48,30 +48,16 @@
       <input class="contact__form__text" type="text" name="near" placeholder="Company Address, City, State"/>
       <input class="contact__form__text" type="text" name="refferal" placeholder="How did you hear about us? (Optional)"/>
       <textarea class="contact__form__text message" type="text" name="message" placeholder="Message"></textarea>
-      <input type="submit" />
+      <input class="button__blue" type="submit" />
   </form>
 </div>
-
-<!-- After Search Display below !-->
-<ul>
-  {% for entry in craft.entries.section('findADistributor') %}
-<li>
-  <h4>{{entry.title}}</h4>
-  <h4>{{entry.email}}</h4>
-  <h4>{{entry.phoneNumber}}</h4>
-
-</li>
-  {% endfor %}
-</ul>
-
-
 
 
 
 <h1>Visit a Field or Contact a Current Customer</h1>
 <form action="/contact-duraedge/" method="get">
 <input type="text" name="near" />
-<input type="submit" value="Submit" />
+<input class="button__blue" type="submit" value="Submit" />
 </form>
 
 {% include '_includes/_fieldMap.html' %}

@@ -11,7 +11,10 @@
     }
 } %}
 
-{{ craft.smartMap.map(craft.entries.section('locations').locationPlug, options) }}
+
+
+
+
 
 {% set target = craft.request.getParam('near') %}
 {% set params = {
@@ -25,10 +28,14 @@
 
 {% set entries = craft.entries.section('locations').locationPlug(params).order('distance').find() %}
 
-<h1>Fields Near "{{ params.target }}"...</h1>
-{% if entries | length %}
 
+
+
+
+{% if entries | length and params.target != "" %}
+<h1>Fields Near {{ params.target }}...</h1>
   {% for entry in entries %}
+  {{ craft.smartMap.map(craft.entries.section('locations').locationPlug, options) }}
       <h2>{{ entry.title }}</h2>
       <div>
           {{ entry.locationPlug.street1 }}<br />
@@ -39,8 +46,4 @@
       <h2>No results found</h2>
   {% endfor %}
 
-{% else %}
-  <p>
-    Enter your search above.
-  </p>
 {% endif %}

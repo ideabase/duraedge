@@ -11,7 +11,7 @@
     }
 } %}
 
-{{ craft.smartMap.map(craft.entries.section('distributors').locationPlug, options) }}
+
 
 {% set target = craft.request.getParam('near') %}
 {% set params = {
@@ -24,7 +24,11 @@
 
 {% set entries = craft.entries.section('distributors').locationPlug(params).order('distance').find() %}
 
-<h1>Distributors Near: "{{ params.target }}"...</h1>
+
+
+{% if entries | length and params.target != "" %}
+<h1>Distributors Near: {{ params.target }}...</h1>
+{{ craft.smartMap.map(craft.entries.section('distributors').locationPlug, options) }}
 {% for entry in entries %}
     <h2>{{ entry.title }}</h2>
     <div>
@@ -35,3 +39,4 @@
 {% else %}
     <h2>No results found</h2>
 {% endfor %}
+{% endif %}
