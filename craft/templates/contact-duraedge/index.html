@@ -23,9 +23,13 @@
 
 {% include '_includes/diamond.html' %}
 
-<h3>Request Materials</h3>
-<div class="Centered__left__paragraph">{{entry.body}}</div>
-<a class="button__blue" href="#">Request</a>
+<h3>Download Marketing Materials:</h3>
+{% for block in entry.marketingMaterials %}
+  <h4>{{block.materialName}}</h4>
+    {% for image in block.file %}
+      <a class="button__blue" href="{{image.getUrl()}}">Request</a>
+    {% endfor %}
+{% endfor %}
 
 {% include '_includes/diamond.html' %}
 
@@ -61,38 +65,24 @@
 </ul>
 
 
-<h3>Download Marketing Materials:</h3>
-
-{% for block in entry.marketingMaterials %}
-  <h4>{{block.materialName}}</h4>
-    {% for image in block.file %}
-      <a href="{{image.getUrl()}}">D</a>
-    {% endfor %}
-{% endfor %}
 
 
 
 <h1>Visit a Field or Contact a Current Customer</h1>
-<form action="/contact-duraedge/fieldMap.html" method="get">
+<form action="/contact-duraedge/" method="get">
 <input type="text" name="near" />
 <input type="submit" value="Submit" />
 </form>
 
+{% include '_includes/_fieldMap.html' %}
+{% include '_includes/_distributorMap.html' %}
+{% include '_includes/_distribAndFieldMap.html' %}
 <br />
 <br />
 
 
 
-<ul>
-{% for entry in craft.entries.section('currentCustomers') %}
-<li>
-  <h4>{{entry.title}}</h4>
 
-  <h4>{{entry.email}}</h4>
-  <h4>{{entry.phoneNumber}}</h4>
-</li>
-{% endfor %}
-</ul>
 
 {% macro errorList(errors) %}
     {% if errors %}
@@ -112,19 +102,31 @@
     <input type="hidden" name="redirect" value="contact/thanks">
 
     <h3><label for="fromName">Your Name</label></h3>
-    <input id="fromName" type="text" name="fromName" value="{% if message is defined %}{{ message.fromName }}{% endif %}">
+    <input class="contact__form__text" placeholder="Your Name" id="fromName" type="text" name="fromName" value="{% if message is defined %}{{ message.fromName }}{% endif %}">
     {{ message is defined and message ? errorList(message.getErrors('fromName')) }}
 
+    <h3><label for="fromPhone">Phone Number</label></h3>
+    <input class="contact__form__text" placeholder="Phone Number" id="fromPhone" type="text" name="subject" value="{% if message is defined %}{{ message.subject }}{% endif %}">
+    {{ message is defined and message ? errorList(message.getErrors('subject')) }}
+
     <h3><label for="fromEmail">Your Email</label></h3>
-    <input id="fromEmail" type="email" name="fromEmail" value="{% if message is defined %}{{ message.fromEmail }}{% endif %}">
+    <input class="contact__form__text" placeholder="Email Address" id="fromEmail" type="email" name="fromEmail" value="{% if message is defined %}{{ message.fromEmail }}{% endif %}">
     {{ message is defined and message ? errorList(message.getErrors('fromEmail')) }}
 
-    <h3><label for="subject">Subject</label></h3>
-    <input id="subject" type="text" name="subject" value="{% if message is defined %}{{ message.subject }}{% endif %}">
+    <h3><label for="fromOrganization">Organization</label></h3>
+    <input class="contact__form__text" placeholder="Organization"id="fromOrganization" type="text" name="subject" value="{% if message is defined %}{{ message.subject }}{% endif %}">
+    {{ message is defined and message ? errorList(message.getErrors('subject')) }}
+
+    <h3><label for="fromAddress">Address</label></h3>
+    <input class="contact__form__text" placeholder="Corporation Address"id="fromAddress" type="text" name="subject" value="{% if message is defined %}{{ message.subject }}{% endif %}">
+    {{ message is defined and message ? errorList(message.getErrors('subject')) }}
+
+    <h3><label for="fromWho">How did you hear about us?</label></h3>
+    <input class="contact__form__text" placeholder="How did you hear about us?"id="fromWho" type="text" name="subject" value="{% if message is defined %}{{ message.subject }}{% endif %}">
     {{ message is defined and message ? errorList(message.getErrors('subject')) }}
 
     <h3><label for="message">Message</label></h3>
-    <textarea rows="10" cols="40" id="message" name="message">{% if message is defined %}{{ message.message }}{% endif %}</textarea>
+    <textarea class="contact__form__text" placeholder="Message"rows="10" cols="40" id="message" name="message">{% if message is defined %}{{ message.message }}{% endif %}</textarea>
     {{ message is defined and message ? errorList(message.getErrors('message')) }}
 
     <input type="submit" value="Send">
