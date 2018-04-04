@@ -60,6 +60,10 @@ CTA - matrix - image, img headline, text, button
   </div>
   </section>
 
+  {% include '_includes/_pageContent.html' %}
+
+
+
   <div class="quiz__intro">
     {% if entry.process.nth(1)|length %}
       {% set intro = entry.process.nth(1) %}

@@ -10,104 +10,117 @@
   <p><a class="heading__heading__item" href="#">Contact Us</a></p>
 </div>
 
-<div class="spacer2"></div>
+{% include '_includes/diamond.html' %}
 
-<div class="diamond__container">
-  {% include '_includes/diamond.html' %}
-  <h3 class="diamond__spacer">Locate Us</h3>
-  <div class="contact__map__heading">
-    <a class="map__heading" href="#">Map View</a>
-    <a class="map__heading" href="#">Search by Zipcode</a>
-    <a class="map__heading" href="#">Search by Name</a>
-  </div>
-  <div class="contact__map">
-
-    <form action="/contact-duraedge/fieldMap.html" method="get">
-      <label for="zip">Zip Code</label>
-      <input type="text" name="near" />
-      <input type="submit" value="Submit" />
-    </form>
-  </div>
+<h3>Locate Us</h3>
+<div class="contact__map__heading">
+  <a class="map__heading" href="#">Map View</a>
+  <a class="map__heading" href="#">Search by Zipcode</a>
+  <a class="map__heading" href="#">Search by Name</a>
+</div>
+<div class="contact__map">
 </div>
 
-<div class="spacer2"></div>
+{% include '_includes/diamond.html' %}
 
-<div class="diamond__container">
-  {% include '_includes/diamond.html' %}
-  <h3 class="diamond__spacer">Download Marketing Materials:</h3>
-  <div class="variable__body__text">
-    <p>{{entry.body}}</p>
-    {% for block in entry.marketingMaterials %}
-      <h4>{{block.materialName}}</h4>
-        {% for image in block.file %}
-          <a class="button__blue" href="{{image.getUrl()}}">Request</a>
-        {% endfor %}
+<h3>Download Marketing Materials:</h3>
+{% for block in entry.marketingMaterials %}
+  <h4>{{block.materialName}}</h4>
+    {% for image in block.file %}
+      <a class="button__blue" href="{{image.getUrl()}}">Request</a>
     {% endfor %}
+{% endfor %}
+
+{% include '_includes/diamond.html' %}
+
+<h3>Contact Us</h3>
+<div class="contact__bottom__div">
+  <div class="contact__bottom__left">
+    <p>Follow us on Social Media</p>
+    <a class="button__blue" href="#">View Staff Directory</a>
   </div>
+
+  <form class="contact__form" action="contact-duraedge/distributorMap.html"/>
+      <input class="contact__form__text" type="text" name="name" placeholder="Name"/>
+      <input class="contact__form__text" type="text" name="phone" placeholder="Phone Number"/>
+      <input class="contact__form__text" type="text" name="email" placeholder="Email"/>
+      <input class="contact__form__text" type="text" name="organization" placeholder="Organization"/>
+      <input class="contact__form__text" type="text" name="near" placeholder="Company Address, City, State"/>
+      <input class="contact__form__text" type="text" name="refferal" placeholder="How did you hear about us? (Optional)"/>
+      <textarea class="contact__form__text message" type="text" name="message" placeholder="Message"></textarea>
+      <input class="button__blue" type="submit" />
+  </form>
 </div>
 
-<div class="diamond__container">
-  {% include '_includes/diamond.html' %}
-  <h3 class="diamond__spacer">Contact Us</h3>
-  <div class="contact__bottom__div">
-    <div class="contact__bottom__left">
-      {% for asset in header.logoLarge %}
-        <img src="{{ asset.url }}" alt="{{siteName}}"/>
-      {%endfor%}
-      <p>Follow us on Social Media</p>
-      <a class="button__blue" href="#">View Staff Directory</a>
-    </div>
 
-    {% macro errorList(errors) %}
-        {% if errors %}
-            <ul class="errors">
-                {% for error in errors %}
-                    <li>{{ error }}</li>
-                {% endfor %}
-            </ul>
-        {% endif %}
-    {% endmacro %}
 
-    {% from _self import errorList %}
-
-    <form class="contact__form" method="post" action="" accept-charset="UTF-8">
-        {{ getCsrfInput() }}
-        <input type="hidden" name="action" value="contactForm/sendMessage">
-        <input type="hidden" name="redirect" value="contact/thanks">
-
-        <input class="contact__form__text" placeholder="Name" id="fromName" type="text" name="fromName" value="{% if message is defined %}{{ message.fromName }}{% endif %}">
-        {{ message is defined and message ? errorList(message.getErrors('fromName')) }}
-
-        <input class="contact__form__text" placeholder="Phone Number" id="fromPhone" type="text" name="subject" value="{% if message is defined %}{{ message.subject }}{% endif %}">
-        {{ message is defined and message ? errorList(message.getErrors('subject')) }}
-
-        <input class="contact__form__text" placeholder="Email" id="fromEmail" type="email" name="fromEmail" value="{% if message is defined %}{{ message.fromEmail }}{% endif %}">
-        {{ message is defined and message ? errorList(message.getErrors('fromEmail')) }}
-
-        <input class="contact__form__text" placeholder="Organization"id="fromOrganization" type="text" name="subject" value="{% if message is defined %}{{ message.subject }}{% endif %}">
-        {{ message is defined and message ? errorList(message.getErrors('subject')) }}
-
-        <input class="contact__form__text" placeholder="Company Address, City, State"id="fromAddress" type="text" name="subject" value="{% if message is defined %}{{ message.subject }}{% endif %}">
-        {{ message is defined and message ? errorList(message.getErrors('subject')) }}
-
-        <input class="contact__form__text" placeholder="How did you hear about us? (optional)"id="fromWho" type="text" name="subject" value="{% if message is defined %}{{ message.subject }}{% endif %}">
-        {{ message is defined and message ? errorList(message.getErrors('subject')) }}
-
-        <textarea class="contact__form__text" placeholder="Message"rows="10" cols="40" id="message" name="message">{% if message is defined %}{{ message.message }}{% endif %}</textarea>
-        {{ message is defined and message ? errorList(message.getErrors('message')) }}
-
-        <input type="submit" value="Send">
-
-        {# change value to thank you page, or redirect back to original site #}
-        <input type="hidden" name="redirect" value="contact-duraedge/thanks?from={fromName}">
-
-    </form>
-  </div>
-</div>
-
+<h1>Visit a Field or Contact a Current Customer</h1>
+<form action="/contact-duraedge/" method="get">
+<input type="text" name="near" />
+<input class="button__blue" type="submit" value="Submit" />
+</form>
 
 {% include '_includes/_fieldMap.html' %}
 {% include '_includes/_distributorMap.html' %}
 {% include '_includes/_distribAndFieldMap.html' %}
+<br />
+<br />
+
+
+
+
+
+{% macro errorList(errors) %}
+    {% if errors %}
+        <ul class="errors">
+            {% for error in errors %}
+                <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endmacro %}
+
+{% from _self import errorList %}
+
+<form method="post" action="" accept-charset="UTF-8">
+    {{ getCsrfInput() }}
+    <input type="hidden" name="action" value="contactForm/sendMessage">
+    <input type="hidden" name="redirect" value="contact/thanks">
+
+    <h3><label for="fromName">Your Name</label></h3>
+    <input class="contact__form__text" placeholder="Your Name" id="fromName" type="text" name="fromName" value="{% if message is defined %}{{ message.fromName }}{% endif %}">
+    {{ message is defined and message ? errorList(message.getErrors('fromName')) }}
+
+    <h3><label for="fromPhone">Phone Number</label></h3>
+    <input class="contact__form__text" placeholder="Phone Number" id="fromPhone" type="text" name="subject" value="{% if message is defined %}{{ message.subject }}{% endif %}">
+    {{ message is defined and message ? errorList(message.getErrors('subject')) }}
+
+    <h3><label for="fromEmail">Your Email</label></h3>
+    <input class="contact__form__text" placeholder="Email Address" id="fromEmail" type="email" name="fromEmail" value="{% if message is defined %}{{ message.fromEmail }}{% endif %}">
+    {{ message is defined and message ? errorList(message.getErrors('fromEmail')) }}
+
+    <h3><label for="fromOrganization">Organization</label></h3>
+    <input class="contact__form__text" placeholder="Organization"id="fromOrganization" type="text" name="subject" value="{% if message is defined %}{{ message.subject }}{% endif %}">
+    {{ message is defined and message ? errorList(message.getErrors('subject')) }}
+
+    <h3><label for="fromAddress">Address</label></h3>
+    <input class="contact__form__text" placeholder="Corporation Address"id="fromAddress" type="text" name="subject" value="{% if message is defined %}{{ message.subject }}{% endif %}">
+    {{ message is defined and message ? errorList(message.getErrors('subject')) }}
+
+    <h3><label for="fromWho">How did you hear about us?</label></h3>
+    <input class="contact__form__text" placeholder="How did you hear about us?"id="fromWho" type="text" name="subject" value="{% if message is defined %}{{ message.subject }}{% endif %}">
+    {{ message is defined and message ? errorList(message.getErrors('subject')) }}
+
+    <h3><label for="message">Message</label></h3>
+    <textarea class="contact__form__text" placeholder="Message"rows="10" cols="40" id="message" name="message">{% if message is defined %}{{ message.message }}{% endif %}</textarea>
+    {{ message is defined and message ? errorList(message.getErrors('message')) }}
+
+    <input type="submit" value="Send">
+
+    {# change value to thank you page, or redirect back to original site #}
+    <input type="hidden" name="redirect" value="contact-duraedge/thanks?from={fromName}">
+
+</form>
+
 
 {% endblock %}
