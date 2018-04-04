@@ -22,8 +22,10 @@
                 </div>
               </section>
               {% elseif block.type == "text" %}
+                <div class="spacer2"></div>
                 <div class="variable__body__text">
-                    {{block.text}}
+                  {% include '_includes/diamond.html' %}
+                  {{block.text}}
                 </div>
               {% elseif block.type =="button" %}
                 <a class="button__blue" href="#">{{ block.buttonText }}</a>
@@ -39,21 +41,22 @@
     	{% endif %}
   	{% endfor %}
 
-
-
+<div class="spacer2"></div>
+<div class="diamond__container">
   {% include '_includes/diamond.html' %}
   <section class="advantage__faq">
-    <h3>FAQ - New Customers</h3>
+    <h4 class="diamond__spacer">FAQ - New Customers</h4>
     <div class="faq__list">
       <ul class="faq__list__ul">
         {% for entry in craft.entries.section('faqs').limit(4) %}
           <li class="faq__list__item">
-            <h4><a href="{{entry.url}}">{{entry.title}}</a></h4>
+            <h5><a href="{{entry.url}}">{{entry.title}}</a></h5>
           </li>
         {% endfor %}
       </ul>
     </div>
   </section>
+</div>
 
 
     <h1>Quiz Link</h1>

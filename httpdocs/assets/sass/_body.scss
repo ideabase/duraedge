@@ -28,6 +28,15 @@ main {
    margin: 0;
    color: $red;
  }
+ h4 {
+   font-size: 2em;
+   font-weight: 500;
+   font-family: $sans-serif;
+   margin: 0;
+ }
+ h5 {
+   font-size: 1em;
+ }
  .diamond__container {
    position: relative;
  }

@@ -51,7 +51,7 @@
             <div class="maintenance__bottom__content">
               <h3>Spotlight Install</h3>
               {% for entry in craft.entries.section('installations').limit(1) %}
-              <h4 class="maintenance__bottom__subhead">{{ entry.title }}</h4>
+              <h5 class="maintenance__bottom__subhead">{{ entry.title }}</h5>
               <div class="maintenance__faq__body">
                 <p>{{ entry.body|slice(0, 151)|raw }}...</p>
               </div>
