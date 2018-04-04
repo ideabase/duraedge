@@ -45,10 +45,11 @@
 			</div>
 		</div>
 
-	<h1>Trending Now</h1>
+	<h2 class="text__center">Trending Now</h2>
 	<section class="panel">
+		{% include '_includes/diamond.html' %}
 		{% include '_includes/featured-post.html' %}
-		<div class="owl-carousel">
+		<div class="owl-carousel carousel">
 			{% for entry in craft.entries.section('currentCustomers').limit(5)%}
 			<div class="home__block carousel">
 				<div class="home__block__div home__cust">

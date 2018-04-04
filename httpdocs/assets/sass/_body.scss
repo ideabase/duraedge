@@ -19,15 +19,32 @@ main {
  }
  h2{
    font-size: 3em;
+   font-weight: 100;
  }
  h3 {
    font-size: 2em;
-   font-weight: 800;
+   font-weight: 500;
    font-family: $sans-serif;
    margin: 0;
+   color: $red;
+ }
+ .diamond__container {
+   position: relative;
+ }
+ .spacer1 {
+   margin-top: 1em;
+ }
+ .spacer2 {
+   margin-top: 2em;
+ }
+ .diamond__spacer {
+   padding-top: .5em;
  }
  .left {
   left:0;
+ }
+ .text__center {
+   text-align: center;
  }
 .reduce__space__bottom {
   margin-bottom: 0;
@@ -57,7 +74,6 @@ main {
 .button__blue {
   text-decoration: none;
   display: block;
-  width: 250px;
   color: white;
   background-color: $lightBlue;
   text-align: center;
