@@ -42,8 +42,7 @@
             <div class="maintenance__faq__body">
               <p>{{ entry.body|slice(0, 450)|raw }}...</p>
             </div>
-            <a href="#" class="button">Read More</a>
-            <a href="#" class="button">View All FAQ's</a>
+            <a href="{{entry.url}}" class="button">Read More</a>
           {% endfor %}
         </div>
         <div class="maintenance__bottom__right">
@@ -55,7 +54,7 @@
               <div class="maintenance__faq__body">
                 <p>{{ entry.body|slice(0, 151)|raw }}...</p>
               </div>
-              <a href="#" class="button">Read More</a>
+              <a href="{{entry.url}}" class="button">Read More</a>
             </div>
             <div>
               {% for asset in entry.featureImage.limit(1) %}

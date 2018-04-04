@@ -1,20 +1,59 @@
-{% extends "_layout" %}
+{% extends "_full" %}
 
-{% block content %}
+{% block subcontent %}
 <h1>{{entry.header}}</h1>
 <p>
   {{entry.body}}
 </p>
 
-<h1>Our Field Specifications</h1>
+<h1>Product Specifications</h1>
 
 
-<!-- Not sure what goes here yet, wait for more info from DuraEdge !-->
-{#
-{% for entry in craft.entries.section('ourProducts')%}
-
-
+<ul>
+  {% for entry in craft.entries.section('ourProducts') %}
+  <li>
+    {% for image in entry.baseballCard %}
+      <a href="{{entry.url}}"><img alt="{{image.title}}" src="{{image.url}}" /></a>
+    {% endfor %}
+  {% for block in entry.marketingMaterials %}
+    <p>{{block.materialName}}</p>
+    {% for specs in block.file %}
+      <a href="{{specs.getUrl()}}">Download</a>
+      {% endfor %}
+  {% endfor %}
 {% endfor %}
-#}
+  </li>
+</ul>
 
+
+<h1>Helpful Resources</h1>
+<ul>
+{% for entry in craft.entries.section('faq').limit(3) %}
+  {% for cat in entry.audience %}
+    {% if cat.title == "Architects" %}
+      <li>
+      <a href={{entry.url}}>{{entry.title}}</a>
+      </li>
+    {%endif%}
+{% endfor %}
+</ul>
+{% endfor %}
+
+
+<h1>Maintenance Manual</h1>
+{% for block in entry.marketingMaterials %}
+  <h4>{{block.materialName}}</h4>
+  <p>
+    {{block.body}}
+  </p>
+
+    {% for image in block.file %}
+      <a class="button__blue" href="{{image.getUrl()}}">Request</a>
+    {% endfor %}
+{% endfor %}
+
+
+<h1>Field Assurance Program</h1>
+<p>{{entry.fieldAssuranceBody}}</p>
+<a href="#">Learn More about Certified Installation and Field Assurance</a>
 {% endblock %}
