@@ -32,11 +32,14 @@
   max-width: 290px;
 
 }
-
+.carousel {
+  box-shadow: 5px -5px 10px grey
+}
 .home__block--top {
-  box-shadow: 0;
+  box-shadow: 5px 5px 10px gray;
   height: 500px;
   background-size: cover;
+
 }
 .home__block__top {
     left: 3em;

@@ -248,6 +248,20 @@
   box-sizing: border-box;
   position: relative;
 }
+.product__category {
+  position: relative;
+  margin-bottom: 3em;
+  padding-bottom: 2em;
+  .footer__top {
+    bottom: 0;
+    top: inherit;
+    width: 100%;
+  }
+}
+.product__category__div {
+  display: flex;
+  flex-direction: row;
+}
 .products__equipment {
   margin-left: 2em;
   width: 60%;
@@ -287,5 +301,10 @@
   font-size: 1em;
 }
 .baseball__card {
-  width: 15%;
+  width: 75%;
+
+}
+a .baseball__card__title {
+  text-decoration: none;
+  color: black;
 }

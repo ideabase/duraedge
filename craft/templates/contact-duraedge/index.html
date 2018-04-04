@@ -19,32 +19,70 @@
   <a class="map__heading" href="#">Search by Name</a>
 </div>
 <div class="contact__map">
+  <h3>Visit a Field or Contact a Current Customer</h3>
+  <form action="/contact-duraedge/fieldMap.html" method="get">
+    <label for="zip">Zip Code</label>
+    <input type="text" name="near" />
+    <input type="submit" value="Submit" />
+  </form>
 </div>
 
 {% include '_includes/diamond.html' %}
 
 <h3>Request Materials</h3>
 <div class="Centered__left__paragraph">{{entry.body}}</div>
-<a class="button__blue" href="#">Request</a>
+<a class="button__blue button__center" href="#">Request</a>
 
 {% include '_includes/diamond.html' %}
 
 <h3>Contact Us</h3>
 <div class="contact__bottom__div">
   <div class="contact__bottom__left">
+    {% for asset in header.logo %}
+      <img src="{{ asset.url }}" alt="{{siteName}}"/>
+    {%endfor%}
     <p>Follow us on Social Media</p>
     <a class="button__blue" href="#">View Staff Directory</a>
   </div>
 
-  <form class="contact__form" action="contact-duraedge/distributorMap.html"/>
-      <input class="contact__form__text" type="text" name="name" placeholder="Name"/>
-      <input class="contact__form__text" type="text" name="phone" placeholder="Phone Number"/>
-      <input class="contact__form__text" type="text" name="email" placeholder="Email"/>
-      <input class="contact__form__text" type="text" name="organization" placeholder="Organization"/>
-      <input class="contact__form__text" type="text" name="near" placeholder="Company Address, City, State"/>
-      <input class="contact__form__text" type="text" name="refferal" placeholder="How did you hear about us? (Optional)"/>
-      <textarea class="contact__form__text message" type="text" name="message" placeholder="Message"></textarea>
-      <input type="submit" />
+
+  {% macro errorList(errors) %}
+      {% if errors %}
+          <ul class="errors">
+              {% for error in errors %}
+                  <li>{{ error }}</li>
+              {% endfor %}
+          </ul>
+      {% endif %}
+  {% endmacro %}
+
+  {% from _self import errorList %}
+  <form class="contact__form" method="post" action="" accept-charset="UTF-8">
+      {{ getCsrfInput() }}
+      <input type="hidden" name="action" value="contactForm/sendMessage">
+      <input type="hidden" name="redirect" value="contact/thanks">
+
+      <h3><label for="fromName">Your Name</label></h3>
+      <input class="contact__form__text" id="fromName" type="text" name="fromName" placeholder="Name" value="{% if message is defined %}{{ message.fromName }}{% endif %}">
+      {{ message is defined and message ? errorList(message.getErrors('fromName')) }}
+
+      <h3><label for="fromEmail">Your Email</label></h3>
+      <input class="contact__form__text" id="fromEmail" type="email" name="fromEmail" placeholder="Email" value="{% if message is defined %}{{ message.fromEmail }}{% endif %}">
+      {{ message is defined and message ? errorList(message.getErrors('fromEmail')) }}
+
+      <h3><label for="subject">Subject</label></h3>
+      <input class="contact__form__text" id="subject" type="text" name="subject" placeholder="subject" value="{% if message is defined %}{{ message.subject }}{% endif %}">
+      {{ message is defined and message ? errorList(message.getErrors('subject')) }}
+
+      <h3><label for="message">Message</label></h3>
+      <textarea class="contact__form__text message" rows="10" cols="40" id="message" placeholder="Message" name="message">{% if message is defined %}{{ message.message }}{% endif %}</textarea>
+      {{ message is defined and message ? errorList(message.getErrors('message')) }}
+
+      <input type="submit" value="Send">
+
+      {# change value to thank you page, or redirect back to original site #}
+      <input type="hidden" name="redirect" value="contact-duraedge/thanks?from={fromName}">
+
   </form>
 </div>
 
@@ -69,70 +107,6 @@
       <a href="{{image.getUrl()}}">D</a>
     {% endfor %}
 {% endfor %}
-
-
-
-<h1>Visit a Field or Contact a Current Customer</h1>
-<form action="/contact-duraedge/fieldMap.html" method="get">
-<input type="text" name="near" />
-<input type="submit" value="Submit" />
-</form>
-
-<br />
-<br />
-
-
-
-<ul>
-{% for entry in craft.entries.section('currentCustomers') %}
-<li>
-  <h4>{{entry.title}}</h4>
-
-  <h4>{{entry.email}}</h4>
-  <h4>{{entry.phoneNumber}}</h4>
-</li>
-{% endfor %}
-</ul>
-
-{% macro errorList(errors) %}
-    {% if errors %}
-        <ul class="errors">
-            {% for error in errors %}
-                <li>{{ error }}</li>
-            {% endfor %}
-        </ul>
-    {% endif %}
-{% endmacro %}
-
-{% from _self import errorList %}
-
-<form method="post" action="" accept-charset="UTF-8">
-    {{ getCsrfInput() }}
-    <input type="hidden" name="action" value="contactForm/sendMessage">
-    <input type="hidden" name="redirect" value="contact/thanks">
-
-    <h3><label for="fromName">Your Name</label></h3>
-    <input id="fromName" type="text" name="fromName" value="{% if message is defined %}{{ message.fromName }}{% endif %}">
-    {{ message is defined and message ? errorList(message.getErrors('fromName')) }}
-
-    <h3><label for="fromEmail">Your Email</label></h3>
-    <input id="fromEmail" type="email" name="fromEmail" value="{% if message is defined %}{{ message.fromEmail }}{% endif %}">
-    {{ message is defined and message ? errorList(message.getErrors('fromEmail')) }}
-
-    <h3><label for="subject">Subject</label></h3>
-    <input id="subject" type="text" name="subject" value="{% if message is defined %}{{ message.subject }}{% endif %}">
-    {{ message is defined and message ? errorList(message.getErrors('subject')) }}
-
-    <h3><label for="message">Message</label></h3>
-    <textarea rows="10" cols="40" id="message" name="message">{% if message is defined %}{{ message.message }}{% endif %}</textarea>
-    {{ message is defined and message ? errorList(message.getErrors('message')) }}
-
-    <input type="submit" value="Send">
-
-    {# change value to thank you page, or redirect back to original site #}
-    <input type="hidden" name="redirect" value="contact-duraedge/thanks?from={fromName}">
-
-</form>
 
 
 {% endblock %}

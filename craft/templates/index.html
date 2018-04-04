@@ -50,7 +50,7 @@
 		{% include '_includes/featured-post.html' %}
 		<div class="owl-carousel">
 			{% for entry in craft.entries.section('currentCustomers').limit(5)%}
-			<div class="home__block">
+			<div class="home__block carousel">
 				<div class="home__block__div home__cust">
 					<h2 class="home__block__line2">{{entry.title}}</h2>
 					<!-- Check for entry.location !-->
