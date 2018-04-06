@@ -23,7 +23,12 @@
 			<div class="home__advantage">
 				<h3>{{ entry.subheadline }}</h3>
 				<p>{{ entry.body }}</p>
-				<a href="#">Why DuraEdge?</a>
+
+
+				{% for block in entry.linkInfo %}
+				  <a href="{{block.linkUrl}}"> {{block.linkTitle}} </a>
+				{% endfor %}
+
 			</div>
 			<div class="home__productMap">
 				<div class="home__productMap__inner">
@@ -49,6 +54,8 @@
 					{% endfor %}
 				</div>
 			</div>
+
+
 
 	<h2 class="text__center">Trending Now</h2>
 	<section class="panel">
