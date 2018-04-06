@@ -6,7 +6,7 @@
           <figure class="feature-post__item__image" style="background-image: url('{{asset.url}}')"></figure>
       {% endfor %}
       <h4 class="feature-post__item__title">{{entry.title}}</h4>
-      <time class="feature-post__item__date">{{ entry.postDate}}</time>
+      <time class="feature-post__item__date">{{ entry.postDate  | date("M d, Y")     }}</time>
       <p class="feature-post__item__teaser">{{entry.teaser}}</p>
       Read More
   </a>
