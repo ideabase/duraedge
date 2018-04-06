@@ -1,7 +1,7 @@
 ul.tabs{
     margin: 0px;
     padding: 0px;
-    list-style: none;
+    list-style-type: none;
 }
 ul.tabs li{
     display: inline-block;
@@ -37,4 +37,11 @@ ul.tabs li.current{
   font-family: $cursive;
   text-decoration: none;
   color: black;
+}
+.tab__container {
+  display: flex;
+  flex-direction: column;
+}
+.current-tab {
+  display: block;
 }

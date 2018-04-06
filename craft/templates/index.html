@@ -35,15 +35,20 @@
 				{% endfor %}
 
 				{% set image = entry.interactiveFieldMap.first() %}
-
-				{% for category in craft.categories.group('productType')%}
-				<h1>{{category.title}}</h1>
-				<p>{{category.body}}</p>
-					<img src="{{image.url}}" alt="{{image.title}}" />
-				{% endfor %}
-
+				<div>
+					<ul class="tabs tab__container">
+						{% for category in craft.categories.group('productType')%}
+							<li class="tab-link" data-tab="tab-{{loop.index}}">{{category.title}}</li>
+						{% endfor %}
+					</ul>
+					</div>
+					{% for category in craft.categories.group('productType') %}
+						<div class="tab-content" id="tab-{{loop.index}}">
+							{{ category.body }}
+						</div>
+					{% endfor %}
+				</div>
 			</div>
-		</div>
 
 	<h2 class="text__center">Trending Now</h2>
 	<section class="panel">
@@ -55,8 +60,11 @@
 				<div class="home__block__div home__cust">
 					<h2 class="home__block__line2">{{entry.title}}</h2>
 					<!-- Check for entry.location !-->
-					{# <p class="home__block__line3">{{ entry.location }}</p> #}
-					<h6>{{entry.locationPlug.city}}</h6>
+					{% set type = craft.entries.section('currentCustomers').entry.fieldType('name') %}
+					{% for category in craft.categories.group('fieldType').relatedTo('type') %}
+						<p class="home__block__line3">{{ category }}</p>
+					{% endfor %}
+					<!--<h6>{{entry.locationPlug.city}}</h6>-->
 				</div>
 				{% for image in entry.featureImage.limit(1) %}
 					<img class="home__cust__image" src="{{image.url('carouselLarge')}}" alt="{{image.title}}" />
