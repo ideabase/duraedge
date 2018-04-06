@@ -6,6 +6,8 @@
       {{entry.body}}
     </div>
 
+
+
       <div class="variable__body">
           {% for block in entry.blogPostContent %}
             {% if block.type == "pullQuote" %}
@@ -34,6 +36,8 @@
           </div>
 
 
+
+
   <h3>Learn Something New</h3>
     {% for entry in craft.entries.section('blogPosts').limit(2) %}
   		{% if entry.featuredContent == 1 %}
@@ -58,8 +62,10 @@
   </section>
 </div>
 
+{% for block in entry.linkInfo %}
+  <a href="{{block.linkUrl}}"> {{block.linkTitle}} </a>
+{% endfor %}
 
-    <h1>Quiz Link</h1>
-  </section>
+</section>
 
 {% endblock %}
