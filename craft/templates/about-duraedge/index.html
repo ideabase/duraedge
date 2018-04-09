@@ -28,6 +28,15 @@
   {% endif %}
 {% endfor %}
 
+
+
+<h1>Upcoming Events: </h1>
+{% for entry in craft.entries.section('events').order(entry.eventDate) %}
+  <h1>{{entry.title}}</h1>
+{% endfor %}
+
+{#
 {% include '_includes/eventMap.html' %}
+#}
 
 {% endblock %}
