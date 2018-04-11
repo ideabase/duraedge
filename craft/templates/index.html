@@ -66,6 +66,10 @@
 			<div class="home__block carousel">
 				<div class="home__block__div home__cust">
 					<h2 class="home__block__line2">{{entry.title}}</h2>
+					{% for cat in entry.fieldType %}
+						<h4 class="home__block__line2">{{cat.title}}</h4>
+					{% endfor %}
+
 					<!-- Check for entry.location !-->
 					{% set type = craft.entries.section('currentCustomers').entry.fieldType('name') %}
 					{% for category in craft.categories.group('fieldType').relatedTo('type') %}
