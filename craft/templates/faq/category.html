@@ -1,0 +1,17 @@
+{% extends "_full" %}
+{% block subcontent %}
+
+
+{% set entries = craft.entries.relatedTo(category) %}
+
+<h1>{{category.title}}</h1>
+{% for entry in entries %}
+  <a href="{{entry.url}}">
+    <h3>{{entry.title}}</h3>
+    <p>{{entry.teaser}}</p>
+  </a>
+{% endfor %}
+
+<a href="{{siteUrl}}/field-maintenance">Back to field maintenance</a>
+
+{% endblock %}

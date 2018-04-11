@@ -12,7 +12,7 @@
       <h3>By Topic</h3>
       <div class="maintenance__topic">
         {% for cat in craft.categories.group('faqTopic') %}
-          <p class="maintenance__topic__item">{{ cat.title }}</p>
+          <a href="{{cat.url}}"><p class="maintenance__topic__item">{{ cat.title }}</p></a>
         {% endfor %}
       </div>
     </div>

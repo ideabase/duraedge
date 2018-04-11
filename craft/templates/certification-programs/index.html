@@ -1,7 +1,7 @@
 {% extends "_layout" %}
 {% block content %}
 <main role="main">
-  {% for asset in entry.featureImage %}
+  {% for asset in entry.image %}
     {% if asset | length %}
   		<img src="{{asset.url}}" alt="{{asset.title}}" />
       {% endif %}
