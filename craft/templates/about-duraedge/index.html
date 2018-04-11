@@ -31,9 +31,15 @@
 
 
 <h1>Upcoming Events: </h1>
-{% for entry in craft.entries.section('events').order(entry.eventDate) %}
-  <h1>{{entry.title}}</h1>
-{% endfor %}
+{% set events = craft.entries.section('events').order('eventDate asc') %}
+<ul>
+  {% for entry in events.limit(4) if entry.eventDate > now %}
+    <li>
+      <a href="{{entry.url}}">{{entry.title}}</a>
+      {{ entry.header }}
+    </li>
+  {% endfor %}
+</ul>
 
 {#
 {% include '_includes/eventMap.html' %}
