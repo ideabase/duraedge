@@ -91,15 +91,15 @@ CTA - matrix - image, img headline, text, button
   <div class="browse__cats__top">
     {% for category in craft.categories.group('productType').order('title') %}
       {% if category.title | length %}
-          <a class="cats__top__item" href="#">{{category.title}}</a>
+          <a class="cats__top__item" href="#{{category.slug}}">{{category.title}}</a>
       {% endif %}
     {% endfor %}
   </div>
 
 
-  {% for category in craft.categories.group('productType') %}
+  {% for category in craft.categories.group('productType').order('title') %}
     {% set entries = craft.entries.section('ourProducts').relatedTo(category) %}
-    <div class="product__category">
+    <div id="{{category.slug}}" class="product__category">
       <h3>{{category.title}}</h3>
       <div class="cats__bottom__body">{{category.body}}</div>
       <div class="product__category__div">
