@@ -35,8 +35,10 @@ CTA - matrix - image, img headline, text, button
 <img src="{{image.url}}" alt="{{image.title}}" />
 {% endfor %}
 
+
 <h4>Classyfing Your Field</h4>
 <p>{{entry.headline}}</p>
+
 <a href="#">BUTTON</a>
 
 
@@ -59,6 +61,12 @@ CTA - matrix - image, img headline, text, button
 
 
   <div class="quiz__intro">
+    {% for block in entry.process %}
+      <h3>{{block.processTitle}}</h3>
+      <p>{{block.processInformation}}</p>
+{% endfor %}
+
+    {#
     {% if entry.process.nth(1)|length %}
       {% set intro = entry.process.nth(1) %}
       <div class="process__title">
@@ -68,6 +76,7 @@ CTA - matrix - image, img headline, text, button
         </div>
       </div>
     {% endif %}
+    #}
   </div>
 
   <section class="panel">
@@ -84,6 +93,11 @@ CTA - matrix - image, img headline, text, button
       <a class="products__categories__item quiz__search" href="#"><p class="quiz__categories__text">Search</p></a>
     </div>
   </section>
+
+  <h3>{{entry.callToAction}}</h3>
+  <a class="button__blue" href="{{siteUrl}}quiz">Take the quiz</a>
+
+
 </div>
 
 <div id="tab-2" class="tab-content">

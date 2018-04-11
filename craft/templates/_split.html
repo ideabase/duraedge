@@ -3,6 +3,7 @@
 {% block feature %}
 {% include '_includes/_imageScroll.html' %}
 
+{% if entry.image | length %}
 <main role="main" class="landing">
   <style>
     {% for image in entry.image %}
@@ -12,10 +13,17 @@
       {% endfor %}
   </style>
   <div id="scrolling_image" class="feature__image feature__image--landing image1"></div>
+  {% else %}
+  <main role="main" class="full">
+  {% endif %}
 {% endblock %}
 
 {% block content %}
+    {% if entry.image | length %}
     <section class="content content--landing">
+    {% else %}
+    <section class="content content--full">
+    {% endif %}
       {% block subcontent %}
         <p>
           You forgot to include sub content.
