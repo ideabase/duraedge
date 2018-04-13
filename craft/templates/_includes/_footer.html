@@ -20,16 +20,15 @@
     </dl>
   </div>
   <div class="footer__social">
-    <dl class="footer__social__list">
-      {% for block in footer.socialMedia %}
-        {% if block.type == "socialMediaBlock" %}
-        <a href="{{block.address}}">
-          <dt class="social__list__name">{{ block.socialName }}</dt>
-          <dd class="social__list__link">{{ block.socialName }}</dd>
-        </a>
-        {% endif %}
-      {% endfor %}
-    </dl>
+
+      <div class="social-media__icons">
+        {% for block in footer.socialMedia %}
+          {% if block.type == "socialMediaBlock" %}
+            <a class="social-media__icon {{ block.socialName }}" href="{{block.address}}">{{ block.socialName }}</a>
+          {% endif %}
+        {% endfor %}
+      </div>
+
   </div>
 </div>
 <div class="footer__copyright">

@@ -116,7 +116,6 @@ footer {
   }
 }
 .social__list__name {
-  float: left;
   width: 50%;
   padding: 0;
   margin: 0;
@@ -138,7 +137,51 @@ footer {
   font-size: .8em;
 }
 
-
+/* social media */
+.social-media__icons {
+  display: flex;
+  flex-direction:column;
+  flex-wrap: wrap;
+  font-weight: bold;
+  margin-left: 40%;
+}
+.social-media__icons a {
+  text-decoration: none;
+  color: black;
+}
+.social-media-icon{
+  width: 50px;
+}
+.social-media__icon {
+  background-image: url('../img/ui/web.svg');
+  background-size: 100% auto;
+  width: 50px;
+  height: 50px;
+  text-indent: 20%;
+  padding-top: 10px;
+  // Repeat the following as many times as needed for each social network.  No commas needed//
+  &.facebook {
+    background-image: url('../img/ui/facebook.svg');
+  }
+  &.twitter {
+    background-image: url('../img/ui/twitter.svg');
+  }
+  &.instagram {
+    background-image: url('../img/ui/instagram.svg');
+  }
+  &.youtube {
+    background-image: url('../img/ui/youtube.svg');
+  }
+   // End repeat //
+}
+@media #{$small} {
+  .social-media__icons {
+    margin-left: 4em;
+  }
+  .social-media__icon {
+    text-indent: 50%
+  }
+}
 @media #{$medium} {
   .footer__flex {
     display: flex;
@@ -160,5 +203,14 @@ footer {
     order: 2;
     flex-grow: 1;
     flex-basis: 0;
+  }
+
+}
+@media #{$large} {
+  .social-media__icons {
+    margin-left: 40%
+  }
+  .social-media__icon {
+    text-indent: 25%;
   }
 }
