@@ -8,7 +8,6 @@
 
 <h1>Product Specifications</h1>
 
-
 <ul>
   {% for entry in craft.entries.section('ourProducts') %}
   <li>
@@ -24,21 +23,28 @@
 {% endfor %}
   </li>
 </ul>
-
+<hr />
 
 <h1>Helpful Resources</h1>
+
 <ul>
-{% for entry in craft.entries.section('faq').limit(3) %}
-  {% for cat in entry.audience %}
-    {% if cat.title == "Architects" %}
+{% for entry in craft.entries.section('faqs').limit(3) %}
+  {% for block in entry.audience %}
+    {% if block.title == "Architects" %}
       <li>
-      <a href={{entry.url}}>{{entry.title}}</a>
+        <a href="{{entry.url}}"> {{entry.title}}</a>
+        <h5>{{entry.teaser}}</h5>
       </li>
     {%endif%}
 {% endfor %}
-</ul>
 {% endfor %}
 
+<a href="#">See more!</a>
+</ul>
+
+
+
+<hr />
 
 <h1>Maintenance Manual</h1>
 {% for block in entry.marketingMaterials %}
@@ -51,9 +57,9 @@
       <a class="button__blue" href="{{image.getUrl()}}">Request</a>
     {% endfor %}
 {% endfor %}
-
+<hr />
 
 <h1>Field Assurance Program</h1>
 <p>{{entry.fieldAssuranceBody}}</p>
-<a href="#">Learn More about Certified Installation and Field Assurance</a>
+<a class="button__blue" href="{{siteUrl}}certification-programs">Learn More about Certified Installation and Field Assurance</a>
 {% endblock %}

@@ -1,0 +1,23 @@
+{% extends "_full" %}
+{% block subcontent %}
+
+{% for image in entry.featureImage %}
+<img src="{{image.url}}" alt="{{image.title}}" />
+{% endfor %}
+
+
+{% for title in entry.employeeType %}
+  <h1>{{title.title}}</h1>
+{% endfor %}
+
+{% for title in entry.staffCategory %}
+  <h1>{{title.title}}</h1>
+{% endfor %}
+
+<h1>{{entry.title}}</h1>
+<h1>{{entry.staffPosition}}</h1>
+<h1>{{entry.staffPhone}}</h1>
+<h1>{{entry.staffEmail}}</h1>
+
+
+{% endblock %}

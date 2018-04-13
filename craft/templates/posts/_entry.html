@@ -1,11 +1,7 @@
-{% extends "_full" %}
+{% extends "_split" %}
+
 {% block subcontent %}
 
-{% for image in entry.image %}
-<img src="{{image.url}}" />
-{% endfor %}
-
 {% include '_includes/_pageContent.html' %}
-
 
 {% endblock %}

@@ -1,17 +1,15 @@
-
 {% extends "_split" %}
-
 
 {% block subcontent %}
 <h1 class="reduce__space__bottom">{{entry.title}}</h1>
 <div class="contact__heading">
-  <p><a class="heading__heading__item" href="#">Locate Us</a></p>
-  <p><a class="heading__heading__item" href="#">Request Materials</a></p>
-  <p><a class="heading__heading__item" href="#">Contact Us</a></p>
+  <p><a class="heading__heading__item" href="#locate">Locate Us</a></p>
+  <p><a class="heading__heading__item" href="#materials">Request Materials</a></p>
+  <p><a class="heading__heading__item" href="#contact">Contact Us</a></p>
 </div>
 
 <div class="spacer2"></div>
-  <div class="diamond__container">
+  <div id="locate" class="diamond__container">
   {% include '_includes/diamond.html' %}
   <h3>Locate Us</h3>
   <div class="contact__map__heading">
@@ -35,7 +33,7 @@
 {% include '_includes/diamond.html' %}
 
 <div class="spacer2"></div>
-<div class="diamond__container">
+<div id="materials" class="diamond__container">
 {% include '_includes/diamond.html' %}
 <h3>Download Marketing Materials:</h3>
 {% for block in entry.marketingMaterials %}
@@ -48,7 +46,7 @@
 
 
 <div class="spacer2"></div>
-<div class="diamond__container">
+<div id="contact" class="diamond__container">
   {% include '_includes/diamond.html' %}
   <h3>Contact Us</h3>
   <div class="contact__bottom__div">

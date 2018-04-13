@@ -5,9 +5,9 @@
 
 
 {% set query = craft.request.getParam('searchQuery') %}
-{% set entries = craft.entries.section('FAQ').search(query) %}
+{% set entries = craft.entries.section('FAQs', 'blogPosts', 'videos').search(query) %}
 
-{% if entries|length %}
+{% if entries %}
     <p>{{ entries|length }} results:</p>
 
     <ul>
