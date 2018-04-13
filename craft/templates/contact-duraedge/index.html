@@ -13,9 +13,9 @@
   {% include '_includes/diamond.html' %}
   <h3>Locate Us</h3>
   <div class="contact__map__heading">
-    <a class="map__heading" href="#">Map View</a>
-    <a class="map__heading" href="#">Search by Zipcode</a>
-    <a class="map__heading" href="#">Search by Name</a>
+    <a class="map__heading tab-link current-tab" data-tab="tab-1" href="#">Map View</a>
+    <a class="map__heading tab-link" data-tab="tab-2" href="#">Search by Zipcode</a>
+    <a class="map__heading tab-link" data-tab="tab-3" href="#">Search by Name</a>
   </div>
   <div class="contact__map">
   </div>
@@ -23,9 +23,19 @@
     <input type="text" name="near" />
     <input class="button__blue" type="submit" value="Submit" />
   </form>
-  {% include '_includes/_fieldMap.html' %}
-  {% include '_includes/_distributorMap.html' %}
-  {% include '_includes/_distribAndFieldMap.html' %}
+
+  <div id="tab-1" class="tab-content current">
+    {% include '_includes/_fieldMap.html' %}
+  </div>
+
+  <div id="tab-2" class="tab-content">
+    {% include '_includes/_distributorMap.html' %}
+  </div>
+
+  <div id="tab-2" class="tab-content">
+    {% include '_includes/_distribAndFieldMap.html' %}
+  </div>
+
 </div>
 
 

@@ -1,34 +1,16 @@
 <section class="feature-post">
-{% for entry in craft.entries.section('blogPosts').limit(1)%}
-  {% if entry.featuredContent == 1 %}
-  <a href="{{entry.url}}" class="feature-post__item">
-      {% for asset in entry.featureImage %}
-          <figure class="feature-post__item__image" style="background-image: url('{{asset.url}}')"></figure>
-      {% endfor %}
-      <h4 class="feature-post__item__title">{{entry.title}}</h4>
-      <time class="feature-post__item__date">{{ entry.postDate  | date("M d, Y")     }}</time>
-      <p class="feature-post__item__teaser">{{entry.teaser}}</p>
-      Read More
-  </a>
-  {% endif %}
-{% endfor %}
-{% for entry in craft.entries.section('faqs').limit(1) %}
+{% for entry in craft.entries.section('blogPosts','faqs','video')%}
   {% if entry.featuredContent == 1 %}
     <a href="{{entry.url}}" class="feature-post__item">
-      <h4 class="feature-post__item__title">{{entry.title}}</h4>
-      <time class="feature-postitem__date">{{entry.postDate}}</time>
-      <p class="class=feature-post__item__teaser">{{entry.teaser}}</p>
-      Read More
+        {% for asset in entry.featureImage %}
+            <figure class="feature-post__item__image" style="background-image: url('{{asset.url}}')"></figure>
+        {% endfor %}
+        <h4 class="feature-post__item__title">{{entry.title}}</h4>
+        <time class="feature-post__item__date">{{ entry.postDate  | date("M d, Y")     }}</time>
+        <p class="feature-post__item__teaser">{{entry.teaser}}</p>
+        Read More
     </a>
   {% endif %}
 {% endfor %}
-{% for entry in craft.entries.section('video').limit(1) %}
-  {% if entry.featuredContent == 1 %}
-    <a href="{{entry.url}}" class="feature-post__item">
-      <h4 class="feature-post__item__title">{{entry.title}}</h4>
-      <time class="feature-postitem__date">{{entry.postDate}}</time>
-      {{ entry.video }}
-    </a>
-  {% endif %}
-{% endfor %}
+
 </section>
