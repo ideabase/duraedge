@@ -63,12 +63,23 @@
 <hr />
 <h4>Additional Resources Based on Your Selection</h4>
 
+{% set isRelated = false %}
+{% for entry in craft.entries.section('blogPosts', 'videos', 'faqs').relatedTo(entries) %}
+    {% if entry | length > 0 %}
+      {% set isRelated = true %}
+    {% endif %}
+{% endfor %}
 
+ {% if isRelated == true %}
+  <h1>Related Product Information:</h1>
+    {% for entry in craft.entries.section('blogPosts', 'videos', 'faqs').relatedTo(entries).limit(3) %}
+      <a href="{{entry.url}}"><h4>{{entry.title}}</h4></a>
+      <p>{{entry.teaser}}</p>
+    {% endfor %}
+{% endif %}
 
 {% else %}
     <p>Your search for “{{ querySlug3 }}, {{ querySlug }}, {{querySlug5}}, and {{ querySlug4 }}” didn’t return any results.</p>
-
-
 
 {% endif %}
 

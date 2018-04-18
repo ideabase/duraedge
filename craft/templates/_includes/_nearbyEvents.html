@@ -1,0 +1,27 @@
+{% set target = craft.request.getParam('near') %}
+{% set params = {
+    'target': target,
+    'range': 100,
+    'components': {
+        'country': 'US',
+      },
+} %}
+
+
+{% set nearbyEvents = craft.entries.section('events').locationPlug(params).order('distance').find() %}
+
+
+
+
+{% if nearbyEvents | length > 0 %}
+  <h1> Events near: {{params.target}}...</h1>
+  {% for entry in nearbyEvents %}
+      <h1>{{entry.title}}</h1>
+      <p>{{entry.header}}</p>
+      <time>{{entry.eventDate | date("M d, Y") }}</time>
+      <strong>{{ entry.locationPlug.distance | number_format(1) }} miles away</strong>
+  {% endfor %}
+{% else %}
+<h2>No events nearby</h2>
+
+{% endif %}

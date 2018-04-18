@@ -12,10 +12,6 @@
 } %}
 
 
-
-
-
-
 {% set target = craft.request.getParam('near') %}
 {% set params = {
     'target': target,
@@ -28,22 +24,18 @@
 
 {% set entries = craft.entries.section('locations').locationPlug(params).order('distance').find() %}
 
-
-
-
-
-{% if entries | length and params.target != "" %}
+{% if entries | length > 0  and params.target != "" %}
 <h1>Fields Near {{ params.target }}...</h1>
   {% for entry in entries %}
-  {{ craft.smartMap.map(craft.entries.section('locations').locationPlug, options) }}
-      <h2>{{ entry.title }}</h2>
-      <div>
-          {{ entry.locationPlug.street1 }}<br />
-          {{ entry.locationPlug.city }}, {{ entry.locationPlug.state }} {{ entry.locationPlug.zip }}<br>
-          <strong>{{ entry.locationPlug.distance | number_format(1) }} miles away</strong>
-      </div>
-  {% else %}
-      <h2>No results found</h2>
+    {{ craft.smartMap.map(craft.entries.section('locations').locationPlug, options) }}
+        <h2>{{ entry.title }}</h2>
+        <div>
+            {{ entry.locationPlug.street1 }}<br />
+            {{ entry.locationPlug.city }}, {{ entry.locationPlug.state }} {{ entry.locationPlug.zip }}<br>
+            <strong>{{ entry.locationPlug.distance | number_format(1) }} miles away</strong>
+        </div>
   {% endfor %}
-
+  {% else %}
+    <h2>No results found</h2>
+<hr />
 {% endif %}
