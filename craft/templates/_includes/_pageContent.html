@@ -31,8 +31,11 @@
 			        		<blockquote class="testimonial-entry__text">{{ block.pullQuote }}
 			        		</blockquote>
 			        		<cite class="testimonial-entry__author">{{ block.pullQuoteAuthor }}</cite>
-			        </section>
+  						</section>
 
+					{% elseif block.type == "linkInfo" %}
+
+							<a href="{{block.linkUrl}}"> {{block.linkTitle}}</a>
 
 			   {% endif %}
 
