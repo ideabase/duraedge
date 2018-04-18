@@ -1,11 +1,13 @@
 footer {
-  background-color: $lightGray;
+  background-image: url('../img/ui/footer-background.png');
+  background-size: 100%;
   text-align: center;
   position: relative;
   padding: 1.5em;
   bottom: 0;
   right: 0;
   left: 0;
+  color: white;
   font-family: $sans-serif;
   @media #{$medium} {
     margin-left: 15%;
@@ -86,20 +88,6 @@ footer {
   width: 80%;
   overflow: hidden;
 }
-.contact__list__title {
-  float: left;
-  width: 50%;
-  padding: 0;
-  margin: 0;
-}
-.contact__list__item {
-  font-weight: bold;
-  float: left;
-  width: 50%;
-  padding: 0;
-  margin: 0;
-  margin-bottom: 1em;
-}
 .footer__social {
 
 }
@@ -129,7 +117,7 @@ footer {
 }
 .social__list__link a {
   text-decoration: none;
-  color: black;
+  color: white;
   font-weight: bold;
 }
 .footer__copyright__text{
@@ -147,7 +135,7 @@ footer {
 }
 .social-media__icons a {
   text-decoration: none;
-  color: black;
+  color: white;
 }
 .social-media-icon{
   width: 50px;
@@ -157,7 +145,6 @@ footer {
   background-size: 100% auto;
   width: 50px;
   height: 50px;
-  text-indent: 20%;
   padding-top: 10px;
   // Repeat the following as many times as needed for each social network.  No commas needed//
   &.facebook {
@@ -174,6 +161,24 @@ footer {
   }
    // End repeat //
 }
+.contact__list__item {
+  background-image: url('../img/ui/web.svg');
+  background-repeat: no-repeat;
+  height: 50px;
+  font-weight: bold;
+  margin-left: 2em;
+
+  &.Hours {
+    background-image: url('../img/ui/phone-icon-white.png')
+  }
+  &.Call {
+    background-image: url('../img/ui/phone-icon-white.png')
+  }
+  &.Fax {
+    background-image: url('../img/ui/fax-icon-white.png')
+  }
+}
+
 @media #{$small} {
   .social-media__icons {
     margin-left: 4em;

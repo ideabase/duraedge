@@ -10,14 +10,11 @@
     </address>
   </div>
   <div class="footer__contact">
-    <dl class="footer__contact__list">
-      {% for block in footer.footerContact %}
-        {% if block.type == "contactBlock" %}
-          <dt class="contact__list__title">{{ block.contactName }}</dt>
-          <dd class="contact__list__item">{{ block.contactInfo }}</dd>
-        {% endif %}
-      {% endfor %}
-    </dl>
+    {% for block in footer.footerContact %}
+      {% if block.type == "contactBlock" %}
+        <p class="contact__list__item {{ block.contactName }}">{{ block.contactInfo }}</p>
+      {% endif %}
+    {% endfor %}
   </div>
   <div class="footer__social">
 
