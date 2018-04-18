@@ -1,6 +1,24 @@
 {% extends "_split" %}
 
 {% block subcontent %}
+
+<script>
+$(function() {
+  $('a[href*="#"]:not([href="#"])').click(function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+      if (target.length) {
+        $('html, body').animate({
+          scrollTop: target.offset().top
+        }, 1000);
+        return false;
+      }
+    }
+  });
+});
+</script>
+
 <h1 class="reduce__space__bottom">{{entry.title}}</h1>
 <div class="contact__heading">
   <p><a class="heading__heading__item" href="#locate">Locate Us</a></p>
