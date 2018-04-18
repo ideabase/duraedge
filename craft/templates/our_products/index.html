@@ -43,29 +43,31 @@ CTA - matrix - image, img headline, text, button
 
 
   <div class="products__process">
-    {% if entry.process.first()|length %}
-      {% set block = entry.process.first() %}
+{% for block in entry.process %}
+    {% if block.type == "processInformation" %}
       <div class="process__title">
         <h3>{{ block.processTitle }}</h3>
-        <div class="process__inner">
-          <p>{{ block.processInformation }}</p>
-        </div>
+        <div class="process__inner"> <p>{{ block.processInformation }}</p> </div>
       </div>
-    {% endif %}
+      {% elseif block.type == "image" %}
+       {% for image in block.image %}
+        <img src="{{image.url}}" alt="{{image.title}}" />
+        {% endfor %}
   </div>
-
+  {% endif %}
+{% endfor %}
 
 
   {% include '_includes/_pageContent.html' %}
 
-
+{#
 
   <div class="quiz__intro">
     {% for block in entry.process %}
       <h3>{{block.processTitle}}</h3>
       <p>{{block.processInformation}}</p>
 {% endfor %}
-
+#}
     {#
     {% if entry.process.nth(1)|length %}
       {% set intro = entry.process.nth(1) %}
@@ -94,9 +96,15 @@ CTA - matrix - image, img headline, text, button
     </div>
   </section>
 
-  <h3>{{entry.callToAction}}</h3>
+  {% for block in entry.ctaMatrix %}
+    {% if block.type == "information" %}
+        <h1>{{block.heading}}</h1>
+        <p>{{block.body}}</p>
+    {% elseif block.type == "link" %}
+        <a href="{{block.linkUrl}}"> {{block.linkTitle}}</a>
+ {% endif %}
+  {% endfor %}
   <a class="button__blue" href="{{siteUrl}}quiz">Take the quiz</a>
-
 
 </div>
 
