@@ -103,7 +103,7 @@ CTA - matrix - image, img headline, text, button
         <h1>{{block.heading}}</h1>
         <p>{{block.body}}</p>
     {% elseif block.type == "link" %}
-        <a href="{{block.linkUrl}}"> {{block.linkTitle}}</a>
+        <a href="{{block.linkUrl}}"> {{block.linkName}}</a>
  {% endif %}
   {% endfor %}
   <a class="button__blue" href="{{siteUrl}}quiz">Take the quiz</a>
