@@ -37,7 +37,7 @@
     <section class="content content--full">
       <div class="maintenance__bottom">
         <div class="maintenance__bottom__faq">
-          {% for entry in craft.entries.section('FAQs').limit(1) %}
+          {% for entry in craft.entries.section('FAQs').limit(2) %}
             <h3>{{ entry.title }}</h3>
             <div class="maintenance__faq__body">
               <p>{{ entry.body|slice(0, 450)|raw }}...</p>

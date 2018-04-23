@@ -10,7 +10,7 @@
 <h2>DuraEdge in the News</h2>
 {% for entry in craft.entries.section('news').limit(3) %}
   <a href="{{entry.url}}">{{ entry.title }}</a>
-  <p>{{ entry.body }}</p>
+  <p>{{ entry.teaser }}</p>
 {% endfor %}
 
 
