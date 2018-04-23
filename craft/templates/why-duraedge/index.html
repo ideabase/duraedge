@@ -6,8 +6,6 @@
       {{entry.body}}
     </div>
 
-
-
       <div class="variable__body">
           {% for block in entry.blogPostContent %}
             {% if block.type == "pullQuote" %}
@@ -35,9 +33,6 @@
           {% endfor %}
           </div>
 
-
-
-
   <h3>Learn Something New</h3>
     {% for entry in craft.entries.section('blogPosts').limit(2) %}
   		{% if entry.featuredContent == 1 %}
@@ -50,12 +45,22 @@
   {% include '_includes/diamond.html' %}
   <section class="advantage__faq">
     <h4 class="diamond__spacer">FAQ - New Customers</h4>
-    <div class="faq__list">
+    <div class="faq__list togglebox">
       <ul class="faq__list__ul">
+        {% set counter = 1 %}
         {% for entry in craft.entries.section('faqs').limit(4) %}
-          <li class="faq__list__item">
-            <h5><a href="{{entry.url}}">{{entry.title}}</a></h5>
-          </li>
+
+              <li class="faq__list__item">
+              <input id="toggle{{counter}}" type="checkbox" name="toggle" />
+                <label for="toggle{{counter}}">{{entry.title}}</label>
+
+                <section class="accordion_section" id="content{{counter}}">
+                  <p>{{entry.teaser}}</p>
+                  <a href="{{entry.url}}"> Read more</a>
+                </section>
+
+            </li>
+              {% set counter = counter + 1 %}
         {% endfor %}
       </ul>
     </div>
