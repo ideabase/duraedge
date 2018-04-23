@@ -29,7 +29,6 @@
 {% endfor %}
 
 
-
 <h1>Upcoming Events: </h1>
 {% set events = craft.entries.section('events').order('eventDate asc') %}
 <ul>
@@ -42,6 +41,11 @@
 </ul>
 
 {% include '_includes/_pageContent' %}
+
+
+
+
+
 
 {#
 {% include '_includes/eventMap.html' %}

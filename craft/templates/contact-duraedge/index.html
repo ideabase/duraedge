@@ -2,25 +2,23 @@
 
 {% block subcontent %}
 
-
-
-
-
 <h1 class="reduce__space__bottom">{{entry.title}}</h1>
 <div class="contact__heading">
+
 
 
   <p><a class="heading__heading__item" href="#locate">Locate Us</a></p>
   <p><a class="heading__heading__item" href="#materials">Request Materials</a></p>
   <p><a class="heading__heading__item" href="#contact">Contact Us</a></p>
+
 </div>
 
 <div class="spacer2"></div>
   <div class="diamond__container">
 
   {% include '_includes/diamond.html' %}
-  <h3>Locate Us</h3>
-  <div id="locate" class="contact__map__heading">
+  <h3 id="locate">Locate Us</h3>
+  <div class="contact__map__heading">
     <a class="map__heading tab-link current-tab" data-tab="tab-1" href="#">Map View</a>
     <a class="map__heading tab-link" data-tab="tab-2" href="#">Search by Zipcode</a>
     <a class="map__heading tab-link" data-tab="tab-3" href="#">Search by Name</a>
@@ -119,17 +117,7 @@
 </div>
 
 
-
-
 <br />
 <br />
-
-
-
-
-
-
-
-
 
 {% endblock %}
