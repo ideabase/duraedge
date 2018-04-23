@@ -44,9 +44,9 @@
             <p>
               {{entry.body |striptags|slice(0,50) }}
             </p>
-            {% for image in entry.image %}
+            {% for image in entry.baseballCard %}
               <br />
-              <img src="{{image.url}}" />
+              <img src="{{image.url}}" alt="{{image.title}}" />
             {% endfor %}
         {% endfor %}
     </ul>
