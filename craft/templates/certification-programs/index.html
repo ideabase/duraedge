@@ -15,7 +15,9 @@
   <a href="become-a-certified-installer">Become a Certified Installer</a>
   <a href="field-assurance-program">Field Assurance Program</a>
 
-
+{% for file in entry.files %}
+  <a href="{{file.url}}">{{file.title}}</a>
+{% endfor %}
 
   {% include '_includes/_pageContent.html' %}
 
