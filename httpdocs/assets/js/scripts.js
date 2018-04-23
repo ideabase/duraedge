@@ -1,20 +1,22 @@
 // JavaScript Goes Here //
 
-/*
+
 $(function() {
-    var photo = $(".feature__image");
-    $('.content').scroll(function() {
-        var scroll = $('.content').scrollTop();
-
-        if (scroll >= 200) {
-
-            photo.removeClass('imageNUMBER').addClass("image1");
-        } else {
-            photo.removeClass("image1").addClass('image0');
-        }
-    });
+  $('a[href*="#"]:not([href="#"])').click(function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+      if (target.length) {
+        $('html, body').animate({
+          scrollTop: target.offset().top
+        }, 1000);
+        return false;
+      }
+    }
+  });
 });
-*/
+
+
 
 $(".owl-carousel").owlCarousel({
   nav : false,
