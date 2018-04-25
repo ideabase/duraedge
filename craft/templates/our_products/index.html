@@ -137,14 +137,17 @@ CTA - matrix - image, img headline, text, button
       <h3>{{category.title}}</h3>
       <div class="cats__bottom__body">{{category.body}}</div>
       <div class="product__category__div">
-        {% for entry in entries %}
-        <h5 class="baseball__card__title">{{entry.title}}</h5>
-          {% for image in entry.baseballCard.limit(1) %}
-            <a href="{{entry.url}}">
-              <img class="baseball__card" src="{{image.url}}" alt="{{image.title}}">
+            {% for entry in entries %}
 
-            </a>
-          {% endfor %}
+                {% if entry.baseballCard | length %}
+                <a href="{{entry.url}}">
+                  <h5 class="baseball__card__title">{{entry.title}}</h5>
+                  {% for image in entry.baseballCard.limit(1) %}
+                    <img class="baseball__card" src="{{image.url}}" alt="{{image.title}}"></a>
+                  {% endfor %}
+                {% else %}
+                  <a href="{{entry.url}}"><h5 class="baseball__card__title">{{entry.title}}</h5></a>
+            {% endif %}
         {% endfor %}
       </div>
         {% include '_includes/diamond.html' %}
