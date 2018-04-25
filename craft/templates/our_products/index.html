@@ -100,11 +100,21 @@ CTA - matrix - image, img headline, text, button
 
   {% for block in entry.ctaMatrix %}
     {% if block.type == "information" %}
-        <h1>{{block.heading}}</h1>
-        <p>{{block.body}}</p>
+          <h1>{{block.heading}}</h1>
+          <p>{{block.body}}</p>
     {% elseif block.type == "link" %}
-        <a href="{{block.linkUrl}}"> {{block.linkName}}</a>
- {% endif %}
+            <a href="{{block.linkUrl}}"> {{block.linkTitle}} </a>
+    {% elseif block.type == "image" %}
+            {% set image = block.backgroundImage.first() %}
+                {% if image %}
+                    <section class="section-body-image panel-primary">
+                      <figure class="section-body-image__figure">
+                        <img class="section-body-image__image" src="{{ image.getUrl() }}" alt="{{ image.title }}" />
+                      </figure>
+                    </section>
+                  {% endif %}
+
+    {% endif %}
   {% endfor %}
   <a class="button__blue" href="{{siteUrl}}quiz">Take the quiz</a>
 
