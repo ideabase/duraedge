@@ -28,40 +28,40 @@
 {% endmacro %}
 
 <header>
-  <div class="header__wrapper">
 
-    {% set secondaryNav = craft.amNav.getNavRaw("secondary") %}
-    <nav class="header__secondnav">
-      <ul class="header__nav__sublist">
-      {% for node in secondaryNav %}
-          <li class="nav__sublist__item">
-            <a href="{{ node.url }}">{{ node.name }}</a>
-          </li>
-      {% endfor %}
-      </ul>
-    </nav>
-
-    <a href = '{{siteUrl}}' class="header__logo">
-      <picture>
-        {% for asset in header.logoLarge %}
-          <source srcset="{{ asset.url }}" media="(min-width: 750px)">
-        {% endfor %}
-        {% for asset in header.logo %}
-          <img src="{{ asset.url }}" alt="{{siteName}}" class="header__logo__img"/>
-        {%endfor%}
-      </picture>
-    </a>
-
-    <nav class="header__nav">
-      <ul class="header__nav__list">
-      {% for node in nav %}
-        <li class="nav__list__item ">
-          <a class="nav__list__link {{node.listClass}}" href="{{ node.url }}">{{ node.name }}</a>
+  {% set secondaryNav = craft.amNav.getNavRaw("secondary") %}
+  <nav class="header__secondnav">
+    <ul class="header__nav__sublist">
+    {% for node in secondaryNav %}
+        <li class="nav__sublist__item">
+          <a href="{{ node.url }}">{{ node.name }}</a>
         </li>
-      {% endfor %}
-      </ul>
-    </nav>
+    {% endfor %}
+    </ul>
+  </nav>
 
+  <div class="header__wrapper">
+    <div class="inner__wrapper">
+      <a href = '{{siteUrl}}' class="header__logo">
+        <picture>
+          {% for asset in header.logoLarge %}
+            <source srcset="{{ asset.url }}" media="(min-width: 750px)">
+          {% endfor %}
+          {% for asset in header.logo %}
+            <img src="{{ asset.url }}" alt="{{siteName}}" class="header__logo__img"/>
+          {%endfor%}
+        </picture>
+      </a>
 
+      <nav class="header__nav">
+        <ul class="header__nav__list">
+        {% for node in nav %}
+          <li class="nav__list__item ">
+            <a class="nav__list__link {{node.listClass}}" href="{{ node.url }}">{{ node.name }}</a>
+          </li>
+        {% endfor %}
+        </ul>
+      </nav>
+    </div>
   </div>
 </header>

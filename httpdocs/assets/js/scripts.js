@@ -48,7 +48,7 @@ $(document).ready(function(){
         $('ul.tabs-2 li').click(function(){
         var tab_id = $(this).attr('data-tab');
 
-        $('ul.tabs li').removeClass('current-tab');
+        $('ul.tabs-2 li').removeClass('current-tab');
         $('.tab-content').removeClass('current');
 
         $(this).addClass('current-tab');

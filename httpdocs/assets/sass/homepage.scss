@@ -42,6 +42,21 @@
   background-size: cover;
 
 }
+.feature__image--home {
+  position:relative;
+  &:after {
+    background-image: url(../img/ui/basearrow.svg);
+    position: absolute;
+    z-index: 1;
+    background-repeat: no-repeat;
+    height: 50px;
+    width: 50px;
+    content: '';
+    left: 50%;
+    right: 50%;
+    bottom: -7%;
+  }
+}
 .home__block__top {
     left: 3em;
     @media #{$medium} {
