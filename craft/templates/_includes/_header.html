@@ -29,6 +29,18 @@
 
 <header>
   <div class="header__wrapper">
+
+    {% set secondaryNav = craft.amNav.getNavRaw("secondary") %}
+    <nav class="header__secondnav">
+      <ul class="header__nav__sublist">
+      {% for node in secondaryNav %}
+          <li class="nav__sublist__item">
+            <a href="{{ node.url }}">{{ node.name }}</a>
+          </li>
+      {% endfor %}
+      </ul>
+    </nav>
+
     <a href = '{{siteUrl}}' class="header__logo">
       <picture>
         {% for asset in header.logoLarge %}
@@ -51,15 +63,5 @@
     </nav>
 
 
-    {% set secondaryNav = craft.amNav.getNavRaw("secondary") %}
-    <nav class="header__secondnav">
-      <ul class="header__nav__sublist">
-      {% for node in secondaryNav %}
-          <li class="nav__sublist__item">
-            <a href="{{ node.url }}">{{ node.name }}</a>
-          </li>
-      {% endfor %}
-      </ul>
-    </nav>
   </div>
 </header>

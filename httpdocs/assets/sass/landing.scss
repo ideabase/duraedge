@@ -11,7 +11,7 @@
   background-size: cover;
   height: 400px;
   @media #{$large} {
-    width: 50%;
+    width: 25%;
     height: inherit;
   }
 }
@@ -34,14 +34,14 @@
     overflow: hidden;
   }
   @media #{$large} {
-    width: 50%;
+    width: 75%;
 
   }
 }
 /* Contact DuraEdge */
 .contact__map__heading {
-  display:flex;
-  flex-direction:row;
+  display: flex;
+  flex-direction: row;
   background-color: $lightGray;
   text-decoration: none;
   color: black;
@@ -232,7 +232,26 @@
 }
 
 /* Products Landing Page */
-
+.products__header {
+  font-size: 2.5em;
+  margin:0;
+  margin-left: 15%;
+}
+.products__top {
+  background-color: #D4CCA1;
+  margin-top: -3em;
+  margin-right: -2em;
+  margin-left: -2em;
+  display: flex;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+.products__ul {
+  margin: 0px;
+  padding: 0px;
+  list-style-type: none;
+  margin-left: 40% !important;
+}
 .products__process {
   max-width: 65%;
 }

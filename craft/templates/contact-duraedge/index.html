@@ -19,9 +19,11 @@
   {% include '_includes/diamond.html' %}
   <h3 id="locate">Locate Us</h3>
   <div class="contact__map__heading">
-    <a class="map__heading tab-link current-tab" data-tab="tab-1" href="#">Map View</a>
-    <a class="map__heading tab-link" data-tab="tab-2" href="#">Search by Zipcode</a>
-    <a class="map__heading tab-link" data-tab="tab-3" href="#">Search by Name</a>
+    <ul class="tabs-2">
+      <li class="map__heading tab-link current-tab" data-tab="tab-1">Map View</li>
+      <li class="map__heading tab-link" data-tab="tab-2">Search by Zipcode</li>
+      <li class="map__heading tab-link" data-tab="tab-3">Search by Name</li>
+    </ul>
   </div>
   <div class="contact__map">
   </div>
@@ -38,7 +40,7 @@
     {% include '_includes/_distributorMap.html' %}
   </div>
 
-  <div id="tab-2" class="tab-content">
+  <div id="tab-3" class="tab-content">
     {% include '_includes/_distribAndFieldMap.html' %}
   </div>
 

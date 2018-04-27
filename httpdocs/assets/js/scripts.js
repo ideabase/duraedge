@@ -45,6 +45,18 @@ $(document).ready(function(){
 
 $(document).ready(function(){
 
+        $('ul.tabs-2 li').click(function(){
+        var tab_id = $(this).attr('data-tab');
+
+        $('ul.tabs li').removeClass('current-tab');
+        $('.tab-content').removeClass('current');
+
+        $(this).addClass('current-tab');
+        $("#"+tab_id).addClass('current');
+        })
+});
+$(document).ready(function(){
+
         $('ul.tabs li').click(function(){
         var tab_id = $(this).attr('data-tab');
 

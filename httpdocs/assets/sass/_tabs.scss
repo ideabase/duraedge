@@ -19,10 +19,11 @@ ul.tabs li.current{
 
 .tab-link {
   font-size: 1.5em;
-  color: $lightBlue;
+  color: black;
   text-decoration: none;
   font-family: $cursive;
   cursor: pointer;
+  position: relative;
 }
 
 .products__link {
@@ -33,7 +34,6 @@ ul.tabs li.current{
 }
 .current-link {
   text-decoration: none;
-  font-size: 3em;
   font-family: $cursive;
   text-decoration: none;
   color: black;
@@ -44,4 +44,9 @@ ul.tabs li.current{
 }
 .current-tab {
   display: block;
+}
+.tabs-2 {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
 }

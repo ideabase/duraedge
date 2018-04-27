@@ -9,12 +9,6 @@ footer {
   left: 0;
   color: white;
   font-family: $sans-serif;
-  @media #{$medium} {
-    margin-left: 15%;
-  }
-  @media #{$large} {
-    margin-left: 12%;
-  }
 }
 
 .footer__top {

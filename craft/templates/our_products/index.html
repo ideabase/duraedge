@@ -25,11 +25,13 @@ CTA - matrix - image, img headline, text, button
 #}
 
 
-
-<ul class="tabs">
-  <li class="tab-link current-link" data-tab="tab-1">Explore Products</li>
-  <li class="tab-link" data-tab="tab-2" class="products__link">Browse All</li>
-</ul>
+<div class="products__top">
+  <h1 class="products__header">Our Products</h1>
+  <ul class="tabs products__ul">
+    <li class="tab-link current-link" data-tab="tab-1">Explore Products</li>
+    <li class="tab-link" data-tab="tab-2" class="products__link">Browse All</li>
+  </ul>
+</div>
 
 <div id="tab-1" class="tab-content current">
 <p>{{entry.body}}</p>
