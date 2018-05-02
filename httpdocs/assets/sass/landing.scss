@@ -299,6 +299,19 @@
 .products__rec {
   background-color: $green;
 }
+.products__subnav {
+  background-color: $lightGray;
+  width: calc(100% + 6em);
+  margin-left: -3em;
+  padding: .25em;
+}
+.products__subnav__list {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  font-weight: 600;
+}
 .quiz__field {
   background-color: $brown;
 }

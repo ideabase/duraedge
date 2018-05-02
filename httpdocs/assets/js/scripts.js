@@ -48,11 +48,11 @@ $(document).ready(function(){
         $('ul.tabs-2 li').click(function(){
         var tab_id = $(this).attr('data-tab');
 
-        $('ul.tabs-2 li').removeClass('current-tab');
-        $('.tab-content').removeClass('current');
+        $('ul.tabs-2 li').removeClass('current-nav');
+        $('.tab-block').removeClass('current-block');
 
-        $(this).addClass('current-tab');
-        $("#"+tab_id).addClass('current');
+        $(this).addClass('current-nav');
+        $("#"+tab_id).addClass('current-block');
         })
 });
 $(document).ready(function(){

@@ -34,32 +34,75 @@ CTA - matrix - image, img headline, text, button
 </div>
 
 <div id="tab-1" class="tab-content current">
-<p>{{entry.body}}</p>
-{% for image in entry.image %}
-<img src="{{image.url}}" alt="{{image.title}}" />
-{% endfor %}
+  {% if entry.process.nth(0)|length %}
+    {% set intro = entry.process.nth(0) %}
+    <div class="center">
+      <h3>{{ intro.processTitle }}</h3>
+        <p>{{ intro.processInformation }}</p>
+    </div>
+  {% endif %}
+  <div class="diamond__container">
+    <h1>Classify Your Field</h1>
+    <div class="diamond__spacer"></div>
+    {% include '_includes/diamond.html' %}
+  </div>
 
 
-<h4>Classyfing Your Field</h4>
-<p>{{entry.headline}}</p>
+  {% if entry.process.nth(1)|length %}
+    {% set intro = entry.process.nth(1) %}
+      <div class="center">
+        <h3>{{ intro.processTitle }}</h3>
+        <p>{{ intro.processInformation }}</p>
+      </div>
+  {% endif %}
 
-<a href="#">BUTTON</a>
+  <div class="products__subnav">
+    <ul class="tabs-2 products__subnav__list">
+      <li class="tab-link current-nav" data-tab="1">New Construction</li>
+      <li class="tab-link" data-tab="2">Existing/Full Renovation</li>
+      <li class="tab-link" data-tab="3">Existing/Amend Field</li>
+    </ul>
+  </div>
 
+
+  {% for block in entry.constructionMatrix %}
+  <div id="tab-{{loop.index}}" class="tab-block">
+    {% if block.type == "image" %}
+      {% for image in block.iamge %}
+        <img src="{{image.url}}" alt="{{image.name}}"></img>
+      {% endfor %}
+    {% elseif block.type == "constructionTitle" %}
+      {{block.constructionTitle}}
+    {% elseif block.type == "information" %}
+      {{block.information}}
+    {% endif %}
+  </div>
+  {% endfor %}
+
+
+
+  {% if entry.process.nth(2)|length %}
+    {% set intro = entry.process.nth(2) %}
+      <div class="center">
+        <h3>{{ intro.processTitle }}</h3>
+        <p>{{ intro.processInformation }}</p>
+      </div>
+  {% endif %}
 
   <div class="products__process">
-{% for block in entry.process %}
-    {% if block.type == "processInformation" %}
-      <div class="process__title">
-        <h3>{{ block.processTitle }}</h3>
-        <div class="process__inner"> <p>{{ block.processInformation }}</p> </div>
-      </div>
+    {% for block in entry.process %}
+      {% if block.type == "processInformation" %}
+        <div class="process__title">
+          <h3>{{ block.processTitle }}</h3>
+          <div class="process__inner"> <p>{{ block.processInformation }}</p> </div>
+        </div>
       {% elseif block.type == "image" %}
-       {% for image in block.image %}
-        <img src="{{image.url}}" alt="{{image.title}}" />
-        {% endfor %}
-  </div>
-  {% endif %}
-{% endfor %}
+         {% for image in block.image %}
+            <img src="{{image.url}}" alt="{{image.title}}" />
+          {% endfor %}
+    </div>
+      {% endif %}
+    {% endfor %}
 
 
   {% include '_includes/_pageContent.html' %}
@@ -73,15 +116,6 @@ CTA - matrix - image, img headline, text, button
 {% endfor %}
 #}
     {#
-    {% if entry.process.nth(1)|length %}
-      {% set intro = entry.process.nth(1) %}
-      <div class="process__title">
-        <h3>{{ intro.processTitle }}</h3>
-        <div class="process__inner">
-          <p>{{ intro.processInformation }}</p>
-        </div>
-      </div>
-    {% endif %}
     #}
   </div>
 

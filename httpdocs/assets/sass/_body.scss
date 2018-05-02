@@ -39,6 +39,7 @@ main {
  }
  .diamond__container {
    position: relative;
+   padding-top: .25em;
  }
  .spacer1 {
    margin-top: 1em;
@@ -64,6 +65,9 @@ main {
  }
  .margin__left {
    margin-left: 2em;
+ }
+ .center {
+   text-align: center;
  }
 .button {
   text-decoration: none;
