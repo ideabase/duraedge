@@ -89,70 +89,32 @@ CTA - matrix - image, img headline, text, button
       </div>
   {% endif %}
 
-  <div class="products__process">
-    {% for block in entry.process %}
-      {% if block.type == "processInformation" %}
-        <div class="process__title">
-          <h3>{{ block.processTitle }}</h3>
-          <div class="process__inner"> <p>{{ block.processInformation }}</p> </div>
-        </div>
-      {% elseif block.type == "image" %}
-         {% for image in block.image %}
-            <img src="{{image.url}}" alt="{{image.title}}" />
-          {% endfor %}
-    </div>
-      {% endif %}
-    {% endfor %}
 
 
   {% include '_includes/_pageContent.html' %}
 
-{#
-
-  <div class="quiz__intro">
-    {% for block in entry.process %}
-      <h3>{{block.processTitle}}</h3>
-      <p>{{block.processInformation}}</p>
-{% endfor %}
-#}
-    {#
-    #}
-  </div>
-
-  <section class="panel">
-  <div class="products__categories">
-    <a class="products__categories__item products__pro" href="#"><p>Professional</p></a>
-    <a class="products__categories__item products__int" href="#"><p>Intermediate</p></a>
-    <a class="products__categories__item products__rec" href="#"><p>Recreational</p></a>
-  </div>
-  </section>
-  <section class="panel">
-    <div class="products__categories">
-      <a class="products__categories__item quiz__field" href="{{siteUrl}}/quiz"><p class="quiz__categories__text">By Field Type</p></a>
-      <a class="products__categories__item quiz__symptom" href="#"><p class="quiz__categories__text">Sypmptom Checker</p></a>
-      <a class="products__categories__item quiz__search" href="#"><p class="quiz__categories__text">Search</p></a>
-    </div>
-  </section>
-
-  {% for block in entry.ctaMatrix %}
-    {% if block.type == "information" %}
+<section class="cta__panel">
+  <div class="quiz__cta">
+    {% for block in entry.ctaMatrix %}
+      {% if block.type == "information" %}
+          <div class="quiz__cta__inner">
           <h1>{{block.heading}}</h1>
-          <p>{{block.body}}</p>
-    {% elseif block.type == "link" %}
-            <a href="{{block.linkUrl}}"> {{block.linkTitle}} </a>
-    {% elseif block.type == "image" %}
-            {% set image = block.backgroundImage.first() %}
-                {% if image %}
-                    <section class="section-body-image panel-primary">
-                      <figure class="section-body-image__figure">
-                        <img class="section-body-image__image" src="{{ image.getUrl() }}" alt="{{ image.title }}" />
-                      </figure>
-                    </section>
-                  {% endif %}
-
-    {% endif %}
-  {% endfor %}
-  <a class="button__blue" href="{{siteUrl}}quiz">Take the quiz</a>
+          <div class="quiz__cta__heading">
+            <p>{{block.body}}</p>
+      {% elseif block.type == "link" %}
+          <a href="{{block.linkUrl}}"> {{block.linkTitle}} </a>
+        </div>
+      {% elseif block.type == "image" %}
+        {% set image = block.backgroundImage.first() %}
+          {% if image %}
+            <img class="home__body" src="{{ image.getUrl() }}" alt="{{ image.title }}" />
+          {% endif %}
+      {% endif %}
+    {% endfor %}
+    </div>
+  </div>
+</section>
+  <div>
 
 </div>
 
